@@ -1,0 +1,60 @@
+.NavOnBtn {
+    position: fixed;
+    bottom: 49px;
+    right: 20px;
+    border: none;
+    background-color: #C0EF52;
+    border-radius: 22px;
+    padding: 10.25px 12.8px;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 2;
+}
+
+.BottomNavContainer {
+    position: fixed;
+    bottom: 39px;
+    right: 20px;
+    text-align: right;
+    display: none;
+    z-index: 2;
+}
+
+.BottomNav {
+    background-color: #C0EF52;
+    border-radius: 10px;
+}
+
+.BottomNavLink {
+    list-style: none;
+    margin: 0;
+    padding: 9px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.NavCloseBtn {
+    border: none;
+    background-color: #C0EF52;
+    text-align: center;
+    border-radius: 6px;
+    padding: 1.2px 5px;
+    margin-right: 2px;
+}
+
+li img {
+    vertical-align: middle;
+    padding-right: 3px;
+}
+
+.blackBox {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
