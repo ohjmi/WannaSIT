@@ -1,10 +1,3 @@
-div {
-    position: fixed;
-    bottom: 39px;
-    right: 20px;
-    text-align: right;
-}
-
 .NavOnBtn {
     position: fixed;
     bottom: 49px;
@@ -15,11 +8,17 @@ div {
     padding: 10.25px 12.8px;
     font-weight: bold;
     font-size: 14px;
-  }
-  
-  .BottomNavContainer {
+    z-index: 2;
+}
+
+.BottomNavContainer {
+    position: fixed;
+    bottom: 39px;
+    right: 20px;
+    text-align: right;
     display: none;
-  }
+    z-index: 2;
+}
 
 .BottomNav {
     background-color: #C0EF52;
@@ -47,4 +46,15 @@ div {
 li img {
     vertical-align: middle;
     padding-right: 3px;
+}
+
+.blackBox {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }

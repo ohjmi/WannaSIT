@@ -6,19 +6,23 @@ import X from "../../assets/images/X.svg";
 
 function BottomNav() {
   const openNav = () => {
-    const navMenu = document.querySelector(".BottomNavContainer");
     const navButton = document.querySelector(".NavOnBtn");
+    const navMenu = document.querySelector(".BottomNavContainer");
+    const blackBox = document.querySelector(".blackBox");
     if (navButton) {
       navButton.style.display = "none";
       navMenu.style.display = "block";
+      blackBox.style.display = "block";
     }
   };
   const closeNav = () => {
-    const navMenu = document.querySelector(".BottomNavContainer");
     const navButton = document.querySelector(".NavOnBtn");
+    const navMenu = document.querySelector(".BottomNavContainer");
+    const blackBox = document.querySelector(".blackBox");
     if (navMenu) {
-      navMenu.style.display = "none";
       navButton.style.display = "block";
+      navMenu.style.display = "none";
+      blackBox.style.display = "none";
     }
   };
   return (
@@ -26,6 +30,7 @@ function BottomNav() {
       <button className="NavOnBtn" onClick={openNav}>
         소통해요
       </button>
+      <div className="blackBox"></div>
       <div className="BottomNavContainer">
         <nav className="BottomNav">
           <ul className="BottomNavLink">
