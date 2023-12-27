@@ -1,54 +1,90 @@
-.Ham-wrapper {
-  width: 100%;
-  margin: 0 auto;
-}
-.Ham-cont {
-  padding: 0 20px;
-}
-/* .Ham-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  height: 158px;
-  background-color: #7ED287;
-}
-.Ham-header .ex-btn {
-  align-items: center;
-} */
-.Ham-header {
-  height: 158px;
-  background-color: #7ed287;
-}
-.logo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo li {
-  font-size: 28px;
-  font-weight: bold;
-  color: #ffffff;
-}
-.logo li img {
-  width: 18px;
-}
-.info {
-  margin-top: 20px;
-  color: #ffffff;
-}
-.menu {
-  margin-top: 20px;
-}
-ul {
-  margin: 0;
-  padding: 0;
-}
-ul li {
+ul ,li {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+.hamWrapper {
+  width: 100%;
+}
+/* .hamHeader {
+  padding: 24px 0 0 20px ;
+} */
+/* .hamMenu {
+  margin-right: 70px;
+  margin-bottom: 50px;
+} */
+.hamMenu,
+.hamMenu span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+}
 
-ul li img {
-  vertical-align: middle;
+.hamMenu {
+  position: relative;
+  left: 20px;
+  top: -44px;
+  width: 24px;
+  height: 20px;
+}
+
+.hamMenu span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+.hamMenu span:nth-of-type(1) {
+  top: 0;
+}
+
+.hamMenu span:nth-of-type(2) {
+  top: 8px;
+}
+
+.hamMenu span:nth-of-type(3) {
+  bottom: 0;
+}
+
+.hamMenu.active-1 span:nth-of-type(1) {
+  transform: translateY(8px) rotate(-45deg);
+}
+.hamMenu.active-1 span:nth-of-type(2) {
+  opacity: 0;
+}
+.hamMenu.active-1 span:nth-of-type(3) {
+  transform: translateY(-9px) rotate(45deg);
+}
+.logo img {
+  text-align: center;
+}
+.hamCont {
+  margin-top: -24px;
+  
+}
+.info {
+  padding: 16px 20px;
+  background-color: #7ED287;
+  color: #ffffff;
+}
+.info li {
+  margin-bottom: 4px;
+}
+.menu {
+  margin-top: 20px;
+  padding-left: 20px;
+}
+.menu li {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.menu li span {
+  margin-left: 10px;
 }
