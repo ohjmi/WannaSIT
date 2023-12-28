@@ -1,0 +1,1954 @@
+{
+  "status": {
+    "code": "00",
+    "message": "success",
+    "totalCount": 1
+  },
+  "contents": {
+    "subwayLine": "2호선",
+    "stationName": "서울대입구역",
+    "stationCode": "228",
+    "stat": [
+      {
+        "startStationCode": "202",
+        "startStationName": "을지로입구역",
+        "endStationCode": "211",
+        "endStationName": "성수역",
+        "prevStationCode": "229",
+        "prevStationName": "봉천역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              27,
+              31,
+              40,
+              43,
+              49,
+              48,
+              42,
+              36,
+              31,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              31,
+              44,
+              47,
+              53,
+              50,
+              47,
+              45,
+              35,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              32,
+              38,
+              47,
+              48,
+              53,
+              50,
+              50,
+              43,
+              34,
+              45
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              35,
+              52,
+              50,
+              61,
+              50,
+              49,
+              42,
+              37,
+              43
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              21,
+              28,
+              37,
+              38,
+              48,
+              44,
+              35,
+              33,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              25,
+              24,
+              32,
+              37,
+              43,
+              37,
+              33,
+              27,
+              23,
+              30
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "202",
+        "startStationName": "을지로입구역",
+        "endStationCode": "211-R",
+        "endStationName": "성수역",
+        "prevStationCode": "229",
+        "prevStationName": "봉천역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              27,
+              31,
+              40,
+              43,
+              49,
+              48,
+              42,
+              36,
+              31,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              31,
+              44,
+              47,
+              53,
+              50,
+              47,
+              45,
+              35,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              32,
+              38,
+              47,
+              48,
+              53,
+              50,
+              50,
+              43,
+              34,
+              45
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              35,
+              52,
+              50,
+              61,
+              50,
+              49,
+              42,
+              37,
+              43
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              21,
+              28,
+              37,
+              38,
+              48,
+              44,
+              35,
+              33,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              25,
+              24,
+              32,
+              37,
+              43,
+              37,
+              33,
+              27,
+              23,
+              30
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "202",
+        "endStationName": "을지로입구역",
+        "prevStationCode": "227",
+        "prevStationName": "낙성대역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              35,
+              37,
+              52,
+              53,
+              46,
+              51,
+              53,
+              39,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              31,
+              38,
+              39,
+              44,
+              43,
+              41,
+              42,
+              36,
+              28,
+              18
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              33,
+              35,
+              40,
+              40,
+              41,
+              42,
+              40,
+              33,
+              25,
+              21
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              31,
+              34,
+              38,
+              37,
+              41,
+              35,
+              29,
+              23,
+              19
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              25,
+              34,
+              28,
+              39,
+              35,
+              41,
+              38,
+              29,
+              24,
+              18
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              26,
+              33,
+              41,
+              46,
+              45,
+              42,
+              43,
+              38,
+              32,
+              23
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "211",
+        "endStationName": "성수역",
+        "prevStationCode": "229",
+        "prevStationName": "봉천역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              27,
+              31,
+              40,
+              43,
+              49,
+              48,
+              42,
+              36,
+              31,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              31,
+              44,
+              47,
+              53,
+              50,
+              47,
+              45,
+              35,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              32,
+              38,
+              47,
+              48,
+              53,
+              50,
+              50,
+              43,
+              34,
+              45
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              35,
+              52,
+              50,
+              61,
+              50,
+              49,
+              42,
+              37,
+              43
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              21,
+              28,
+              37,
+              38,
+              48,
+              44,
+              35,
+              33,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              25,
+              24,
+              32,
+              37,
+              43,
+              37,
+              33,
+              27,
+              23,
+              30
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "211",
+        "endStationName": "성수역",
+        "prevStationCode": "227",
+        "prevStationName": "낙성대역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              35,
+              37,
+              52,
+              53,
+              46,
+              51,
+              53,
+              39,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              31,
+              38,
+              39,
+              44,
+              43,
+              41,
+              42,
+              36,
+              28,
+              18
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              33,
+              35,
+              40,
+              40,
+              41,
+              42,
+              40,
+              33,
+              25,
+              21
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              31,
+              34,
+              38,
+              37,
+              41,
+              35,
+              29,
+              23,
+              19
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              25,
+              34,
+              28,
+              39,
+              35,
+              41,
+              38,
+              29,
+              24,
+              18
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              26,
+              33,
+              41,
+              46,
+              45,
+              42,
+              43,
+              38,
+              32,
+              23
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "211-R",
+        "endStationName": "성수역",
+        "prevStationCode": "229",
+        "prevStationName": "봉천역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              27,
+              31,
+              40,
+              43,
+              49,
+              48,
+              42,
+              36,
+              31,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              29,
+              34,
+              48,
+              51,
+              57,
+              53,
+              50,
+              48,
+              37,
+              34
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              35,
+              41,
+              50,
+              51,
+              57,
+              53,
+              53,
+              46,
+              36,
+              48
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              33,
+              37,
+              56,
+              53,
+              65,
+              53,
+              53,
+              45,
+              39,
+              45
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              21,
+              28,
+              37,
+              38,
+              48,
+              44,
+              35,
+              33,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              25,
+              24,
+              32,
+              37,
+              43,
+              37,
+              33,
+              27,
+              23,
+              30
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "211-R",
+        "endStationName": "성수역",
+        "prevStationCode": "227",
+        "prevStationName": "낙성대역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              35,
+              37,
+              52,
+              53,
+              46,
+              51,
+              53,
+              39,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              33,
+              41,
+              43,
+              47,
+              47,
+              45,
+              46,
+              39,
+              30,
+              19
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              36,
+              38,
+              43,
+              44,
+              44,
+              45,
+              44,
+              35,
+              27,
+              23
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              33,
+              33,
+              36,
+              40,
+              39,
+              44,
+              37,
+              31,
+              25,
+              21
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              26,
+              36,
+              30,
+              42,
+              37,
+              43,
+              40,
+              31,
+              26,
+              19
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              26,
+              33,
+              41,
+              46,
+              45,
+              42,
+              43,
+              38,
+              32,
+              23
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "219",
+        "endStationName": "삼성역",
+        "prevStationCode": "229",
+        "prevStationName": "봉천역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              27,
+              31,
+              40,
+              43,
+              49,
+              48,
+              42,
+              36,
+              31,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              31,
+              44,
+              47,
+              53,
+              50,
+              47,
+              45,
+              35,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              32,
+              38,
+              47,
+              48,
+              53,
+              50,
+              50,
+              43,
+              34,
+              45
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              35,
+              52,
+              50,
+              61,
+              50,
+              49,
+              42,
+              37,
+              43
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              21,
+              28,
+              37,
+              38,
+              48,
+              44,
+              35,
+              33,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              25,
+              24,
+              32,
+              37,
+              43,
+              37,
+              33,
+              27,
+              23,
+              30
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "228",
+        "endStationName": "서울대입구역",
+        "prevStationCode": "229",
+        "prevStationName": "봉천역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              27,
+              31,
+              40,
+              43,
+              49,
+              48,
+              42,
+              36,
+              31,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              31,
+              44,
+              47,
+              53,
+              50,
+              47,
+              45,
+              35,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              32,
+              38,
+              47,
+              48,
+              53,
+              50,
+              50,
+              43,
+              34,
+              45
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              35,
+              52,
+              50,
+              61,
+              50,
+              49,
+              42,
+              37,
+              43
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              21,
+              28,
+              37,
+              38,
+              48,
+              44,
+              35,
+              33,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              25,
+              24,
+              32,
+              37,
+              43,
+              37,
+              33,
+              27,
+              23,
+              30
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "228",
+        "endStationName": "서울대입구역",
+        "prevStationCode": "227",
+        "prevStationName": "낙성대역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              35,
+              37,
+              52,
+              53,
+              46,
+              51,
+              53,
+              39,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              31,
+              38,
+              39,
+              44,
+              43,
+              41,
+              42,
+              36,
+              28,
+              18
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              33,
+              35,
+              40,
+              40,
+              41,
+              42,
+              40,
+              33,
+              25,
+              21
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              31,
+              34,
+              38,
+              37,
+              41,
+              35,
+              29,
+              23,
+              19
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              25,
+              34,
+              28,
+              39,
+              35,
+              41,
+              38,
+              29,
+              24,
+              18
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              26,
+              33,
+              41,
+              46,
+              45,
+              42,
+              43,
+              38,
+              32,
+              23
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "234",
+        "endStationName": "신도림역",
+        "prevStationCode": "227",
+        "prevStationName": "낙성대역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              35,
+              37,
+              52,
+              53,
+              46,
+              51,
+              53,
+              39,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              31,
+              38,
+              39,
+              44,
+              43,
+              41,
+              42,
+              36,
+              28,
+              18
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              33,
+              35,
+              40,
+              40,
+              41,
+              42,
+              40,
+              33,
+              25,
+              21
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              31,
+              34,
+              38,
+              37,
+              41,
+              35,
+              29,
+              23,
+              19
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              25,
+              34,
+              28,
+              39,
+              35,
+              41,
+              38,
+              29,
+              24,
+              18
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              26,
+              33,
+              41,
+              46,
+              45,
+              42,
+              43,
+              38,
+              32,
+              23
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "239",
+        "endStationName": "홍대입구역",
+        "prevStationCode": "227",
+        "prevStationName": "낙성대역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              35,
+              37,
+              52,
+              53,
+              46,
+              51,
+              53,
+              39,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              31,
+              38,
+              39,
+              44,
+              43,
+              41,
+              42,
+              36,
+              28,
+              18
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              33,
+              35,
+              40,
+              40,
+              41,
+              42,
+              40,
+              33,
+              25,
+              21
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              31,
+              34,
+              38,
+              37,
+              41,
+              35,
+              29,
+              23,
+              19
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              25,
+              34,
+              28,
+              39,
+              35,
+              41,
+              38,
+              29,
+              24,
+              18
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              26,
+              33,
+              41,
+              46,
+              45,
+              42,
+              43,
+              38,
+              32,
+              23
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "219",
+        "startStationName": "삼성역",
+        "endStationCode": "211-R",
+        "endStationName": "성수역",
+        "prevStationCode": "227",
+        "prevStationName": "낙성대역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              35,
+              37,
+              52,
+              53,
+              46,
+              51,
+              53,
+              39,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              31,
+              38,
+              39,
+              44,
+              43,
+              41,
+              42,
+              36,
+              28,
+              18
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              33,
+              35,
+              40,
+              40,
+              41,
+              42,
+              40,
+              33,
+              25,
+              21
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              31,
+              34,
+              38,
+              37,
+              41,
+              35,
+              29,
+              23,
+              19
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              25,
+              34,
+              28,
+              39,
+              35,
+              41,
+              38,
+              29,
+              24,
+              18
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              26,
+              33,
+              41,
+              46,
+              45,
+              42,
+              43,
+              38,
+              32,
+              23
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "234",
+        "startStationName": "신도림역",
+        "endStationCode": "211",
+        "endStationName": "성수역",
+        "prevStationCode": "229",
+        "prevStationName": "봉천역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              27,
+              31,
+              40,
+              43,
+              49,
+              48,
+              42,
+              36,
+              31,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              31,
+              44,
+              47,
+              53,
+              50,
+              47,
+              45,
+              35,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              32,
+              38,
+              47,
+              48,
+              53,
+              50,
+              50,
+              43,
+              34,
+              45
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              35,
+              52,
+              50,
+              61,
+              50,
+              49,
+              42,
+              37,
+              43
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              21,
+              28,
+              37,
+              38,
+              48,
+              44,
+              35,
+              33,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              25,
+              24,
+              32,
+              37,
+              43,
+              37,
+              33,
+              27,
+              23,
+              30
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "234",
+        "startStationName": "신도림역",
+        "endStationCode": "211-R",
+        "endStationName": "성수역",
+        "prevStationCode": "229",
+        "prevStationName": "봉천역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              27,
+              31,
+              40,
+              43,
+              49,
+              48,
+              42,
+              36,
+              31,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              31,
+              44,
+              47,
+              53,
+              50,
+              47,
+              45,
+              35,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              32,
+              38,
+              47,
+              48,
+              53,
+              50,
+              50,
+              43,
+              34,
+              45
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              35,
+              52,
+              50,
+              61,
+              50,
+              49,
+              42,
+              37,
+              43
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              21,
+              28,
+              37,
+              38,
+              48,
+              44,
+              35,
+              33,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              25,
+              24,
+              32,
+              37,
+              43,
+              37,
+              33,
+              27,
+              23,
+              30
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "239",
+        "startStationName": "홍대입구역",
+        "endStationCode": "211",
+        "endStationName": "성수역",
+        "prevStationCode": "229",
+        "prevStationName": "봉천역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              27,
+              31,
+              40,
+              43,
+              49,
+              48,
+              42,
+              36,
+              31,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              31,
+              44,
+              47,
+              53,
+              50,
+              47,
+              45,
+              35,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              32,
+              38,
+              47,
+              48,
+              53,
+              50,
+              50,
+              43,
+              34,
+              45
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              35,
+              52,
+              50,
+              61,
+              50,
+              49,
+              42,
+              37,
+              43
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              21,
+              28,
+              37,
+              38,
+              48,
+              44,
+              35,
+              33,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              25,
+              24,
+              32,
+              37,
+              43,
+              37,
+              33,
+              27,
+              23,
+              30
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "239",
+        "startStationName": "홍대입구역",
+        "endStationCode": "211-R",
+        "endStationName": "성수역",
+        "prevStationCode": "229",
+        "prevStationName": "봉천역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              27,
+              31,
+              40,
+              43,
+              49,
+              48,
+              42,
+              36,
+              31,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              31,
+              44,
+              47,
+              53,
+              50,
+              47,
+              45,
+              35,
+              32
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              32,
+              38,
+              47,
+              48,
+              53,
+              50,
+              50,
+              43,
+              34,
+              45
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              35,
+              52,
+              50,
+              61,
+              50,
+              49,
+              42,
+              37,
+              43
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              21,
+              28,
+              37,
+              38,
+              48,
+              44,
+              35,
+              33,
+              27,
+              29
+            ]
+          },
+          {
+            "dow": "MON",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              25,
+              24,
+              32,
+              37,
+              43,
+              37,
+              33,
+              27,
+              23,
+              30
+            ]
+          }
+        ]
+      }
+    ],
+    "statStartDate": "20230924",
+    "statEndDate": "20231223"
+  }
+}
