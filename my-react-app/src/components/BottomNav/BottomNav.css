@@ -8,7 +8,7 @@
     padding: 10.25px 12.8px;
     font-weight: bold;
     font-size: 14px;
-    z-index: 2;
+    z-index: 3;
 }
 
 .BottomNavContainer {
@@ -17,7 +17,7 @@
     right: 20px;
     text-align: right;
     display: none;
-    z-index: 2;
+    z-index: 3;
 }
 
 .BottomNav {
@@ -56,5 +56,5 @@ li img {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    z-index: 3;
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Search.css";
 import api from "./api";
+import downarrow from "../../assets/images/downarrow.svg";
 
 function Search() {
   const [startStationValue, setStartStationValue] = useState("");
@@ -38,6 +39,22 @@ function Search() {
   const endResultClick = (selectedStation) => {
     setEndStationValue(selectedStation);
     setShowEndLiTag(false);
+  };
+
+  const [selectedOption, setSelectedOption] = useState("전체 호차");
+  const [showOptions, setShowOptions] = useState(false);
+
+  const options = [
+    "전체 호차", "1호차", "2호차", "3호차", "4호차", "5호차", "6호차", "7호차", "8호차", "9호차", "10호차",
+  ];
+
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+    setShowOptions(false);
+  };
+
+  const toggleOptions = () => {
+    setShowOptions(!showOptions);
   };
 
   useEffect(() => {
@@ -100,19 +117,28 @@ function Search() {
             ))}
           </ul>
         )}
-        <select id="carNumber" name="carNumber">
-          <option id="defaultOpt">전체 호차</option>
-          <option value={1}>1호차</option>
-          <option value={2}>2호차</option>
-          <option value={3}>3호차</option>
-          <option value={4}>4호차</option>
-          <option value={5}>5호차</option>
-          <option value={6}>6호차</option>
-          <option value={7}>7호차</option>
-          <option value={8}>8호차</option>
-          <option value={9}>9호차</option>
-          <option value={10}>10호차</option>
-        </select>
+
+        <div className="carNumber" name="carNumber">
+          <input type="hidden" name="carNumber" value={selectedOption} />
+          <div
+            className="selected-option"
+            onClick={toggleOptions}
+            value={selectedOption}
+          >
+            {selectedOption}
+            <img src={downarrow} alt="아래방향아이콘" />
+          </div>
+          {showOptions && (
+            <ul className="dropdown-options">
+              {options.map((option, index) => (
+                <li key={index} onClick={() => handleOptionClick(option)}>
+                  {option}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
         <button className="searchBtn">검색하기</button>
       </form>
     </div>

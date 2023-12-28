@@ -33,27 +33,58 @@
     border-radius: 10px;
     border: 0.5px solid #7ED287;
     background-color: white;
+    z-index: 3;
 }
 
 .startResult,
-.endResult {
+.endResult,
+.dropdown-options {
     width: 340px;
     list-style: none;
+    border-radius: 10px;
     padding: 6px 0 6px 9px;
     color: rgb(92, 92, 92);
+    background-color: #fff;
+    z-index: 3;
 }
 
-#carNumber {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+.carNumber {
     border-radius: 10px;
     border: 1px solid #7ED287;
     margin-top: 8px;
-    padding: 0 0 0 9px;
-    width: 350px;
-    height: 44px;
+    padding: 0 0 0 0;
+    width: 348px;
+    height: 42px;
     font-size: 16px;
+    color: #7ED287;
+    z-index: 2;
+}
+
+.selected-option {
+    padding: 10.75px 0 0 9px;
+    vertical-align: middle;
+}
+
+.selected-option img {
+    position: relative;
+    left: 80%;
+    vertical-align: middle;
+}
+
+.dropdown-options {
+    position: relative;
+    border: 0.5px solid #7ED287;
+    top: -5px;
+    left: -1px;
+}
+
+.dropdown-options li {
+    padding-bottom: 3px;
+}
+
+.hovered {
+    background-color: #7ED287;
+    color: #fff;
 }
 
 .searchBtn {
@@ -66,4 +97,5 @@
     width: 350px;
     height: 44px;
     font-size: 16px;
+    z-index: 1;
 }
