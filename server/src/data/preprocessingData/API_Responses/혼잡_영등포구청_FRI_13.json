@@ -1,0 +1,2068 @@
+{
+  "status": {
+    "code": "00",
+    "message": "success",
+    "totalCount": 1
+  },
+  "contents": {
+    "subwayLine": "2호선",
+    "stationName": "영등포구청역",
+    "stationCode": "236",
+    "stat": [
+      {
+        "startStationCode": "202",
+        "startStationName": "을지로입구역",
+        "endStationCode": "211",
+        "endStationName": "성수역",
+        "prevStationCode": "237",
+        "prevStationName": "당산역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              28,
+              39,
+              37,
+              40,
+              30,
+              25,
+              34,
+              21,
+              22,
+              13
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              39,
+              44,
+              43,
+              35,
+              27,
+              31,
+              24,
+              21,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              31,
+              41,
+              51,
+              44,
+              42,
+              33,
+              38,
+              28,
+              24,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              46,
+              48,
+              42,
+              39,
+              31,
+              41,
+              31,
+              23,
+              18
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              24,
+              30,
+              34,
+              39,
+              30,
+              27,
+              27,
+              24,
+              18,
+              17
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              23,
+              31,
+              38,
+              35,
+              31,
+              24,
+              29,
+              25,
+              20,
+              13
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "202",
+        "startStationName": "을지로입구역",
+        "endStationCode": "211-R",
+        "endStationName": "성수역",
+        "prevStationCode": "237",
+        "prevStationName": "당산역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              28,
+              39,
+              37,
+              40,
+              30,
+              25,
+              34,
+              21,
+              22,
+              13
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              39,
+              44,
+              43,
+              35,
+              27,
+              31,
+              24,
+              21,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              31,
+              41,
+              51,
+              44,
+              42,
+              33,
+              38,
+              28,
+              24,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              46,
+              48,
+              42,
+              39,
+              31,
+              41,
+              31,
+              23,
+              18
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              24,
+              30,
+              34,
+              39,
+              30,
+              27,
+              27,
+              24,
+              18,
+              17
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              23,
+              31,
+              38,
+              35,
+              31,
+              24,
+              29,
+              25,
+              20,
+              13
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "202",
+        "endStationName": "을지로입구역",
+        "prevStationCode": "235",
+        "prevStationName": "문래역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              36,
+              42,
+              42,
+              54,
+              54,
+              57,
+              62,
+              53,
+              47,
+              43
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              41,
+              47,
+              47,
+              55,
+              61,
+              58,
+              70,
+              57,
+              52,
+              42
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              38,
+              42,
+              48,
+              57,
+              52,
+              55,
+              64,
+              63,
+              49,
+              41
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              34,
+              37,
+              39,
+              52,
+              47,
+              44,
+              57,
+              49,
+              44,
+              36
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              27,
+              33,
+              36,
+              40,
+              48,
+              45,
+              52,
+              49,
+              36,
+              34
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              31,
+              31,
+              45,
+              45,
+              45,
+              52,
+              47,
+              51,
+              39,
+              35
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "211",
+        "endStationName": "성수역",
+        "prevStationCode": "237",
+        "prevStationName": "당산역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              28,
+              39,
+              37,
+              40,
+              30,
+              25,
+              34,
+              21,
+              22,
+              13
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              39,
+              44,
+              43,
+              35,
+              27,
+              31,
+              24,
+              21,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              31,
+              41,
+              51,
+              44,
+              42,
+              33,
+              38,
+              28,
+              24,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              46,
+              48,
+              42,
+              39,
+              31,
+              41,
+              31,
+              23,
+              18
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              24,
+              30,
+              34,
+              39,
+              30,
+              27,
+              27,
+              24,
+              18,
+              17
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              23,
+              31,
+              38,
+              35,
+              31,
+              24,
+              29,
+              25,
+              20,
+              13
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "211",
+        "endStationName": "성수역",
+        "prevStationCode": "235",
+        "prevStationName": "문래역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              36,
+              42,
+              42,
+              54,
+              54,
+              57,
+              62,
+              53,
+              47,
+              43
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              16,
+              19,
+              19,
+              22,
+              24,
+              23,
+              28,
+              22,
+              21,
+              17
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              32,
+              35,
+              39,
+              47,
+              43,
+              45,
+              53,
+              52,
+              41,
+              34
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              33,
+              35,
+              37,
+              49,
+              45,
+              42,
+              54,
+              47,
+              42,
+              35
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              14,
+              17,
+              19,
+              21,
+              25,
+              24,
+              27,
+              25,
+              19,
+              18
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              31,
+              31,
+              45,
+              45,
+              45,
+              52,
+              47,
+              51,
+              39,
+              35
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "211-R",
+        "endStationName": "성수역",
+        "prevStationCode": "237",
+        "prevStationName": "당산역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              31,
+              43,
+              41,
+              44,
+              33,
+              28,
+              38,
+              23,
+              25,
+              14
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              39,
+              44,
+              43,
+              35,
+              27,
+              31,
+              24,
+              21,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              31,
+              41,
+              51,
+              44,
+              42,
+              33,
+              38,
+              28,
+              24,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              46,
+              48,
+              42,
+              39,
+              31,
+              41,
+              31,
+              23,
+              18
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              26,
+              32,
+              37,
+              42,
+              32,
+              29,
+              29,
+              26,
+              19,
+              18
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              26,
+              35,
+              43,
+              39,
+              34,
+              27,
+              32,
+              28,
+              23,
+              15
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "211-R",
+        "endStationName": "성수역",
+        "prevStationCode": "235",
+        "prevStationName": "문래역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              39,
+              44,
+              45,
+              57,
+              57,
+              61,
+              65,
+              56,
+              50,
+              46
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              42,
+              49,
+              49,
+              57,
+              63,
+              60,
+              73,
+              59,
+              54,
+              43
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              39,
+              43,
+              49,
+              58,
+              53,
+              56,
+              66,
+              64,
+              50,
+              41
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              35,
+              38,
+              39,
+              53,
+              48,
+              45,
+              58,
+              51,
+              45,
+              37
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              27,
+              33,
+              36,
+              40,
+              48,
+              45,
+              52,
+              49,
+              36,
+              34
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              31,
+              31,
+              45,
+              45,
+              45,
+              52,
+              47,
+              51,
+              39,
+              35
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "219",
+        "endStationName": "삼성역",
+        "prevStationCode": "237",
+        "prevStationName": "당산역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              28,
+              39,
+              37,
+              40,
+              30,
+              25,
+              34,
+              21,
+              22,
+              13
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              39,
+              44,
+              43,
+              35,
+              27,
+              31,
+              24,
+              21,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              31,
+              41,
+              51,
+              44,
+              42,
+              33,
+              38,
+              28,
+              24,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              46,
+              48,
+              42,
+              39,
+              31,
+              41,
+              31,
+              23,
+              18
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              24,
+              30,
+              34,
+              39,
+              30,
+              27,
+              27,
+              24,
+              18,
+              17
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              23,
+              31,
+              38,
+              35,
+              31,
+              24,
+              29,
+              25,
+              20,
+              13
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "228",
+        "endStationName": "서울대입구역",
+        "prevStationCode": "237",
+        "prevStationName": "당산역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              28,
+              39,
+              37,
+              40,
+              30,
+              25,
+              34,
+              21,
+              22,
+              13
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              39,
+              44,
+              43,
+              35,
+              27,
+              31,
+              24,
+              21,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              31,
+              41,
+              51,
+              44,
+              42,
+              33,
+              38,
+              28,
+              24,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              46,
+              48,
+              42,
+              39,
+              31,
+              41,
+              31,
+              23,
+              18
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              24,
+              30,
+              34,
+              39,
+              30,
+              27,
+              27,
+              24,
+              18,
+              17
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              23,
+              31,
+              38,
+              35,
+              31,
+              24,
+              29,
+              25,
+              20,
+              13
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "234",
+        "endStationName": "신도림역",
+        "prevStationCode": "237",
+        "prevStationName": "당산역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              6,
+              8,
+              8,
+              8,
+              6,
+              5,
+              7,
+              4,
+              5,
+              3
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              39,
+              44,
+              43,
+              35,
+              27,
+              31,
+              24,
+              21,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              31,
+              41,
+              51,
+              44,
+              42,
+              33,
+              38,
+              28,
+              24,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              46,
+              48,
+              42,
+              39,
+              31,
+              41,
+              31,
+              23,
+              18
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              24,
+              30,
+              34,
+              39,
+              30,
+              27,
+              27,
+              24,
+              18,
+              17
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              23,
+              31,
+              38,
+              35,
+              31,
+              24,
+              29,
+              25,
+              20,
+              13
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "211",
+        "startStationName": "성수역",
+        "endStationCode": "239",
+        "endStationName": "홍대입구역",
+        "prevStationCode": "235",
+        "prevStationName": "문래역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              36,
+              42,
+              42,
+              54,
+              54,
+              57,
+              62,
+              53,
+              47,
+              43
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              41,
+              47,
+              47,
+              55,
+              61,
+              58,
+              70,
+              57,
+              52,
+              42
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              38,
+              42,
+              48,
+              57,
+              52,
+              55,
+              64,
+              63,
+              49,
+              41
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              34,
+              37,
+              39,
+              52,
+              47,
+              44,
+              57,
+              49,
+              44,
+              36
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              27,
+              33,
+              36,
+              40,
+              48,
+              45,
+              52,
+              49,
+              36,
+              34
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              31,
+              31,
+              45,
+              45,
+              45,
+              52,
+              47,
+              51,
+              39,
+              35
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "219",
+        "startStationName": "삼성역",
+        "endStationCode": "211-R",
+        "endStationName": "성수역",
+        "prevStationCode": "235",
+        "prevStationName": "문래역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              36,
+              42,
+              42,
+              54,
+              54,
+              57,
+              62,
+              53,
+              47,
+              43
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              41,
+              47,
+              47,
+              55,
+              61,
+              58,
+              70,
+              57,
+              52,
+              42
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              38,
+              42,
+              48,
+              57,
+              52,
+              55,
+              64,
+              63,
+              49,
+              41
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              34,
+              37,
+              39,
+              52,
+              47,
+              44,
+              57,
+              49,
+              44,
+              36
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              27,
+              33,
+              36,
+              40,
+              48,
+              45,
+              52,
+              49,
+              36,
+              34
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              31,
+              31,
+              45,
+              45,
+              45,
+              52,
+              47,
+              51,
+              39,
+              35
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "228",
+        "startStationName": "서울대입구역",
+        "endStationCode": "211",
+        "endStationName": "성수역",
+        "prevStationCode": "235",
+        "prevStationName": "문래역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              36,
+              42,
+              42,
+              54,
+              54,
+              57,
+              62,
+              53,
+              47,
+              43
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              41,
+              47,
+              47,
+              55,
+              61,
+              58,
+              70,
+              57,
+              52,
+              42
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              38,
+              42,
+              48,
+              57,
+              52,
+              55,
+              64,
+              63,
+              49,
+              41
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              34,
+              37,
+              39,
+              52,
+              47,
+              44,
+              57,
+              49,
+              44,
+              36
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              27,
+              33,
+              36,
+              40,
+              48,
+              45,
+              52,
+              49,
+              36,
+              34
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              31,
+              31,
+              45,
+              45,
+              45,
+              52,
+              47,
+              51,
+              39,
+              35
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "228",
+        "startStationName": "서울대입구역",
+        "endStationCode": "211-R",
+        "endStationName": "성수역",
+        "prevStationCode": "235",
+        "prevStationName": "문래역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              36,
+              42,
+              42,
+              54,
+              54,
+              57,
+              62,
+              53,
+              47,
+              43
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              41,
+              47,
+              47,
+              55,
+              61,
+              58,
+              70,
+              57,
+              52,
+              42
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              38,
+              42,
+              48,
+              57,
+              52,
+              55,
+              64,
+              63,
+              49,
+              41
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              34,
+              37,
+              39,
+              52,
+              47,
+              44,
+              57,
+              49,
+              44,
+              36
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              27,
+              33,
+              36,
+              40,
+              48,
+              45,
+              52,
+              49,
+              36,
+              34
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              31,
+              31,
+              45,
+              45,
+              45,
+              52,
+              47,
+              51,
+              39,
+              35
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "234",
+        "startStationName": "신도림역",
+        "endStationCode": "211",
+        "endStationName": "성수역",
+        "prevStationCode": "235",
+        "prevStationName": "문래역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              36,
+              42,
+              42,
+              54,
+              54,
+              57,
+              62,
+              53,
+              47,
+              43
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              41,
+              47,
+              47,
+              55,
+              61,
+              58,
+              70,
+              57,
+              52,
+              42
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              38,
+              42,
+              48,
+              57,
+              52,
+              55,
+              64,
+              63,
+              49,
+              41
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              34,
+              37,
+              39,
+              52,
+              47,
+              44,
+              57,
+              49,
+              44,
+              36
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              27,
+              33,
+              36,
+              40,
+              48,
+              45,
+              52,
+              49,
+              36,
+              34
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              31,
+              31,
+              45,
+              45,
+              45,
+              52,
+              47,
+              51,
+              39,
+              35
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "234",
+        "startStationName": "신도림역",
+        "endStationCode": "211-R",
+        "endStationName": "성수역",
+        "prevStationCode": "235",
+        "prevStationName": "문래역",
+        "updnLine": 1,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              36,
+              42,
+              42,
+              54,
+              54,
+              57,
+              62,
+              53,
+              47,
+              43
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              41,
+              47,
+              47,
+              55,
+              61,
+              58,
+              70,
+              57,
+              52,
+              42
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              38,
+              42,
+              48,
+              57,
+              52,
+              55,
+              64,
+              63,
+              49,
+              41
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              34,
+              37,
+              39,
+              52,
+              47,
+              44,
+              57,
+              49,
+              44,
+              36
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              27,
+              33,
+              36,
+              40,
+              48,
+              45,
+              52,
+              49,
+              36,
+              34
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              31,
+              31,
+              45,
+              45,
+              45,
+              52,
+              47,
+              51,
+              39,
+              35
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "239",
+        "startStationName": "홍대입구역",
+        "endStationCode": "211",
+        "endStationName": "성수역",
+        "prevStationCode": "237",
+        "prevStationName": "당산역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              28,
+              39,
+              37,
+              40,
+              30,
+              25,
+              34,
+              21,
+              22,
+              13
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              39,
+              44,
+              43,
+              35,
+              27,
+              31,
+              24,
+              21,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              31,
+              41,
+              51,
+              44,
+              42,
+              33,
+              38,
+              28,
+              24,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              46,
+              48,
+              42,
+              39,
+              31,
+              41,
+              31,
+              23,
+              18
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              24,
+              30,
+              34,
+              39,
+              30,
+              27,
+              27,
+              24,
+              18,
+              17
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              23,
+              31,
+              38,
+              35,
+              31,
+              24,
+              29,
+              25,
+              20,
+              13
+            ]
+          }
+        ]
+      },
+      {
+        "startStationCode": "239",
+        "startStationName": "홍대입구역",
+        "endStationCode": "211-R",
+        "endStationName": "성수역",
+        "prevStationCode": "237",
+        "prevStationName": "당산역",
+        "updnLine": 0,
+        "directAt": 0,
+        "data": [
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "00",
+            "congestionCar": [
+              28,
+              39,
+              37,
+              40,
+              30,
+              25,
+              34,
+              21,
+              22,
+              13
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "10",
+            "congestionCar": [
+              27,
+              39,
+              44,
+              43,
+              35,
+              27,
+              31,
+              24,
+              21,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "20",
+            "congestionCar": [
+              31,
+              41,
+              51,
+              44,
+              42,
+              33,
+              38,
+              28,
+              24,
+              20
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "30",
+            "congestionCar": [
+              31,
+              46,
+              48,
+              42,
+              39,
+              31,
+              41,
+              31,
+              23,
+              18
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "40",
+            "congestionCar": [
+              24,
+              30,
+              34,
+              39,
+              30,
+              27,
+              27,
+              24,
+              18,
+              17
+            ]
+          },
+          {
+            "dow": "FRI",
+            "hh": "13",
+            "mm": "50",
+            "congestionCar": [
+              23,
+              31,
+              38,
+              35,
+              31,
+              24,
+              29,
+              25,
+              20,
+              13
+            ]
+          }
+        ]
+      }
+    ],
+    "statStartDate": "20230924",
+    "statEndDate": "20231223"
+  }
+}
