@@ -1,8 +1,8 @@
 CREATE TABLE station (
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	station_name VARCHAR(10) NOT NULL,
-	prev_station_time TINYINT NOT NULL,
-	next_station_time TINYINT NOT NULL,
+	prev_station_time SMALLINT NOT NULL,
+	next_station_time SMALLINT NOT NULL,
 	station_info TEXT NOT NULL,
 	passenger_info TEXT NOT NULL
 );

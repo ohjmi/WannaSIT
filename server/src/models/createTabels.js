@@ -4,22 +4,26 @@ import fs from "fs";
 import path from "path";
 
 const createTable = async () => {
-const connection = await mysql.createConnection(process.env.DATABASE_URL);
-const sqlFile = fs.readFileSync(path.join("./", "create_tables.sql"), "utf-8");
-const queries = sqlFile.split(";");
+	const connection = await mysql.createConnection(process.env.DATABASE_URL);
+	const sqlFile = fs.readFileSync(path.join("./", "create_tables.sql"), "utf-8");
+	const queries = sqlFile.split(";");
 
-for (let query of queries) {
-	query = query.trim();
-	if (query) {
-		try {
-			await connection.execute(query);
-			console.log("쿼리 실행 성공");
-		} catch (err) {
-			console.error("쿼리 실행 실패: ", err);
+	for (let query of queries) {
+		query = query.trim();
+
+		if (query) {
+			try {
+				await connection.execute(query);
+				console.log("테이블 생성 성공");
+			} catch (err) {
+				console.error("테이블 생성 실패: ", err);
+				connection.end();
+				throw err;
+			}
 		}
 	}
-}
-await connection.end()
+	
+	connection.end();
 };
 
-createTable();
+export default createTable;
