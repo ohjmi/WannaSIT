@@ -1,10 +1,12 @@
 import "./Home.css";
 import BottomNav from "../../components/BottomNav/BottomNav";
 import Search from "../../components/Search/Search";
+import Hamburger from "../../components/Hamburger/Hamburger";
 
 function Home() {
   return (
     <div className="App">
+      <Hamburger />
       <Search />
       <BottomNav />
     </div>
