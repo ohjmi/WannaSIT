@@ -4,7 +4,7 @@ const csv = require("csv-parser");
 async function main(outputFilePath) {
   let data = [];
 
-  const stationList = getStationList("../data/preprocessingData/stationCodes.json");
+  const stationList = getStationList("../data/stationCodes.json");
   const dow = ["MON", "WED", "FRI"];
   const time = ["08", "13"];
   let getOffCountByTime;
