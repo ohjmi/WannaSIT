@@ -31,8 +31,8 @@ function Hamburger() {
         <div className='hamCont'>
           <ul className='info'>
             <li>안녕하세요</li>
-            <li>앉고싶어는 지하철 탑승 시 앉을</li>
-            <li>가능성이 높은 칸을 안내하는 웹 어플리케이션입니다.</li>
+            <li>앉고싶어는 지하철 탑승 시 앉을 가능성이</li>
+            <li>높은 칸을 안내하는 웹 어플리케이션입니다.</li>
           </ul>
           <ul className='menu'>
             <li>

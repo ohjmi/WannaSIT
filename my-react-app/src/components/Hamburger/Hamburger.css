@@ -4,7 +4,11 @@ ul ,li {
   padding: 0;
 }
 .hamWrapper {
+  position: relative;
   width: 100%;
+  /* height: 800px;
+  z-index: 10;
+  background-color: #fff; */
 }
 /* .hamHeader {
   padding: 24px 0 0 20px ;
@@ -62,7 +66,7 @@ ul ,li {
   text-align: center;
 }
 .hamCont {
-  margin-top: -24px;
+  margin-top: -26px;
   
 }
 .info {
@@ -83,7 +87,12 @@ ul ,li {
   align-items: center;
   margin-bottom: 20px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 500;
+}
+.menu li img {
+  padding: 0;
+  width: 24px;
+  height: 24px;
 }
 .menu li span {
   margin-left: 10px;

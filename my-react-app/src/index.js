@@ -1,3 +1,11 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+// import Hamburger from './components/Hamburger/Hamburger';
+// import BottomNav from './components/BottomNav/BottomNav';
+import StationPath from './components/StationPath/StationPath';
+import CarRank from './components/CarRank/CarRank';
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -9,6 +17,8 @@ import RecommendDetail from "./pages/RecommendDetailPage/RecommendDetail.js";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <StationPath />
+    <CarRank />
     <Router>
       <Routes>
         <Route path="/" exact element={<Home />} />
@@ -18,3 +28,4 @@ root.render(
     </Router>
   </React.StrictMode>
 );
+
