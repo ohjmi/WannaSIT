@@ -5,7 +5,7 @@ import Hamburger from "../../components/Hamburger/Hamburger";
 
 function Home() {
   return (
-    <div className="App">
+    <div className="Home">
       <Hamburger />
       <Search />
       <BottomNav />
