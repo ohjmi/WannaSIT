@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Search.css";
 import api from "./api";
-import downarrow from "../../assets/images/downarrow.svg";
+import downarrow from "../../assets/images/icon/downarrow.svg";
 
 function Search() {
   const [startStationValue, setStartStationValue] = useState("");
