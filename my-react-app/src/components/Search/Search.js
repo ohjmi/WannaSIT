@@ -45,23 +45,32 @@ function Search() {
   const [showOptions, setShowOptions] = useState(false);
 
   const options = [
-    "전체 호차", "1호차", "2호차", "3호차", "4호차", "5호차", "6호차", "7호차", "8호차", "9호차", "10호차",
+    "전체 호차", "1호차", "2호차", "3호차", "4호차", "5호차", "6호차", "7호차", "8호차", "9호차", "10호차"
   ];
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     setShowOptions(false);
   };
-
+  
   const toggleOptions = () => {
     setShowOptions(!showOptions);
+  };
+
+  const searchBtnClick = (event) => {
+    event.preventDefault();
+    if (selectedOption === "전체 호차") {
+      window.location.href = `/cars?startStation=${startStationValue}&endStation=${endStationValue}`;
+    } else {
+      window.location.href = `/cars/info?startStation=${startStationValue}&endStation=${endStationValue}&carNumber=${selectedOption}`;
+    }
   };
 
   useEffect(() => {
     api
       .get("/stations")
       .then((response) => {
-        setStations(response.data);
+        setStations(Object.values(response.data));
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -139,7 +148,9 @@ function Search() {
           )}
         </div>
 
-        <button className="searchBtn">검색하기</button>
+        <button className="searchBtn" onClick={searchBtnClick}>
+          검색하기
+        </button>
       </form>
     </div>
   );
