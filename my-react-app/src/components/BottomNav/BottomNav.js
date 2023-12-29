@@ -1,8 +1,8 @@
 import React from "react";
 import "./BottomNav.css";
-import issue from "../../assets/images/issue.svg";
-import chat from "../../assets/images/chat.svg";
-import X from "../../assets/images/X.svg";
+import issue from "../../assets/images/icon/issue.svg";
+import chat from "../../assets/images/icon/chat.svg";
+import closebtn from "../../assets/images/icon/closebtn.svg";
 
 function BottomNav() {
   const openNav = () => {
@@ -44,7 +44,7 @@ function BottomNav() {
           </ul>
         </nav>
         <button className="NavCloseBtn" onClick={closeNav}>
-          <img src={X} alt="X" />
+          <img src={closebtn} alt="닫기버튼" />
         </button>
       </div>
     </div>

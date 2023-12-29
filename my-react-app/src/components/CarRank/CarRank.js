@@ -1,30 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 import api from './api';
 
-function CarRank() {
+function CarRank({startStation, endStation}) {
     const [data, setData] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        api.get('/cars')
+        api.get(`/cars?startStation=${startStation}&endStation=${endStation}`)
             .then((response) => {
                 setData(response.data.data);
             })
             .catch((error) => {
                 console.error('에러:', error);
             });
-    }, []);
+    }, [startStation, endStation]);
+
+    const handleDetailClick = (carNumber) => {
+      navigate(`/cars/info?startStation=${startStation}&endStation=${endStation}&carNumber=${carNumber}`)
+    }
 
     return (
         <div className='RankWrapper'>
-            {/* <p>추천 호차 순위</p>
-            <ul>
-                {data.map((item, index) => (
-                    <li key={item.carNumber}>
-                        <span>{index + 1}</span> {item.carNumber}호차, | {item.remainingStations}정거장 뒤
-                    </li>
-                ))}
-            </ul> */}
             <p>추천 호차 순위</p>
       <table>
         <tbody>
@@ -33,7 +31,7 @@ function CarRank() {
               <td>{index + 1}위</td>
               <td>{item.carNumber}호차</td>
               <td>{item.remainingStations === 0 ? '자리 O' : `${item.remainingStations}정거장 뒤`}</td>
-              <td><button>상세보기</button></td>
+              <td><button onClick={() => handleDetailClick(item.carNumber)}>상세보기</button></td>
             </tr>
           ))}
         </tbody>
