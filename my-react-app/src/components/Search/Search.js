@@ -58,13 +58,13 @@ function Search() {
   const searchBtnClick = (event) => {
     event.preventDefault();
     if (
-      selectedOption === "전체 호차" &&
+      selectedOption === "전체 " &&
       stations.includes(startStationValue) &&
       stations.includes(endStationValue)
     ) {
       window.location.href = `/cars?startStation=${startStationValue}&endStation=${endStationValue}`;
     } else if (
-      selectedOption !== "전체 호차" &&
+      selectedOption !== "전체 " &&
       stations.includes(startStationValue) &&
       stations.includes(endStationValue)
     ) {
