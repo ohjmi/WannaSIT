@@ -41,28 +41,38 @@ function Search() {
     setShowEndLiTag(false);
   };
 
-  const [selectedOption, setSelectedOption] = useState("전체 호차");
+  const [selectedOption, setSelectedOption] = useState("전체 ");
   const [showOptions, setShowOptions] = useState(false);
 
-  const options = [
-    "전체 호차", "1호차", "2호차", "3호차", "4호차", "5호차", "6호차", "7호차", "8호차", "9호차", "10호차"
-  ];
+  const options = ["전체 ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     setShowOptions(false);
   };
-  
+
   const toggleOptions = () => {
     setShowOptions(!showOptions);
   };
 
   const searchBtnClick = (event) => {
     event.preventDefault();
-    if (selectedOption === "전체 호차") {
+    if (
+      selectedOption === "전체 호차" &&
+      stations.includes(startStationValue) &&
+      stations.includes(endStationValue)
+    ) {
       window.location.href = `/cars?startStation=${startStationValue}&endStation=${endStationValue}`;
-    } else {
+    } else if (
+      selectedOption !== "전체 호차" &&
+      stations.includes(startStationValue) &&
+      stations.includes(endStationValue)
+    ) {
       window.location.href = `/cars/info?startStation=${startStationValue}&endStation=${endStationValue}&carNumber=${selectedOption}`;
+    } else if (!stations.includes(startStationValue)) {
+      alert("출발역이 잘못 입력되었습니다!");
+    } else if (!stations.includes(endStationValue)) {
+      alert("도착역이 잘못 입력되었습니다!");
     }
   };
 
@@ -134,14 +144,14 @@ function Search() {
             onClick={toggleOptions}
             value={selectedOption}
           >
-            {selectedOption}
+            {selectedOption}호차
             <img src={downarrow} alt="아래방향아이콘" />
           </div>
           {showOptions && (
             <ul className="dropdown-options">
               {options.map((option, index) => (
                 <li key={index} onClick={() => handleOptionClick(option)}>
-                  {option}
+                  {option}호차
                 </li>
               ))}
             </ul>
