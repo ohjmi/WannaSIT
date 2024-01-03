@@ -1,0 +1,30 @@
+#messageContainer {
+    height: 200px;
+    overflow-y: scroll;
+    border:  1px solid black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.messageBubble {
+    padding: 8px;
+    border-radius: 5px;
+    color: white;
+    word-wrap: break-word;
+    clear: both;
+    max-width: 70%;
+    text-align: left;
+}
+
+.sentMessage {
+    margin-bottom: 5px;
+    background-color: rgb(92, 136, 149);
+    align-self: flex-end;
+}
+
+.receivedMessage {
+    margin-bottom: 5px;
+    background-color: rgb(175, 173, 98);
+    align-self: flex-start;
+}
