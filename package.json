@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "semver": "^7.5.4",
+    "shebang-command": "^2.0.0",
+    "shebang-regex": "^4.0.0",
+    "side-channel": "^1.0.4",
+    "tempy": "^3.1.0",
+    "terser-webpack-plugin": "^5.3.10",
+    "unicode-match-property-value-ecmascript": "^2.1.0",
+    "unicode-property-aliases-ecmascript": "^2.1.0",
+    "workbox-build": "^7.0.0"
+  }
+}

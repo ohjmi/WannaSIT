@@ -1,7 +1,7 @@
-import "dotenv/config";
+// import "dotenv/config";
 
 const config = {
-  port: process.env.PORT || 3000,
+  port: 4000,
 };
 
 export default config;
