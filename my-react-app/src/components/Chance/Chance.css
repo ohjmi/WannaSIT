@@ -1,0 +1,24 @@
+.chanceList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.line {
+    width: 3px;
+    height: 1px;
+    margin-right: 1px;
+    display: inline-block;
+    background-color: #C5C5C5;
+}
+
+.circle {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: #C5C5C5;
+    margin-right: 28px;
+}

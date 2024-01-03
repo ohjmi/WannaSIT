@@ -3,7 +3,7 @@ import rightArrow from '../../assets/images/icon/rightarrow.svg';
 
 function StationPath({ startStation, endStation }) {
     return (
-      <div>
+      <div className='StationPath'>
         <ul className="stationTitle">
             <li>출발역</li>
             <li>도착역</li>
