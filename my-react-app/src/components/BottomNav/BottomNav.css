@@ -1,4 +1,4 @@
-.NavOnBtn {
+.navOnBtn {
     position: fixed;
     bottom: 49px;
     right: 20px;
@@ -8,24 +8,22 @@
     padding: 10.25px 12.8px;
     font-weight: bold;
     font-size: 14px;
-    z-index: 3;
 }
 
-.BottomNavContainer {
+.bottomNavContainer {
     position: fixed;
     bottom: 39px;
     right: 20px;
     text-align: right;
-    display: none;
     z-index: 3;
 }
 
-.BottomNav {
+.bottomNav {
     background-color: #C0EF52;
     border-radius: 10px;
 }
 
-.BottomNavLink {
+.bottomNavLink {
     list-style: none;
     margin: 0;
     padding: 9px;
@@ -34,7 +32,7 @@
     font-size: 14px;
 }
 
-.NavCloseBtn {
+.navCloseBtn {
     border: none;
     background-color: #C0EF52;
     text-align: center;
@@ -50,11 +48,10 @@ li img {
 
 .blackBox {
     position: fixed;
-    display: none;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
-    z-index: 3;
+    z-index: 2;
 }
