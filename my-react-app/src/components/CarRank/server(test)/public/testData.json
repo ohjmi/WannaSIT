@@ -5,8 +5,8 @@
       "traffic": 1,
       "tip": [
         {
-          "feature": "직장가",
-          "character": ["정장", "구두"]
+          "feature": "업무지구",
+          "character": "공무원"
         }
       ],
       "chance": "높음",
@@ -17,8 +17,8 @@
       "traffic": 1,
       "tip": [
         {
-          "feature": "직장가",
-          "character": ["정장", "구두"]
+          "feature": "상업지구",
+          "character": "관광객"
         }
       ],
       "chance": "높음",
@@ -29,8 +29,8 @@
       "traffic": 0,
       "tip": [
         {
-          "feature": "직장가",
-          "character": ["정장", "구두"]
+          "feature": "상업지구",
+          "character": "관광객"
         }
       ],
       "chance": "높음",
@@ -41,8 +41,8 @@
       "traffic": 0,
       "tip": [
         {
-          "feature": "직장가",
-          "character": ["정장", "구두"]
+          "feature": "관광지구",
+          "character": "관광객"
         }
       ],
       "chance": "중간",
@@ -53,8 +53,8 @@
       "traffic": 1,
       "tip": [
         {
-          "feature": "직장가",
-          "character": ["정장", "구두"]
+          "feature": "주거지구",
+          "character": "주민"
         }
       ],
       "chance": "낮음",
