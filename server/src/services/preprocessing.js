@@ -1,5 +1,5 @@
-const fs = require("fs");
-const csv = require("csv-parser");
+import fs from "fs";
+import csv from "csv-parser";
 
 async function main(outputFilePath) {
   let data = [];
@@ -135,7 +135,7 @@ main("../data/preprocessingResult.json");
 // stationList 불러오기
 function getStationList(filePath) {
   const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
-  return Object.keys(data);
+  return Object.values(data);
 }
 
 // CSV 파일 읽어오기
