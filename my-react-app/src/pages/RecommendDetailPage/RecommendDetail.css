@@ -1,0 +1,58 @@
+.RecommendDetail {
+    display: grid;
+    justify-items: center;
+    grid-template-rows: 0px auto;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.StationPath {
+    grid-row: 2;
+    grid-column: 1 / 4;
+}
+
+.carSelectOpt {
+    margin: auto;
+    width: 350px;
+    display: flex;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid #C0EF52;
+    overflow: hidden;
+    height: 42px;
+    grid-row: 3;
+    grid-column: 1 / 4;
+}
+
+.openChance,
+.openHighCars {
+    width: 50%;
+    height: 42px;
+    display: grid;
+    align-items: center;
+    justify-content: center
+}
+
+.StationsInPath {
+    margin-top: 60px;
+    grid-row: 4;
+    grid-column: 1;
+}
+
+.Chance,
+.HighCars {
+    grid-row: 4;
+    grid-column: 2 / 4;
+}
+
+.Chance p,
+.HighCars p {
+    font-size: 12px;
+    margin: 16px auto 46px 10px;
+    vertical-align: middle;
+}
+
+.Chance p img {
+    padding-left: 4px;
+    vertical-align: middle;
+}

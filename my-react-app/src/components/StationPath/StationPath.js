@@ -1,16 +1,17 @@
-import rightArrow from '../../assets/images/icon/right-arrow.svg';
+import React from 'react';
+import rightArrow from '../../assets/images/icon/rightarrow.svg';
 
-function StationPath({ stationStart, stationEnd }) {
+function StationPath({ startStation, endStation }) {
     return (
-      <div>
+      <div className='StationPath'>
         <ul className="stationTitle">
             <li>출발역</li>
             <li>도착역</li>
         </ul>
         <ul className="stationName">
-            <li>{stationStart}</li>
+            <li>{startStation}</li>
             <li><img src={rightArrow} alt='오른쪽 화살표'/></li>
-            <li>{stationEnd}</li>
+            <li>{endStation}</li>
         </ul>
       </div>
     );

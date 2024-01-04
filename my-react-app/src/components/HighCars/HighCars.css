@@ -1,0 +1,24 @@
+.highCars {
+    margin-right: -20px;
+}
+
+.highCarsList {
+    margin-bottom: 30px;
+    font-size: 12px;
+}
+
+.highCarsList div {
+    width: 15px;
+    height: 10px;
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+
+.highlighted {
+    background-color: #7ED287;
+}
+
+.unhighlighted {
+    background-color: #D9D9D9;
+}
