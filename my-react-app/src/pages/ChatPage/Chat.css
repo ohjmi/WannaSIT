@@ -1,30 +1,144 @@
+.Chat {
+    height: 100vh;
+    background-color: #7ed2871a;
+}
+
+.hamWrapper {
+    position: absolute;
+    z-index: 3;
+}
+
+.hamCont {
+    background-color: white;
+    height: 100vh;
+}
+
 #messageContainer {
-    height: 200px;
+    padding-top: 15px;
+    width: 100%;
     overflow-y: scroll;
-    border:  1px solid black;
-    padding: 10px;
+    position: absolute;
+    height: 80vh;
+    top: 69px;
+    z-index: 1;
     display: flex;
     flex-direction: column;
-}
-
-.messageBubble {
-    padding: 8px;
-    border-radius: 5px;
-    color: white;
     word-wrap: break-word;
-    clear: both;
-    max-width: 70%;
-    text-align: left;
 }
 
-.sentMessage {
-    margin-bottom: 5px;
-    background-color: rgb(92, 136, 149);
-    align-self: flex-end;
+.messageList {
+    padding: 0 10px 0 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.sender {
+    align-self: flex-start;
+    margin-bottom: -8px;
+    font-weight: bold;
+    font-size: 10px;
+    color: #7ed287;
 }
 
 .receivedMessage {
-    margin-bottom: 5px;
-    background-color: rgb(175, 173, 98);
     align-self: flex-start;
+    padding: 10px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    border: 1px solid #7ED287;
+    background-color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 16px;
+    max-width: 70%;
+    box-shadow: 0 6px 4px rgba(0, 0, 0, 0.12);
+    word-wrap: break-word;
+}
+
+.sentMessage {
+    align-self: flex-end;
+    padding: 10px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    background-color: #C0EF52;
+    font-weight: bold;
+    max-width: 70%;
+    font-size: 16px;
+    box-shadow: 0 6px 4px rgba(0, 0, 0, 0.12);
+    word-wrap: break-word;
+}
+
+.userInOut {
+    text-align: center;
+    color: #d8d8d8;
+    font-weight: bold;
+    font-size: 10px;
+    margin-bottom: 20px;
+}
+
+.inputForm {
+    border: 1px solid #7ED287;
+    border-radius: 10px;
+    width: 350px;
+    height: 44px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
+    margin: 0 auto 0 auto;
+    position: absolute;
+    align-content: center;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    /* 내부 컨텐츠를 좌우로 정렬 */
+    align-items: center;
+    /* 내부 컨텐츠를 수직으로 중앙 정렬 */
+    z-index: 2;
+}
+
+#inputMessage {
+    flex: 1;
+    background-color: rgba(126, 210, 135, 0);
+    border: none;
+    display: inline-block;
+    height: 44px;
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+#inputMessage:focus {
+    outline: none;
+    /* 클릭 시 나타나는 포커스 효과 제거 */
+}
+
+#sendButton {
+    padding-right: 10px;
+    cursor: pointer;
+
+}
+
+/* 스크롤 바의 전체 영역을 선택 */
+#messageContainer::-webkit-scrollbar {
+    width: 10px;
+    /* 스크롤 바의 너비 */
+}
+
+/* 스크롤 바의 추적(track) 부분을 선택 */
+#messageContainer::-webkit-scrollbar-track {
+    background: rgba(126, 210, 135, 0);
+    /* 스크롤 바의 배경 색상 */
+}
+
+/* 스크롤 바의 손잡이(thumb) 부분을 선택 */
+#messageContainer::-webkit-scrollbar-thumb {
+    background: rgba(126, 210, 135, 0.1);
+    /* 스크롤 바의 색상 */
+    border-radius: 5px;
+    /* 스크롤 바의 모서리 둥글게 처리 */
 }

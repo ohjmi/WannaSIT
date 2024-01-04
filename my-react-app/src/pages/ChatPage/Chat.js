@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import useWebSocket from "react-use-websocket"; //웹소켓 라이브러리
+import "./Chat.css";
 import Hamburger from "../../components/Hamburger/Hamburger";
+import ChatSendBtn from "../../assets/images/icon/ChatSendBtn.svg";
 
 function Chat() {
   const location = useLocation();
@@ -26,10 +28,10 @@ function Chat() {
     }
   };
 
-  const handleKeyDown = (event) => {
+  const handleKeyUp = (event) => {
     if (event.key === "Enter") {
-      event.preventDefault(); // 엔터키에 의한 줄바꿈 방지
       sendMsg();
+      event.preventDefault(); // 엔터키에 의한 줄바꿈 방지
     }
   };
 
@@ -67,14 +69,25 @@ function Chat() {
     <div className="Chat">
       <Hamburger />
       <div id="messageContainer" ref={scrollContainerRef}>
-        <ul>
+        <ul className="messageList">
           {messageHistory.map((message, idx) => {
             if (message.sender !== "시스템 알림") {
-              return (
-                <div key={idx} className="messageBox">
-                  <strong>{message.sender}</strong> : {message.content}
-                </div>
-              );
+              if (message.sender !== username) {
+                return (
+                  <>
+                    <div className="sender">{message.sender}</div>
+                    <div key={idx} className="messageBubble receivedMessage">
+                      {message.content}
+                    </div>
+                  </>
+                );
+              } else if (message.sender === username) {
+                return (
+                  <div key={idx} className="messageBubble sentMessage">
+                    {message.content}
+                  </div>
+                );
+              }
             } else {
               return (
                 <div key={idx} className="userInOut">
@@ -85,17 +98,17 @@ function Chat() {
           })}
         </ul>
       </div>
-      <input
-        type="text"
-        id="inputMessage"
-        value={message}
-        onChange={onMessage}
-        onKeyDown={handleKeyDown}
-        placeholder="메세지를 입력하세요"
-      />
-      <button id="sendButton" onClick={sendMsg}>
-        전송
-      </button>
+      <div className="inputForm">
+        <input
+          type="text"
+          id="inputMessage"
+          value={message}
+          onChange={onMessage}
+          onKeyUp={handleKeyUp}
+          placeholder="메세지를 입력하세요"
+        />
+        <img src={ChatSendBtn} alt="전송" id="sendButton" onClick={sendMsg} />
+      </div>
     </div>
   );
 }
