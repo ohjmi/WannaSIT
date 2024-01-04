@@ -50,8 +50,7 @@ async function getRouteAndDirection(startStation, endStation) {
 }
 
 // 경로별 디테일 정보 DB에서 가져오는 함수
-async function getRouteDetail(startStation, endStation) {
-  const { route, direction } = await getRouteAndDirection(startStation, endStation);
+async function getRouteDetail(route, direction) {
   let { day, arrivalHour, arrivalMin } = getTime();
 
   const routeInfo = [];
@@ -78,4 +77,4 @@ async function getRouteDetail(startStation, endStation) {
   return routeInfo;
 }
 
-export { getRouteDetail };
+export { getRouteAndDirection, getRouteDetail };
