@@ -1,14 +1,12 @@
-{
-  "data": [
-    { "carNumber": 3, "remainingStations": 0, "isSeatAvailable": 0 },
-    { "carNumber": 1, "remainingStations": 0, "isSeatAvailable": 0 },
-    { "carNumber": 4, "remainingStations": 1, "isSeatAvailable": 1 },
-    { "carNumber": 5, "remainingStations": 2, "isSeatAvailable": 1 },
-    { "carNumber": 6, "remainingStations": 4, "isSeatAvailable": 1 },
-    { "carNumber": 7, "remainingStations": 6, "isSeatAvailable": 1 },
-    { "carNumber": 8, "remainingStations": 6, "isSeatAvailable": 1 },
-    { "carNumber": 2, "remainingStations": 7, "isSeatAvailable": 1 },
-    { "carNumber": 9, "remainingStations": 7, "isSeatAvailable": 1 },
-    { "carNumber": 10, "remainingStations": 8, "isSeatAvailable": 1 }
-  ]
-}
+[
+  { "carNumber": 3, "remainingStations": 0, "isSeatAvailable": 0 },
+  { "carNumber": 1, "remainingStations": 0, "isSeatAvailable": 0 },
+  { "carNumber": 4, "remainingStations": 1, "isSeatAvailable": 1 },
+  { "carNumber": 5, "remainingStations": 2, "isSeatAvailable": 1 },
+  { "carNumber": 6, "remainingStations": 4, "isSeatAvailable": 1 },
+  { "carNumber": 7, "remainingStations": 6, "isSeatAvailable": 1 },
+  { "carNumber": 8, "remainingStations": 6, "isSeatAvailable": 1 },
+  { "carNumber": 2, "remainingStations": 7, "isSeatAvailable": 1 },
+  { "carNumber": 9, "remainingStations": 7, "isSeatAvailable": 1 },
+  { "carNumber": 10, "remainingStations": 8, "isSeatAvailable": 1 }
+]

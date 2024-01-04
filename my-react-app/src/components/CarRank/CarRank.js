@@ -10,7 +10,7 @@ function CarRank({startStation, endStation}) {
     useEffect(() => {
         api.get(`/cars?startStation=${startStation}&endStation=${endStation}`)
             .then((response) => {
-                setData(response.data.data);
+                setData(response.data);
             })
             .catch((error) => {
                 console.error('에러:', error);
