@@ -6,8 +6,20 @@ function calculateRanking(routeDetail) {
   // 우선순위 : minCount  > index(역)
   sortArray(minCountByCar);
 
-  const carRank = transformForResponse(minCountByCar);
+  const carRank = transformForCarResponse(minCountByCar);
   return carRank;
+}
+
+// 착석 가능성 분류 함수 // 상수
+function calculateChanceByCount(routeDetail, carNumber) {
+  const countByCar = gatherCountByCar(routeDetail);
+  const countCar = countByCar[carNumber - 1];
+
+  countCar.map((car, index) => {
+    countCar[index] = car < 54 ? "높음" : car <= 64 ? "중간" : "낮음";
+  });
+
+  return countCar;
 }
 
 // 경로까지 칸 별 예측 인원 모으는 함수
@@ -46,7 +58,7 @@ function sortArray(array) {
   console.log(array);
 }
 
-function transformForResponse(minCountByCar) {
+function transformForCarResponse(minCountByCar) {
   return minCountByCar.map(({ carNum, stationIndex, minCount }) => {
     const isSeatAvailable = minCount <= 34 ? 1 : 0;
     return {
@@ -57,4 +69,4 @@ function transformForResponse(minCountByCar) {
   });
 }
 
-export { calculateRanking };
+export { calculateRanking, calculateChanceByCount };
