@@ -32,7 +32,7 @@ function CarRank({startStation, endStation}) {
               <td>{item.carNum}호차</td>
               <td>{item.stationIndex === 0 ? '지금 이 순간' : `${item.stationIndex}정거장 뒤`}</td>
               <td>{item.isSeatAvailable === 1 ? '자리 O' : `자리 생길지도,,`}</td>
-              <td><button onClick={() => handleDetailClick(item.carNumber)}>상세보기</button></td>
+              <td><button onClick={() => handleDetailClick(item.carNum)}>상세보기</button></td>
             </tr>
           ))}
         </tbody>
