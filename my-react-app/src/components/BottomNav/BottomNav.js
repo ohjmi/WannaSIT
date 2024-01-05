@@ -27,13 +27,13 @@ function BottomNav() {
         <div className="bottomNavContainer">
           <nav className="bottomNav">
             <ul className="bottomNavLink">
-              <li>
-                <img src={issue} alt="게시판 아이콘" />역 별 이슈
-              </li>
-              <li>
-                <img src={chat} alt="채팅 아이콘" />
-                실시간 채팅
-              </li>
+                <a href="/board">
+                  <img src={issue} alt="게시판 아이콘" />역 별 이슈
+                </a>
+                <a href="/chat">
+                  <img src={chat} alt="채팅 아이콘" />
+                  실시간 채팅
+                </a>
             </ul>
           </nav>
           <button className="navCloseBtn" onClick={hanldeNavBtn}>

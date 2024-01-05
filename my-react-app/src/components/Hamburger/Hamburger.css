@@ -83,10 +83,7 @@ ul ,li {
 }
 .menu li {
   display: flex;
-  justify-content: left;
-  align-items: center;
   margin-bottom: 20px;
-  cursor: pointer;
   font-weight: 500;
 }
 .menu li img {
@@ -96,4 +93,11 @@ ul ,li {
 }
 .menu li span {
   margin-left: 10px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
 }
