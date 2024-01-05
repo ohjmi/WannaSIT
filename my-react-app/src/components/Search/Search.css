@@ -1,23 +1,33 @@
 #stationSearchForm {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 19px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputBox {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+    z-index: 4;
 }
 
 #startStationInput,
 #endStationInput {
+    margin-top: 19px;
+    padding: 0 0 0 9px;
     border-radius: 10px;
     border: 1px solid #7ED287;
     background-color: #fff;
     width: 161px;
     height: 42px;
-    padding: 0 0 0 9px;
     font-size: 16px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.12);
 }
 
-#startStationInput {
-    margin-right: 6px;
+#startStationInput:focus,
+#endStationInput:focus {
+    outline: none;
+    background-color: #fff;
 }
 
 #startStationInput::placeholder,
@@ -27,64 +37,77 @@
 
 .searchResultList {
     position: absolute;
-    top: 139px;
+    top: 131px;
     margin: 0;
-    padding: 0;
     border-radius: 10px;
-    border: 0.5px solid #7ED287;
+    border: 1px solid #7ED287;
     background-color: white;
     z-index: 3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+
+.startResult,
+.endResult {
+    width: 331px;
 }
 
 .startResult,
 .endResult,
 .dropdown-options {
-    width: 340px;
     list-style: none;
-    border-radius: 10px;
-    padding: 6px 0 6px 9px;
     color: rgb(92, 92, 92);
     background-color: #fff;
-    z-index: 3;
+    cursor: pointer;
+    overflow: hidden;
 }
 
 .carNumber {
     border-radius: 10px;
-    border: 1px solid #7ED287;
     margin-top: 8px;
     padding: 0 0 0 0;
-    width: 348px;
-    height: 42px;
-    font-size: 16px;
-    color: #7ED287;
+    width: 350px;
+    height: 44px;
     z-index: 2;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+
 }
 
 .selected-option {
-    padding: 10.75px 0 0 9px;
+    border-radius: 10px;
+    border: 1px solid #7ED287;
+    width: 339px;
+    height: 31px;
+    font-size: 16px;
+    color: #7ED287;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.12);
+    padding: 11px 0 0 9px;
     vertical-align: middle;
+    display: flex;
+    justify-content: space-between;
 }
 
 .selected-option img {
-    position: relative;
-    left: 75%;
-    vertical-align: middle;
+    padding-right: 16px;
 }
 
 .dropdown-options {
-    position: relative;
-    border: 0.5px solid #7ED287;
-    top: 12px;
-    left: -1px;
+    position: absolute;
+    border-radius: 10px;
+    border: 1px solid #7ED287;
+    width: 348px;
+    top: 175px;
+    padding-top: 16px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+    z-index: 1;
 }
 
-.dropdown-options li {
-    padding-bottom: 3px;
-}
-
-.hovered {
-    background-color: #7ED287;
-    color: #fff;
+.dropdown-options li,
+.searchResultList li {
+    padding: 5px 0 6px 18px;
+    font-size: 14px;
 }
 
 .searchBtn {
@@ -97,5 +120,11 @@
     width: 350px;
     height: 44px;
     font-size: 16px;
-    z-index: 1;
+    z-index: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.12);
+}
+
+.hover {
+    background-color: #7ED287;
+    color: white;
 }

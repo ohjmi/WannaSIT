@@ -5,7 +5,7 @@
 
 .hamWrapper {
     position: absolute;
-    z-index: 3;
+    z-index: 5;
 }
 
 .hamCont {
@@ -27,7 +27,7 @@
 }
 
 .messageList {
-    padding: 0 10px 0 20px;
+    padding: 0 18px 0 20px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -114,7 +114,6 @@
 
 #inputMessage:focus {
     outline: none;
-    /* 클릭 시 나타나는 포커스 효과 제거 */
 }
 
 #sendButton {
@@ -125,7 +124,7 @@
 
 /* 스크롤 바의 전체 영역을 선택 */
 #messageContainer::-webkit-scrollbar {
-    width: 10px;
+    width: 2px;
     /* 스크롤 바의 너비 */
 }
 
