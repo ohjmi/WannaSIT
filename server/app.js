@@ -2,12 +2,16 @@ import express from "express";
 import cors from "cors";
 import expressWs from "express-ws";
 import session from "express-session";
+
 import config from "./src/config/index.js";
 
 import carsRouter from "./src/routes/carsRoutes.js";
 import stationsRouter from "./src/routes/stationsRoutes.js";
 
 import setupWebSocket from "./webSocket.js";
+// import path from "path";
+// const scriptDirectory = path.resolve();
+// const filePath = path.join(scriptDirectory, "public", "client3.html");
 
 const app = express();
 expressWs(app);
@@ -19,9 +23,6 @@ app.use(
     secret: config.sessionSecret,
     resave: false,
     saveUninitialized: true,
-    cookie: {
-      maxAge: 60000,
-    },
   })
 );
 
@@ -35,9 +36,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/stations", stationsRouter);
 app.use("/cars", carsRouter);
 
+// // ========== 웹 소켓 테스트
+// app.use(express.static("public"));
+// app.get("/", (req, res) => {
+//   res.sendFile(filePath);
+// });
+// // ==========
+
+const sessionInfo = new Map();
 const wsClients = new Map();
 
-setupWebSocket(app, wsClients);
+setupWebSocket(app, sessionInfo, wsClients);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

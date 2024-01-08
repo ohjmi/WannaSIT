@@ -1,16 +1,23 @@
 import WebSocket from "ws";
 import randomNameGenerator from "korean-random-names-generator";
 
-function setupWebSocket(app, wsClients) {
+function setupWebSocket(app, sessionInfo, wsClients) {
   app.ws("/chat", (ws, req) => {
     const clientIP = req.socket.remoteAddress;
-    if (!req.session.name) {
-      req.session.name = randomNameGenerator();
+
+    const sessionID = req.sessionID;
+    console.log(sessionID);
+
+    // 세션 아이디 별로 하나의 닉네임 부여
+    let username = sessionInfo.get(sessionID);
+
+    if (!username) {
+      username = randomNameGenerator();
+      sessionInfo.set(sessionID, username);
     }
 
-    const username = req.session.name;
-
-    if (username && !wsClients.has(username)) {
+    // 입장
+    if (!wsClients.has(username)) {
       console.log(`${username}(${clientIP}) 입장`);
 
       wsClients.set(username, ws);
