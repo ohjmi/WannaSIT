@@ -41,6 +41,14 @@
     color: #7ed287;
 }
 
+.username {
+    align-self: flex-end;
+    margin-bottom: -8px;
+    font-weight: bold;
+    font-size: 10px;
+    color: #7ed287;
+}
+
 .receivedMessage {
     align-self: flex-start;
     padding: 10px;
@@ -51,7 +59,6 @@
     border-top-right-radius: 15px;
     border: 1px solid #7ED287;
     background-color: rgb(255, 255, 255);
-    font-weight: bold;
     font-size: 16px;
     max-width: 70%;
     box-shadow: 0 6px 4px rgba(0, 0, 0, 0.12);
@@ -67,7 +74,6 @@
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     background-color: #C0EF52;
-    font-weight: bold;
     max-width: 70%;
     font-size: 16px;
     box-shadow: 0 6px 4px rgba(0, 0, 0, 0.12);

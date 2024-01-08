@@ -72,9 +72,12 @@ function Chat() {
               );
             } else if (message.messagetype === "sent") {
               return (
+                <>
+                <div className="username">{message.sender}</div>
                 <div key={idx} className="messageBubble sentMessage">
                   {message.content}
                 </div>
+                </>
               );
             } else {
               return (
