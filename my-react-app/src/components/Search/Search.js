@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./Search.css";
 import api from "./api";
 import downarrow from "../../assets/images/icon/downarrow.svg";
@@ -30,6 +30,16 @@ function Search() {
     endStationValue.length >= 1
       ? stations.filter((station) => station.includes(endStationValue))
       : [];
+
+  const handleMouseOver = useCallback((e) => {
+    e.currentTarget === e.target
+      ? e.target.classList.add("hover")
+      : e.currentTarget.classList.remove("hover");
+  });
+
+  const handleMouseLeave = useCallback((e) => {
+    e.target.classList.remove("hover");
+  });
 
   const startResultClick = (selectedStation) => {
     setStartStationValue(selectedStation);
@@ -90,51 +100,57 @@ function Search() {
   return (
     <div>
       <form action="/cars" method="GET" id="stationSearchForm">
-        <input
-          type="text"
-          name="startStation"
-          id="startStationInput"
-          value={startStationValue}
-          onChange={handleStartStationChange}
-          onClick={reshowStart}
-          placeholder="출발역"
-          required
-        ></input>
-        <input
-          type="text"
-          name="endStation"
-          id="endStationInput"
-          value={endStationValue}
-          onChange={handleEndStationChange}
-          onClick={reshowEnd}
-          placeholder="도착역"
-          required
-        ></input>
+        <div className="inputBox">
+          <input
+            type="text"
+            name="startStation"
+            id="startStationInput"
+            value={startStationValue}
+            onChange={handleStartStationChange}
+            onClick={reshowStart}
+            placeholder="출발역"
+            required
+          ></input>
+          <input
+            type="text"
+            name="endStation"
+            id="endStationInput"
+            value={endStationValue}
+            onChange={handleEndStationChange}
+            onClick={reshowEnd}
+            placeholder="도착역"
+            required
+          ></input>
+        </div>
         {showStartLi && (
-          <ul className="searchResultList">
+          <div className="searchResultList">
             {startSearched.map((item) => (
               <li
                 className="startResult"
                 key={item}
                 onClick={() => startResultClick(item)}
+                onMouseOver={handleMouseOver}
+                onMouseLeave={handleMouseLeave}
               >
                 {item}
               </li>
             ))}
-          </ul>
+          </div>
         )}
         {showEndLi && (
-          <ul className="searchResultList">
+          <div className="searchResultList">
             {endSearched.map((item) => (
               <li
                 className="endResult"
                 key={item}
                 onClick={() => endResultClick(item)}
+                onMouseOver={handleMouseOver}
+                onMouseLeave={handleMouseLeave}
               >
                 {item}
               </li>
             ))}
-          </ul>
+          </div>
         )}
 
         <div className="carNumber" name="carNumber">
@@ -144,19 +160,27 @@ function Search() {
             onClick={toggleOptions}
             value={selectedOption}
           >
-            {selectedOption}호차
-            <img src={downarrow} alt="아래방향아이콘" />
+            <div>{selectedOption}호차</div>
+            <div>
+              <img src={downarrow} alt="아래방향아이콘" />
+            </div>
           </div>
-          {showOptions && (
-            <ul className="dropdown-options">
-              {options.map((option, index) => (
-                <li key={index} onClick={() => handleOptionClick(option)}>
-                  {option}호차
-                </li>
-              ))}
-            </ul>
-          )}
         </div>
+
+        {showOptions && (
+          <div className="dropdown-options">
+            {options.map((option, index) => (
+              <li
+                key={index}
+                onClick={() => handleOptionClick(option)}
+                onMouseOver={handleMouseOver}
+                onMouseLeave={handleMouseLeave}
+              >
+                {option}호차
+              </li>
+            ))}
+          </div>
+        )}
 
         <button className="searchBtn" onClick={searchBtnClick}>
           검색하기
