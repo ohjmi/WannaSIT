@@ -21,7 +21,7 @@ function StationsInPath({ data }) {
             <span className="blueSpan" onClick={() => handleOpenTips(index)}>
               착석꿀팁 &gt;
               {openTipsIndex === index && (
-                <Tips station={item.station} tip={item.tip[0]} />
+                <Tips station={item.station} tip={item.tip} />
               )}
             </span>
           ) : null}
