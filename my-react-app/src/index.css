@@ -19,6 +19,13 @@ code {
     monospace;
 }
 
+body {
+  min-width: 360px;
+  height: 100vh;
+  padding: 0;
+  overflow: hidden;
+}
+
 h1 {
   margin: 0;
   padding: 17.5px;

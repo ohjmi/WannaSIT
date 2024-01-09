@@ -44,7 +44,7 @@ function RecommendDetail() {
         `/cars/info?startStation=${startStation}&endStation=${endStation}&carNumber=${carNumber}`
       )
       .then((response) => {
-        setData(response.data.data);
+        setData(response.data);
         setLoading(false);
       })
       .catch((error) => {
