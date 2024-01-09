@@ -42,7 +42,6 @@ function Chat() {
           lastMessage.sender = object.sender;
           lastMessage.content = object.content;
           lastMessage.messagetype = object.type;
-          console.log("확인:", lastMessage.messagetype);
         }
         return prev.concat(lastMessage);
       });
