@@ -74,11 +74,13 @@ function RecommendDetail() {
         </div>
       </div>
 
+      <div className="infoBox">
       {!loading && <StationsInPath data={data} />}
 
       {!loading && openChance && <Chance data={data} />}
 
       {!loading && openHighCars && <HighCars data={data} />}
+      </div>
     </div>
   );
 }

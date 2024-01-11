@@ -3,8 +3,9 @@
 }
 
 .highCarsList {
-    margin-bottom: 30px;
     font-size: 12px;
+    height: 37.5px;
+    padding-top: 14px;
 }
 
 .highCarsList div {

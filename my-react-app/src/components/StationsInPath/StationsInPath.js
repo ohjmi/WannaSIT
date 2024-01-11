@@ -1,6 +1,7 @@
 import "./StationsInPath.css";
 import Tips from "../../components/Tips/Tips";
 import { useState } from "react";
+import Circle from "../../assets/images/Circle.svg";
 
 function StationsInPath({ data }) {
   const [openTipsIndex, setOpenTipsIndex] = useState(null);
@@ -11,6 +12,7 @@ function StationsInPath({ data }) {
 
   return (
     <div className="StationsInPath">
+      <div className="forHeight"></div>
       {data.map((item, index) => (
         <li className="stationList" key={item.station}>
           {item.traffic === 1 ? (

@@ -7,6 +7,7 @@ function StationPath({ startStation, endStation }) {
       <div className='StationPath'>
         <ul className="stationTitle">
             <li>출발역</li>
+            <br/>
             <li>도착역</li>
         </ul>
         <ul className="stationName">

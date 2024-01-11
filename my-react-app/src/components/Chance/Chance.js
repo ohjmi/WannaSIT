@@ -27,7 +27,7 @@ function Chance({ data }) {
                 : null,
           }}
         >
-          {Array.from({ length: 30 }, () => (
+          {Array.from({ length: 35 }, () => (
             <div className="line" />
           ))}
           <div className="circle" />
