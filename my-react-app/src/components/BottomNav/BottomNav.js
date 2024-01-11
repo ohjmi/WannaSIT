@@ -27,7 +27,7 @@ function BottomNav() {
         <div className="bottomNavContainer">
           <nav className="bottomNav">
             <ul className="bottomNavLink">
-                <a href="/board">
+                <a href="/boards">
                   <img src={issue} alt="게시판 아이콘" />역 별 이슈
                 </a>
                 <a href="/chat">
