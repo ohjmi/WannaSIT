@@ -1,0 +1,64 @@
+{
+  "data": [
+    {
+      "station": "강남",
+      "traffic": 1,
+      "tip": [
+        {
+          "feature": "업무지구",
+          "character": "공무원"
+        }
+      ],
+      "chance": "높음",
+      "highCars": [2, 3]
+    },
+    {
+      "station": "서초",
+      "traffic": 1,
+      "tip": [
+        {
+          "feature": "상업지구",
+          "character": "관광객"
+        }
+      ],
+      "chance": "높음",
+      "highCars": [2, 3]
+    },
+    {
+      "station": "서초초",
+      "traffic": 0,
+      "tip": [
+        {
+          "feature": "상업지구",
+          "character": "관광객"
+        }
+      ],
+      "chance": "높음",
+      "highCars": [1, 3]
+    },
+    {
+      "station": "강남남",
+      "traffic": 0,
+      "tip": [
+        {
+          "feature": "관광지구",
+          "character": "관광객"
+        }
+      ],
+      "chance": "중간",
+      "highCars": [3, 7]
+    },
+    {
+      "station": "신림",
+      "traffic": 1,
+      "tip": [
+        {
+          "feature": "주거지구",
+          "character": "주민"
+        }
+      ],
+      "chance": "낮음",
+      "highCars": [8, 9]
+    }
+  ]
+}
