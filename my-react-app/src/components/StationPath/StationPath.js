@@ -1,5 +1,6 @@
 import React from 'react';
 import rightArrow from '../../assets/images/icon/rightarrow.svg';
+import './StationPath.css';
 
 function StationPath({ startStation, endStation }) {
     return (
