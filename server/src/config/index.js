@@ -1,7 +1,8 @@
-// import "dotenv/config";
+import "dotenv/config";
 
 const config = {
-  port: 4000,
+  port: process.env.PORT || 4000,
+  sessionSecret: process.env.SESSION_SECRET,
 };
 
 export default config;

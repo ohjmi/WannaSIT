@@ -1,0 +1,260 @@
+[
+	{
+		"stationId": 201,
+		"stationName": "시청",
+		"stationInfo": "정부청사 지역",
+		"passengerInfo": "공무원"
+	},
+	{
+		"stationId": 202,
+		"stationName": "을지로입구",
+		"stationInfo": "상가, 회사 밀집 지역",
+		"passengerInfo": "관광객, 직장인"
+	},
+	{
+		"stationId": 203,
+		"stationName": "을지로3가",
+		"stationInfo": "회사 밀집 지역",
+		"passengerInfo": "직장인"
+	},
+	{
+		"stationId": 204,
+		"stationName": "을지로4가",
+		"stationInfo": "상가 밀집 지역",
+		"passengerInfo": "인근 주민"
+	},
+	{
+		"stationId": 205,
+		"stationName": "동대문역사문화공원",
+		"stationInfo": "관광지",
+		"passengerInfo": "관광객"
+	},
+	{
+		"stationId": 206,
+		"stationName": "신당",
+		"stationInfo": "주거 지역",
+		"passengerInfo": "인근 주민"
+	},
+	{
+		"stationId": 207,
+		"stationName": "상왕십리",
+		"stationInfo": "주거 지역",
+		"passengerInfo": "인근 주민"
+	},
+	{
+		"stationId": 208,
+		"stationName": "왕십리",
+		"stationInfo": "정부청사, 상가 밀집 지역",
+		"passengerInfo": "공무원, 젊은 사람"
+	},
+	{
+		"stationId": 209,
+		"stationName": "한양대",
+		"stationInfo": "대학가",
+		"passengerInfo": "대학생"
+	},
+	{
+		"stationId": 210,
+		"stationName": "뚝섬",
+		"stationInfo": "주거 지역",
+		"passengerInfo": "인근 주민"
+	},
+	{
+		"stationId": 211,
+		"stationName": "성수",
+		"stationInfo": "상가 밀집 지역",
+		"passengerInfo": "젊은 사람"
+	},
+	{
+		"stationId": 212,
+		"stationName": "건대입구",
+		"stationInfo": "대학가",
+		"passengerInfo": "대학생"
+	},
+	{
+		"stationId": 213,
+		"stationName": "구의",
+		"stationInfo": "주거 지역",
+		"passengerInfo": "인근 주민"
+	},
+	{
+		"stationId": 214,
+		"stationName": "강변",
+		"stationInfo": "상가 밀집 지역",
+		"passengerInfo": "쇼핑객"
+	},
+	{
+		"stationId": 215,
+		"stationName": "잠실나루",
+		"stationInfo": "주거 지역",
+		"passengerInfo": "인근 주민"
+	},
+	{
+		"stationId": 216,
+		"stationName": "잠실",
+		"stationInfo": "관광지, 상가 밀집 지역",
+		"passengerInfo": "관광객, 젊은 사람"
+	},
+	{
+		"stationId": 217,
+		"stationName": "잠실새내",
+		"stationInfo": "주거 지역",
+		"passengerInfo": "인근 주민"
+	},
+	{
+		"stationId": 218,
+		"stationName": "종합운동장",
+		"stationInfo": "스포츠 단지",
+		"passengerInfo": "스포츠 관람객"
+	},
+	{
+		"stationId": 219,
+		"stationName": "삼성",
+		"stationInfo": "회사 밀집 지역",
+		"passengerInfo": "직장인"
+	},
+	{
+		"stationId": 220,
+		"stationName": "선릉",
+		"stationInfo": "회사 밀집 지역",
+		"passengerInfo": "직장인"
+	},
+	{
+		"stationId": 221,
+		"stationName": "역삼",
+		"stationInfo": "회사 밀집 지역",
+		"passengerInfo": "직장인"
+	},
+	{
+		"stationId": 222,
+		"stationName": "강남",
+		"stationInfo": "상가, 회사 밀집 지역",
+		"passengerInfo": "다양한 사람"
+	},
+	{
+		"stationId": 223,
+		"stationName": "교대",
+		"stationInfo": "대학가",
+		"passengerInfo": "대학생"
+	},
+	{
+		"stationId": 224,
+		"stationName": "서초",
+		"stationInfo": "회사 밀집 지역",
+		"passengerInfo": "직장인"
+	},
+	{
+		"stationId": 225,
+		"stationName": "방배",
+		"stationInfo": "주거 지역",
+		"passengerInfo": "인근 주민"
+	},
+	{
+		"stationId": 226,
+		"stationName": "사당",
+		"stationInfo": "회사 밀집 지역",
+		"passengerInfo": "직장인"
+	},
+	{
+		"stationId": 227,
+		"stationName": "낙성대",
+		"stationInfo": "주거 지역",
+		"passengerInfo": "인근 주민"
+	},
+	{
+		"stationId": 228,
+		"stationName": "서울대입구",
+		"stationInfo": "대학가",
+		"passengerInfo": "대학생"
+	},
+	{
+		"stationId": 229,
+		"stationName": "봉천",
+		"stationInfo": "주거 지역",
+		"passengerInfo": "인근 주민"
+	},
+	{
+		"stationId": 230,
+		"stationName": "신림",
+		"stationInfo": "상가 밀집 지역",
+		"passengerInfo": "젊은 사람"
+	},
+	{
+		"stationId": 231,
+		"stationName": "신대방",
+		"stationInfo": "주거 지역",
+		"passengerInfo": "인근 주민"
+	},
+	{
+		"stationId": 232,
+		"stationName": "구로디지털단지",
+		"stationInfo": "회사 밀집 지역",
+		"passengerInfo": "직장인"
+	},
+	{
+		"stationId": 233,
+		"stationName": "대림",
+		"stationInfo": "상가 밀집 지역",
+		"passengerInfo": "젊은 사람"
+	},
+	{
+		"stationId": 234,
+		"stationName": "신도림",
+		"stationInfo": "상가 밀집 지역",
+		"passengerInfo": "쇼핑객"
+	},
+	{
+		"stationId": 235,
+		"stationName": "문래",
+		"stationInfo": "주거 지역",
+		"passengerInfo": "인근 주민"
+	},
+	{
+		"stationId": 236,
+		"stationName": "영등포구청",
+		"stationInfo": "정부청사 지역",
+		"passengerInfo": "공무원"
+	},
+	{
+		"stationId": 237,
+		"stationName": "당산",
+		"stationInfo": "주거 지역",
+		"passengerInfo": "인근 주민"
+	},
+	{
+		"stationId": 238,
+		"stationName": "합정",
+		"stationInfo": "상가 밀집 지역",
+		"passengerInfo": "젊은 사람"
+	},
+	{
+		"stationId": 239,
+		"stationName": "홍대입구",
+		"stationInfo": "대학가",
+		"passengerInfo": "대학생, 젊은 사람"
+	},
+	{
+		"stationId": 240,
+		"stationName": "신촌",
+		"stationInfo": "대학가",
+		"passengerInfo": "대학생"
+	},
+	{
+		"stationId": 241,
+		"stationName": "이대",
+		"stationInfo": "대학가",
+		"passengerInfo": "대학생"
+	},
+	{
+		"stationId": 242,
+		"stationName": "아현",
+		"stationInfo": "주거 지역",
+		"passengerInfo": "인근 주민"
+	},
+	{
+		"stationId": 243,
+		"stationName": "충정로",
+		"stationInfo": "상가 밀집 지역",
+		"passengerInfo": "쇼핑객"
+	}
+]
