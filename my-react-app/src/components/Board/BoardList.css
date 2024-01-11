@@ -1,0 +1,9 @@
+.writeIcon {
+  position: relative;
+}
+.writeIcon img {
+  position: absolute;
+  left: 346px;
+  top: -48px;
+  width: 24px;
+}
