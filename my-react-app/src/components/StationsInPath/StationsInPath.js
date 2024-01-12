@@ -1,6 +1,7 @@
 import "./StationsInPath.css";
 import Tips from "../../components/Tips/Tips";
 import { useState } from "react";
+import Circle from "../../assets/images/Circle.svg";
 
 function StationsInPath({ data }) {
   const [openTipsIndex, setOpenTipsIndex] = useState(null);
@@ -11,6 +12,7 @@ function StationsInPath({ data }) {
 
   return (
     <div className="StationsInPath">
+      <div className="forHeight"></div>
       {data.map((item, index) => (
         <li className="stationList" key={item.station}>
           {item.traffic === 1 ? (
@@ -21,7 +23,7 @@ function StationsInPath({ data }) {
             <span className="blueSpan" onClick={() => handleOpenTips(index)}>
               착석꿀팁 &gt;
               {openTipsIndex === index && (
-                <Tips station={item.station} tip={item.tip[0]} />
+                <Tips station={item.station} tip={item.tip} />
               )}
             </span>
           ) : null}

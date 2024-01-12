@@ -1,0 +1,80 @@
+.RankWrapper {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.rankP {
+    display: flex;
+    margin: 10px 0 14px 0px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.rankTable {
+    border: 1px solid #7ED287;
+    border-radius: 10px;
+    width: 350px;
+    height: 80%;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.12);
+}
+
+.rankTable tbody {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+}
+
+.rankTableDiv {
+    padding: 0px 12px 0px 12px;
+}
+
+.rankTableTr {
+    display: grid;
+    grid-template-columns: 15px 50px 10px 80px 10px 80px 75px;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-bottom: 1px solid #7ED287;
+}
+
+.lastRowStyle {
+    border-bottom: 1px solid white;
+}
+
+.trLine {
+    width: 320px;
+    height: 1px;
+    background: #7ED287;
+}
+
+.tdLine {
+    font-size: 18px;
+    font-weight: 500;
+    color: #7ED287;
+}
+
+.rankNum {
+    color: #7ED287;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.detailpageBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 72px;
+    height: 28px;
+    border-radius: 10px;
+    background: #C0EF52;
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 3px;
+}

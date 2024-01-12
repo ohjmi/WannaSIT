@@ -49,7 +49,7 @@ function Hamburger() {
               </a>
             </li>
             <li>
-              <a href="/board">
+              <a href="/boards">
                 <img src={issue} alt="이슈 아이콘" />
                 <span>역 별 이슈</span>
               </a>
