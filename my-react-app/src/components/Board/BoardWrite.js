@@ -92,29 +92,30 @@ const BoardWrite = () => {
 
   // console.log('전송할 데이터:', { title, content });
 
-  const handleConfirmRegistration = async () => {
-    // 사용자 확인 후 등록 처리
+// handleConfirmRegistration 함수 수정
+const handleConfirmRegistration = async () => {
+  try {
     const formData = { title, content };
-  
-    try {
-      // axios를 사용하여 api.post 호출
-      const response = await api.post('/boards', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-  
-      if (!response.data.success) {
-        throw new Error('글쓰기에 실패했습니다.');
-      }
-  
-      setTitle('');
-      setContent('');
-      setModalOpen(false); // 등록 후 모달 닫기
-    } catch (error) {
-      console.error('글쓰기 오류:', error.message);
+    console.log('전송할 데이터:',{title, content});
+    // axios를 사용하여 api.post 호출
+    const response = await api.post('/boards', formData, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.data.success) {
+      throw new Error('글쓰기에 실패했습니다.');
     }
-  };
+
+    setTitle('');
+    setContent('');
+    setModalOpen(false); // 등록 후 모달 닫기
+  } catch (error) {
+    console.error('글쓰기 오류:', error.message);
+  }
+};
+
   
 
   const handleCancelRegistration = () => {
