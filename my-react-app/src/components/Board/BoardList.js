@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from './api';
+import api from '../../services/api';
 import './BoardList.css';
 import write from '../../assets/images/icon/write.svg';
 

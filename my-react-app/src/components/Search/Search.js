@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "./Search.css";
-import api from "./api";
+import api from "../../services/api";
 import downarrow from "../../assets/images/icon/downarrow.svg";
 import MetroMap from "../../components/MetroMap/MetroMap";
 
