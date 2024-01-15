@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import "./Search.css";
 import api from "./api";
 import downarrow from "../../assets/images/icon/downarrow.svg";
+import MetroMap from "../../components/MetroMap/MetroMap";
 
 function Search() {
   const [startStationValue, setStartStationValue] = useState("");
@@ -41,7 +42,7 @@ function Search() {
   ];
 
   const con2syl = Object.fromEntries(orderOffest);
-  
+
   const pattern = (ch) => {
     let r;
     if (reJa.test(ch)) {
@@ -73,10 +74,14 @@ function Search() {
             initialMatch(startStationValue, station)
         )
       : [];
+
   let endSearched =
     endStationValue.length >= 1
-      ? stations.filter((station) => station.includes(endStationValue) ||
-      initialMatch(endStationValue, station))
+      ? stations.filter(
+          (station) =>
+            station.includes(endStationValue) ||
+            initialMatch(endStationValue, station)
+        )
       : [];
 
   const handleMouseOver = useCallback((e) => {
@@ -233,6 +238,7 @@ function Search() {
         <button className="searchBtn" onClick={searchBtnClick}>
           검색하기
         </button>
+        <MetroMap startResultClick={startResultClick}/>
       </form>
     </div>
   );

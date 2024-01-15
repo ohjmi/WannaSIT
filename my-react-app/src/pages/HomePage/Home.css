@@ -1,8 +1,8 @@
-.metroMap {
+.MetroMap {
     height: 75%;
     position: absolute;
     top: 60%;
     left: 51%;
     transform: translate(-50%, -50%);
-    z-index: -1;
+    z-index: 1;
 }
