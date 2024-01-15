@@ -1,11 +1,14 @@
 .Chat {
     height: 100vh;
+    margin-bottom: 0;
     background-color: #7ed2871a;
 }
 
 .hamWrapper {
-    position: absolute;
-    z-index: 5;
+    left: 8px;
+    top: 68px;
+    position: fixed;
+    z-index: 100;
 }
 
 .hamCont {
@@ -18,7 +21,7 @@
     width: 100%;
     overflow-y: scroll;
     position: absolute;
-    height: 80vh;
+    height: 780px;
     top: 69px;
     z-index: 1;
     display: flex;
@@ -95,7 +98,7 @@
     height: 44px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
     margin: 0 auto 0 auto;
-    position: absolute;
+    position: fixed;
     align-content: center;
     bottom: 2%;
     left: 50%;
@@ -105,7 +108,7 @@
     /* 내부 컨텐츠를 좌우로 정렬 */
     align-items: center;
     /* 내부 컨텐츠를 수직으로 중앙 정렬 */
-    z-index: 2;
+    z-index: 20;
 }
 
 #inputMessage {
