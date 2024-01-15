@@ -6,7 +6,7 @@ import Hamburger from "../../components/Hamburger/Hamburger";
 import StationsInPath from "../../components/StationsInPath/StationsInPath";
 import Chance from "../../components/Chance/Chance";
 import HighCars from "../../components/HighCars/HighCars";
-import api from "./api";
+import api from "../../services/api";
 
 function RecommendDetail() {
   const location = useLocation();
