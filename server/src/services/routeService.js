@@ -2,6 +2,19 @@ import { getStations } from "./stationService.js";
 import { getTime, truncateToNearestTen } from "../services/timeService.js";
 import { getConnection, executeQuery, endConnection } from "../services/databaseService.js";
 
+// 최근 경로 저장하는 함수
+async function saveRecentRoute(req, startStation, endStation) {
+  if (!req.session.recentRoutes) {
+    req.session.recentRoutes = [];
+  }
+
+  req.session.recentRoutes.unshift({ startStation, endStation });
+
+  if (req.session.recentRoutes.length > 3) {
+    req.session.recentRoutes.pop();
+  }
+}
+
 // 출발/도착역에 따른 경로, 내외선 방향 계산 함수
 async function getRouteAndDirection(startStation, endStation) {
   const stations = await getStations();
@@ -77,4 +90,4 @@ async function getRouteDetail(route, direction) {
   return routeInfo;
 }
 
-export { getRouteAndDirection, getRouteDetail };
+export { saveRecentRoute, getRouteAndDirection, getRouteDetail };
