@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import useWebSocket from "react-use-websocket"; //웹소켓 라이브러리
 import "./Chat.css";
 import Hamburger from "../../components/Hamburger/Hamburger";
 import ChatSendBtn from "../../assets/images/icon/ChatSendBtn.svg";
 
 function Chat() {
-  const location = useLocation();
-  const query = new URLSearchParams(location.search);
-  const username = query.get("username");
-  const [socketUrl] = useState(`ws://localhost:4000/chat?username=${username}`);
+  const [socketUrl] = useState("ws://localhost:4000/chat");
   const { sendMessage, lastMessage } = useWebSocket(socketUrl);
   const [messageHistory, setMessageHistory] = useState([]); //웹소켓에서 메시지를 받으면 호출되는 상태
 
@@ -19,8 +15,6 @@ function Chat() {
   const sendMsg = () => {
     if (message.trim() !== "") {
       const msg = {
-        type: "send",
-        sender: username,
         content: message,
       };
       sendMessage(JSON.stringify(msg));
@@ -40,24 +34,19 @@ function Chat() {
   useEffect(() => {
     if (lastMessage !== null) {
       setMessageHistory((prev) => {
+        // console.log(lastMessage);
         let msg = lastMessage ? lastMessage.data : null;
         if (msg) {
+          console.log(lastMessage);
           let object = JSON.parse(msg);
           lastMessage.sender = object.sender;
           lastMessage.content = object.content;
+          lastMessage.messagetype = object.type;
         }
         return prev.concat(lastMessage);
       });
     }
   }, [lastMessage, setMessageHistory]);
-
-  useEffect(() => {
-    let join = {
-      type: "join",
-      username: username,
-    };
-    sendMessage(JSON.stringify(join));
-  }, [username, sendMessage]);
 
   useEffect(() => {
     // 새로운 메시지가 도착할 때마다 스크롤을 맨 아래로 이동
@@ -71,23 +60,24 @@ function Chat() {
       <div id="messageContainer" ref={scrollContainerRef}>
         <ul className="messageList">
           {messageHistory.map((message, idx) => {
-            if (message.sender !== "시스템 알림") {
-              if (message.sender !== username) {
-                return (
-                  <>
-                    <div className="sender">{message.sender}</div>
-                    <div key={idx} className="messageBubble receivedMessage">
-                      {message.content}
-                    </div>
-                  </>
-                );
-              } else if (message.sender === username) {
-                return (
-                  <div key={idx} className="messageBubble sentMessage">
+            if (message.messagetype === "received") {
+              return (
+                <>
+                  <div className="sender">{message.sender}</div>
+                  <div key={idx} className="messageBubble receivedMessage">
                     {message.content}
                   </div>
-                );
-              }
+                </>
+              );
+            } else if (message.messagetype === "sent") {
+              return (
+                <>
+                <div className="username">{message.sender}</div>
+                <div key={idx} className="messageBubble sentMessage">
+                  {message.content}
+                </div>
+                </>
+              );
             } else {
               return (
                 <div key={idx} className="userInOut">

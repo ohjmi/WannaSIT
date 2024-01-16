@@ -7,4 +7,12 @@ function getStations(req, res) {
   res.sendFile(path.join(__dirname, "src", "data", "stationCodes.json"));
 }
 
-export default { getStations };
+function recentRoutes(req, res) {
+  if (!req.session.recentRoutes) {
+    res.status(404).send("Recent routes not found");
+  } else {
+    res.json(req.session.recentRoutes);
+  }
+}
+
+export default { getStations, recentRoutes };

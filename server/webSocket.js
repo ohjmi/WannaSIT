@@ -1,40 +1,31 @@
 import WebSocket from "ws";
-import randomNameGenerator from "korean-random-names-generator";
 
-function setupWebSocket(app, sessionInfo, wsClients) {
+function setupWebSocket(app) {
+  const wsClients = new Map();
+
   app.ws("/chat", (ws, req) => {
     const clientIP = req.socket.remoteAddress;
 
-    const sessionID = req.sessionID;
-    console.log(sessionID);
+    const username = req.session.name;
 
-    // 세션 아이디 별로 하나의 닉네임 부여
-    let username = sessionInfo.get(sessionID);
+    // ========== 다중 탭 접속, 동일 닉네임 예외 처리 필요 ==========
+    console.log(`${username}(${clientIP}) 입장`);
 
-    if (!username) {
-      username = randomNameGenerator();
-      sessionInfo.set(sessionID, username);
-    }
+    wsClients.set(username, ws);
 
-    // 입장
-    if (!wsClients.has(username)) {
-      console.log(`${username}(${clientIP}) 입장`);
+    // 입장 알림 전송
+    const type = "join";
+    const sender = "관리자";
+    const content = `${username} 님이 입장하셨습니다.`;
 
-      wsClients.set(username, ws);
+    const messageObj = { type, sender, content };
 
-      // 입장 알림 전송
-      const type = "join";
-      const sender = "관리자";
-      const content = `${username} 님이 입장하셨습니다.`;
-
-      const messageObj = { type, sender, content };
-
-      wsClients.forEach((client) => {
-        if (client.readyState === WebSocket.OPEN && client !== ws) {
-          client.send(JSON.stringify(messageObj));
-        }
-      });
-    }
+    wsClients.forEach((client) => {
+      if (client.readyState === WebSocket.OPEN && client !== ws) {
+        client.send(JSON.stringify(messageObj));
+      }
+    });
+    // ====================
 
     ws.on("message", (message) => {
       console.log(`${username}(${clientIP}) : ${message.toString()}`);
@@ -49,9 +40,9 @@ function setupWebSocket(app, sessionInfo, wsClients) {
         return;
       }
 
-      wsClients.forEach((client) => {
+      wsClients.forEach((client, clientName) => {
         if (client.readyState === WebSocket.OPEN) {
-          const type = client === ws ? "sent" : "received";
+          const type = clientName === username ? "sent" : "received";
           const sender = username;
           const content = parsedMessage?.content;
 
@@ -67,7 +58,6 @@ function setupWebSocket(app, sessionInfo, wsClients) {
 
       wsClients.delete(username);
 
-      // 퇴장 알림 전송
       const type = "leave";
       const sender = "관리자";
       const content = `${username} 님이 퇴장하셨습니다.`;

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "./Search.css";
-import api from "./api";
+import api from "../../services/api";
 import downarrow from "../../assets/images/icon/downarrow.svg";
+import MetroMap from "../../components/MetroMap/MetroMap";
 
 function Search() {
   const [startStationValue, setStartStationValue] = useState("");
@@ -22,13 +23,65 @@ function Search() {
     setShowEndLiTag(true);
   };
 
+  const reESC = /[\\^$.*+?()[\]{}|]/g;
+  const reChar = /[가-힣]/;
+  const reJa = /[ㄱ-ㅎ]/;
+  const offset = 44032;
+
+  const orderOffest = [
+    ["ㄱ", 44032],
+    ["ㄲ", 44620],
+    ["ㄴ", 45208],
+    ["ㄷ", 45796],
+    ["ㄸ", 46384],
+    ["ㄹ", 46972],
+    ["ㅁ", 47560],
+    ["ㅂ", 48148],
+    ["ㅃ", 48736],
+    ["ㅅ", 49324],
+  ];
+
+  const con2syl = Object.fromEntries(orderOffest);
+
+  const pattern = (ch) => {
+    let r;
+    if (reJa.test(ch)) {
+      const begin =
+        con2syl[ch] || (ch.charCodeAt(0) - 12613) * 588 + con2syl["ㅅ"];
+      const end = begin + 587;
+      r = `[${ch}\\u${begin.toString(16)}-\\u${end.toString(16)}]`;
+    } else if (reChar.test(ch)) {
+      const chCode = ch.charCodeAt(0) - offset;
+      if (chCode % 28 > 0) return ch;
+      const begin = Math.floor(chCode / 28) * 28 + offset;
+      const end = begin + 27;
+      r = `[\\u${begin.toString(16)}-\\u${end.toString(16)}]`;
+    } else r = ch.replace(reESC, "\\$&");
+    return `(${r})`;
+  };
+
+  const initialMatch = (query, target) => {
+    const reg = new RegExp(query.split("").map(pattern).join(".*?"), "i");
+    const matches = reg.exec(target);
+    return Boolean(matches);
+  };
+
   let startSearched =
     startStationValue.length >= 1
-      ? stations.filter((station) => station.includes(startStationValue))
+      ? stations.filter(
+          (station) =>
+            station.includes(startStationValue) ||
+            initialMatch(startStationValue, station)
+        )
       : [];
+
   let endSearched =
     endStationValue.length >= 1
-      ? stations.filter((station) => station.includes(endStationValue))
+      ? stations.filter(
+          (station) =>
+            station.includes(endStationValue) ||
+            initialMatch(endStationValue, station)
+        )
       : [];
 
   const handleMouseOver = useCallback((e) => {
@@ -185,6 +238,7 @@ function Search() {
         <button className="searchBtn" onClick={searchBtnClick}>
           검색하기
         </button>
+        <MetroMap startResultClick={startResultClick}/>
       </form>
     </div>
   );

@@ -4,12 +4,13 @@
   font-weight: normal;
   font-style: normal;
 }
+
 body {
   margin: 0;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif; */
-    font-family: 'NanumSquareNeo';
+  font-family: 'NanumSquareNeo';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -28,11 +29,14 @@ body {
 
 h1 {
   margin: 0;
-  padding: 17.5px;
+  padding-top: 68px;
   font-size: 28px;
   font-weight: bold;
   background-color: #7ED287;
   text-align: center;
   color: white;
   vertical-align: middle;
+  background-image: url(../src/assets/images/logo.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
