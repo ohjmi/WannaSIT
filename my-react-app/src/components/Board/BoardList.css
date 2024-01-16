@@ -1,9 +1,14 @@
 .writeIcon {
-  position: relative;
+  position: fixed;
 }
 .writeIcon img {
   position: absolute;
   left: 346px;
   top: -48px;
   width: 24px;
+  z-index: 200;
+}
+.boardListWrapper {
+  height: 700px;
+  overflow: scroll;
 }

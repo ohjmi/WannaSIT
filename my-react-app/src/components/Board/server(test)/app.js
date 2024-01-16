@@ -33,8 +33,21 @@ for (let i = 1; i <= 50; i++) {
 }
 
 app.get('/boards', (req, res) => {
-  res.json(data);
+  const pageNum = parseInt(req.query.pageNum, 10) || 1;
+  const query = req.query.title || ''; // 수정: 검색어를 title로 받기
+
+  const startIndex = (pageNum - 1) * 5;
+  const endIndex = startIndex + 5;
+
+  // 검색어를 포함하는 게시글만 필터링
+  const filteredData = data.filter(post => post.title.includes(query));
+
+  const paginatedData = filteredData.slice(startIndex, endIndex);
+  const totalPages = Math.ceil(filteredData.length / 5);
+  console.log('보내는데이터:',{data: paginatedData, totalPages });
+  res.json({ data: paginatedData, totalPages });
 });
+
 
 
 app.get('/boards/:boardId', (req, res) => {
@@ -85,22 +98,22 @@ app.delete('/boards/:boardId', (req, res) => {
   res.json({ success: true });
 });
 
-// let data = [];
+let data1 = [];
 
-// app.post('/boards', (req, res) => {
-//   console.log('요청옴')
-//   const { title, content } = req.body;
-//   data.push({title, content})
-//   console.log(data)
-
-
-//   // 여기에서 게시글 등록 처리를 수행
-//   console.log(`새로운 게시글 등록 - 제목: ${title}, 내용: ${content}`);
+app.post('/boards', (req, res) => {
+  console.log('요청옴')
+  const { title, content } = req.body;
+  data1.push({title, content})
+  console.log(data)
 
 
-//   res.status(201).json({ message: '게시글이 성공적으로 등록되었습니다.' });
+  // 여기에서 게시글 등록 처리를 수행
+  console.log(`새로운 게시글 등록 - 제목: ${title}, 내용: ${content}`);
 
-// });
+
+  res.status(201).json({ success: true, message: '게시글이 성공적으로 등록되었습니다.' });
+
+});
 
 // app.get('/boards', (req, res) => {
 //   res.json(data);
