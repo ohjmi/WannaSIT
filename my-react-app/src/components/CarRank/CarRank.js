@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CarRank.css";
 
-import api from "./api";
+import api from "../../services/api";
 
 function CarRank({ startStation, endStation }) {
   const [data, setData] = useState([]);

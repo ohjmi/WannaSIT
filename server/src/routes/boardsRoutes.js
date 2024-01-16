@@ -3,9 +3,9 @@ import boardsController from "../controllers/boardsController.js"
 
 const router = express.Router();
 
-router.get("/");
-router.post("/");
-router.put("/");
-router.delete("/");
+router.get("/:boardID");
+router.post("/", boardsController.createPost);
+router.put("/:boardID", boardsController.updatePost);
+router.delete("/:boardID", boardsController.deletePost);
 
 export default router;
