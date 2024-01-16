@@ -14,6 +14,8 @@ expressWs(app);
 
 const port = config.port;
 
+// favicon 무시
+app.use("/favicon.ico", () => {});
 app.use(sessionMiddleware);
 app.use(corsMiddleware);
 app.use(express.urlencoded({ extended: true }));
