@@ -1,4 +1,5 @@
 import Map from "../../assets/images/MetroMap.svg";
+import './MetroMap.css';
 
 export default function MetroMap({startResultClick}) {
   return (
@@ -11,12 +12,14 @@ export default function MetroMap({startResultClick}) {
           coords="94,128,14"
           shape="circle"
           onClick={()=>{startResultClick("이대")}}
+          className="mmm"
         />
         <area
           alt="신촌"
           title="신촌"
           coords="95,158,13"
           shape="circle"
+          onClick={()=>{startResultClick("신촌")}}
         />
         <area
           alt="홍대입구"
