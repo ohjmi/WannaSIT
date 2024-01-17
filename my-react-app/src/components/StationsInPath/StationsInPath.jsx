@@ -1,7 +1,6 @@
 import "./StationsInPath.css";
-import Tips from "../../components/Tips/Tips";
+import Tips from "../Modal/CarsModal";
 import { useState } from "react";
-import Circle from "../../assets/images/Circle.svg";
 
 function StationsInPath({ data }) {
   const [openTipsIndex, setOpenTipsIndex] = useState(null);
@@ -9,6 +8,7 @@ function StationsInPath({ data }) {
   const handleOpenTips = (index) => {
     setOpenTipsIndex(openTipsIndex === index ? null : index);
   };
+
 
   return (
     <div className="StationsInPath">

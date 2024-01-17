@@ -8,6 +8,7 @@ function Chat() {
   const [socketUrl] = useState("ws://localhost:4000/chat");
   const { sendMessage, lastMessage } = useWebSocket(socketUrl);
   const [messageHistory, setMessageHistory] = useState([]); //웹소켓에서 메시지를 받으면 호출되는 상태
+  const scrollContainerRef = React.createRef(); // 스크롤 컨테이너의 ref
 
   //메시지를 보내기 위한 기능
   const [message, setMessage] = useState("");
@@ -28,8 +29,6 @@ function Chat() {
       event.preventDefault(); // 엔터키에 의한 줄바꿈 방지
     }
   };
-
-  const scrollContainerRef = React.createRef(); // 스크롤 컨테이너의 ref
 
   useEffect(() => {
     if (lastMessage !== null) {
@@ -53,6 +52,7 @@ function Chat() {
     scrollContainerRef.current.scrollTop =
       scrollContainerRef.current.scrollHeight;
   }, [lastMessage, scrollContainerRef]);
+
 
   return (
     <div className="Chat">
