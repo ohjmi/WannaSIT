@@ -1,25 +1,25 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./BottomNav.css";
 import issue from "../../assets/images/icon/issue.svg";
 import chat from "../../assets/images/icon/chat.svg";
-import closebtn from "../../assets/images/icon/closebtn.svg";
+import closeBtn from "../../assets/images/icon/closeBtn.svg";
 
 function BottomNav() {
-  const [handleNavContainer, setHandleNavContainer] = useState(false);
-  const hanldeNavBtn = () => {
-    setHandleNavContainer(!handleNavContainer);
-    setHandleNavOnBtn(!handleNavOnBtn);
-  };
   const [handleNavOnBtn, setHandleNavOnBtn] = useState(true);
-  const hanldeNavOnBtn = () => {
-    setHandleNavOnBtn(!handleNavOnBtn);
+  const [handleNavContainer, setHandleNavContainer] = useState(false);
+  const navigate = useNavigate();
+  
+  const handleNavBtn = () => {
     setHandleNavContainer(!handleNavContainer);
+    setHandleNavOnBtn(!handleNavOnBtn);
   };
+
 
   return (
     <div>
       {handleNavOnBtn && (
-        <button className="navOnBtn" onClick={hanldeNavOnBtn}>
+        <button className="navOnBtn" onClick={handleNavBtn}>
           소통해요
         </button>
       )}
@@ -27,17 +27,17 @@ function BottomNav() {
         <div className="bottomNavContainer">
           <nav className="bottomNav">
             <ul className="bottomNavLink">
-                <a href="/boards">
+                <li onClick={() => navigate("/boards")}>
                   <img src={issue} alt="게시판 아이콘" />역 별 이슈
-                </a>
-                <a href="/chat">
+                </li>
+                <li onClick={() => navigate("/chat")}>
                   <img src={chat} alt="채팅 아이콘" />
                   실시간 채팅
-                </a>
+                </li>
             </ul>
           </nav>
-          <button className="navCloseBtn" onClick={hanldeNavBtn}>
-            <img src={closebtn} alt="닫기버튼" />
+          <button className="navCloseBtn" onClick={handleNavBtn}>
+            <img src={closeBtn} alt="닫기버튼" />
           </button>
         </div>
       )}
