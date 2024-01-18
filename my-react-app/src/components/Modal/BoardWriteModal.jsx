@@ -1,11 +1,12 @@
 import React from 'react';
-import './BoardModal.css';
+import './BoardWriteModal.css';
 
-const BoardModal = ({ isOpen, onConfirm, onCancel }) => {
+const BoardWriteModal = ({ isOpen, onConfirm, onCancel }) => {
   if (!isOpen) return null;
 
+
   return (
-    <div className="modalBg">
+    <div className="BoardWriteModal">
       <div className="modalContent">
         <p>정말로 등록하시겠습니까?</p>
         <button onClick={onConfirm}>확인</button>
@@ -15,4 +16,4 @@ const BoardModal = ({ isOpen, onConfirm, onCancel }) => {
   );
 };
 
-export default BoardModal;
+export default BoardWriteModal;

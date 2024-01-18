@@ -1,34 +1,28 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Search.css";
 import api from "../../services/api";
-import downarrow from "../../assets/images/icon/downarrow.svg";
-import MetroMap from "../../components/MetroMap/MetroMap";
+import downArrow from "../../assets/images/icon/downArrow.svg";
+import MetroMap from "../MetroMap/MetroMap";
 
 function Search() {
+  const navigate = useNavigate();
   const [startStationValue, setStartStationValue] = useState("");
-  const handleStartStationChange = (event) =>
-    setStartStationValue(event.target.value);
   const [endStationValue, setEndStationValue] = useState("");
-  const handleEndStationChange = (event) =>
-    setEndStationValue(event.target.value);
   const [stations, setStations] = useState([]);
-  const [showStartLi, setShowStartLiTag] = useState(false);
-  const [showEndLi, setShowEndLiTag] = useState(false);
-  const reshowStart = () => {
-    setShowStartLiTag(true);
-    setShowEndLiTag(false);
-  };
-  const reshowEnd = () => {
-    setShowStartLiTag(false);
-    setShowEndLiTag(true);
-  };
-
+  const [showStartList, setShowStartList] = useState(false);
+  const [showEndList, setShowEndList] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("전체 ");
+  const [showOptions, setShowOptions] = useState(false);
+  const options = ["전체 ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+  
+  // 초성 검색 기능 정규식 변수 설정
   const reESC = /[\\^$.*+?()[\]{}|]/g;
   const reChar = /[가-힣]/;
   const reJa = /[ㄱ-ㅎ]/;
   const offset = 44032;
-
-  const orderOffest = [
+  
+  const orderOffset = [
     ["ㄱ", 44032],
     ["ㄲ", 44620],
     ["ㄴ", 45208],
@@ -41,13 +35,13 @@ function Search() {
     ["ㅅ", 49324],
   ];
 
-  const con2syl = Object.fromEntries(orderOffest);
-
+  const con2syl = Object.fromEntries(orderOffset);
+  
   const pattern = (ch) => {
     let r;
     if (reJa.test(ch)) {
       const begin =
-        con2syl[ch] || (ch.charCodeAt(0) - 12613) * 588 + con2syl["ㅅ"];
+      con2syl[ch] || (ch.charCodeAt(0) - 12613) * 588 + con2syl["ㅅ"];
       const end = begin + 587;
       r = `[${ch}\\u${begin.toString(16)}-\\u${end.toString(16)}]`;
     } else if (reChar.test(ch)) {
@@ -59,7 +53,7 @@ function Search() {
     } else r = ch.replace(reESC, "\\$&");
     return `(${r})`;
   };
-
+  
   const initialMatch = (query, target) => {
     const reg = new RegExp(query.split("").map(pattern).join(".*?"), "i");
     const matches = reg.exec(target);
@@ -84,38 +78,30 @@ function Search() {
         )
       : [];
 
-  const handleMouseOver = useCallback((e) => {
-    e.currentTarget === e.target
-      ? e.target.classList.add("hover")
-      : e.currentTarget.classList.remove("hover");
+  // 리스트 마우스 오버 효과
+  const handleMouseOver = useCallback((event) => {
+    event.currentTarget === event.target
+      ? event.target.classList.add("hover")
+      : event.currentTarget.classList.remove("hover");
   });
 
-  const handleMouseLeave = useCallback((e) => {
-    e.target.classList.remove("hover");
+  const handleMouseLeave = useCallback((event) => {
+    event.target.classList.remove("hover");
   });
 
   const startResultClick = (selectedStation) => {
     setStartStationValue(selectedStation);
-    setShowStartLiTag(false);
+    setShowStartList(false);
   };
 
   const endResultClick = (selectedStation) => {
     setEndStationValue(selectedStation);
-    setShowEndLiTag(false);
+    setShowEndList(false);
   };
-
-  const [selectedOption, setSelectedOption] = useState("전체 ");
-  const [showOptions, setShowOptions] = useState(false);
-
-  const options = ["전체 ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     setShowOptions(false);
-  };
-
-  const toggleOptions = () => {
-    setShowOptions(!showOptions);
   };
 
   const searchBtnClick = (event) => {
@@ -125,13 +111,13 @@ function Search() {
       stations.includes(startStationValue) &&
       stations.includes(endStationValue)
     ) {
-      window.location.href = `/cars?startStation=${startStationValue}&endStation=${endStationValue}`;
+      navigate(`/cars?startStation=${startStationValue}&endStation=${endStationValue}`);
     } else if (
       selectedOption !== "전체 " &&
       stations.includes(startStationValue) &&
       stations.includes(endStationValue)
     ) {
-      window.location.href = `/cars/info?startStation=${startStationValue}&endStation=${endStationValue}&carNumber=${selectedOption}`;
+      navigate(`/cars/info?startStation=${startStationValue}&endStation=${endStationValue}&carNumber=${selectedOption}`);
     } else if (!stations.includes(startStationValue)) {
       alert("출발역이 잘못 입력되었습니다!");
     } else if (!stations.includes(endStationValue)) {
@@ -150,6 +136,7 @@ function Search() {
       });
   }, []);
 
+
   return (
     <div>
       <form action="/cars" method="GET" id="stationSearchForm">
@@ -159,8 +146,11 @@ function Search() {
             name="startStation"
             id="startStationInput"
             value={startStationValue}
-            onChange={handleStartStationChange}
-            onClick={reshowStart}
+            onChange={(event) => setStartStationValue(event.target.value)}
+            onClick={() => {
+              setShowStartList(true);
+              setShowEndList(false);
+            }}
             placeholder="출발역"
             required
           ></input>
@@ -169,13 +159,16 @@ function Search() {
             name="endStation"
             id="endStationInput"
             value={endStationValue}
-            onChange={handleEndStationChange}
-            onClick={reshowEnd}
+            onChange={(event) => setEndStationValue(event.target.value)}
+            onClick={() => {
+              setShowStartList(false);
+              setShowEndList(true);
+            }}
             placeholder="도착역"
             required
           ></input>
         </div>
-        {showStartLi && (
+        {showStartList && (
           <div className="searchResultList">
             {startSearched.map((item) => (
               <li
@@ -190,7 +183,7 @@ function Search() {
             ))}
           </div>
         )}
-        {showEndLi && (
+        {showEndList && (
           <div className="searchResultList">
             {endSearched.map((item) => (
               <li
@@ -205,21 +198,19 @@ function Search() {
             ))}
           </div>
         )}
-
         <div className="carNumber" name="carNumber">
           <input type="hidden" name="carNumber" value={selectedOption} />
           <div
             className="selected-option"
-            onClick={toggleOptions}
+            onClick={() => {setShowOptions(!showOptions)}}
             value={selectedOption}
           >
             <div>{selectedOption}호차</div>
             <div>
-              <img src={downarrow} alt="아래방향아이콘" />
+              <img src={downArrow} alt="아래방향아이콘" />
             </div>
           </div>
         </div>
-
         {showOptions && (
           <div className="dropdown-options">
             {options.map((option, index) => (
@@ -234,7 +225,6 @@ function Search() {
             ))}
           </div>
         )}
-
         <button className="searchBtn" onClick={searchBtnClick}>
           검색하기
         </button>
