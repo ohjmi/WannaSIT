@@ -1,13 +1,12 @@
 import "./Home.css";
 import BottomNav from "../../components/BottomNav/BottomNav";
 import Search from "../../components/Search/Search";
-import Hamburger from "../../components/Hamburger/Hamburger";
-
+import HamHeader from "../../components/Header/HamHeader";
 
 function Home() {
   return (
     <div className="Home">
-      <Hamburger />
+      <HamHeader />
       <Search />
       <BottomNav />
     </div>
