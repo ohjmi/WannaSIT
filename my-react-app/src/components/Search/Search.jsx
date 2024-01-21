@@ -15,13 +15,13 @@ function Search() {
   const [selectedOption, setSelectedOption] = useState("전체 ");
   const [showOptions, setShowOptions] = useState(false);
   const options = ["전체 ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
-  
+
   // 초성 검색 기능 정규식 변수 설정
   const reESC = /[\\^$.*+?()[\]{}|]/g;
   const reChar = /[가-힣]/;
   const reJa = /[ㄱ-ㅎ]/;
   const offset = 44032;
-  
+
   const orderOffset = [
     ["ㄱ", 44032],
     ["ㄲ", 44620],
@@ -36,12 +36,12 @@ function Search() {
   ];
 
   const con2syl = Object.fromEntries(orderOffset);
-  
+
   const pattern = (ch) => {
     let r;
     if (reJa.test(ch)) {
       const begin =
-      con2syl[ch] || (ch.charCodeAt(0) - 12613) * 588 + con2syl["ㅅ"];
+        con2syl[ch] || (ch.charCodeAt(0) - 12613) * 588 + con2syl["ㅅ"];
       const end = begin + 587;
       r = `[${ch}\\u${begin.toString(16)}-\\u${end.toString(16)}]`;
     } else if (reChar.test(ch)) {
@@ -53,7 +53,7 @@ function Search() {
     } else r = ch.replace(reESC, "\\$&");
     return `(${r})`;
   };
-  
+
   const initialMatch = (query, target) => {
     const reg = new RegExp(query.split("").map(pattern).join(".*?"), "i");
     const matches = reg.exec(target);
@@ -111,13 +111,17 @@ function Search() {
       stations.includes(startStationValue) &&
       stations.includes(endStationValue)
     ) {
-      navigate(`/cars?startStation=${startStationValue}&endStation=${endStationValue}`);
+      navigate(
+        `/cars?startStation=${startStationValue}&endStation=${endStationValue}`
+      );
     } else if (
       selectedOption !== "전체 " &&
       stations.includes(startStationValue) &&
       stations.includes(endStationValue)
     ) {
-      navigate(`/cars/info?startStation=${startStationValue}&endStation=${endStationValue}&carNumber=${selectedOption}`);
+      navigate(
+        `/cars/info?startStation=${startStationValue}&endStation=${endStationValue}&carNumber=${selectedOption}`
+      );
     } else if (!stations.includes(startStationValue)) {
       alert("출발역이 잘못 입력되었습니다!");
     } else if (!stations.includes(endStationValue)) {
@@ -136,7 +140,6 @@ function Search() {
       });
   }, []);
 
-
   return (
     <div>
       <form action="/cars" method="GET" id="stationSearchForm">
@@ -150,6 +153,7 @@ function Search() {
             onClick={() => {
               setShowStartList(true);
               setShowEndList(false);
+              setShowOptions(false);
             }}
             placeholder="출발역"
             required
@@ -163,6 +167,7 @@ function Search() {
             onClick={() => {
               setShowStartList(false);
               setShowEndList(true);
+              setShowOptions(false);
             }}
             placeholder="도착역"
             required
@@ -202,7 +207,11 @@ function Search() {
           <input type="hidden" name="carNumber" value={selectedOption} />
           <div
             className="selected-option"
-            onClick={() => {setShowOptions(!showOptions)}}
+            onClick={() => {
+              setShowOptions(!showOptions);
+              setShowStartList(false);
+              setShowEndList(false);
+            }}
             value={selectedOption}
           >
             <div>{selectedOption}호차</div>
@@ -228,7 +237,7 @@ function Search() {
         <button className="searchBtn" onClick={searchBtnClick}>
           검색하기
         </button>
-        <MetroMap startResultClick={startResultClick}/>
+        <MetroMap startResultClick={startResultClick} />
       </form>
     </div>
   );
