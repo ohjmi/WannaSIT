@@ -67,7 +67,7 @@ function BoardDetail() {
   
     // 나머지 컴포넌트 로직 및 UI 렌더링
     return (
-      <div>
+      <div className='BoardDetail'>
         <p>{boardId}</p>
         <p>{boardData.title}</p>
         <p>{boardData.content}</p>

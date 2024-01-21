@@ -11,8 +11,8 @@ function HighCars({ data }) {
               key={index + 1}
               className={
                 item.highCars && item.highCars.includes(index + 1)
-                  ? "highlighted"
-                  : "unhighlighted"
+                  ? "highLighted"
+                  : "unHighLighted"
               }
             />
           ))}

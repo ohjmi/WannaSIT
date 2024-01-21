@@ -7,6 +7,7 @@ import randomNameMiddleware from "./src/middlewares/randomNameMiddleware.js";
 import setupWebSocket from "./webSocket.js";
 import carsRouter from "./src/routes/carsRoutes.js";
 import stationsRouter from "./src/routes/stationsRoutes.js";
+import boardsRouter from "./src/routes/boardsRoutes.js";
 
 const app = express();
 expressWs(app);
@@ -17,11 +18,13 @@ const port = config.port;
 app.use("/favicon.ico", () => {});
 app.use(sessionMiddleware);
 app.use(corsMiddleware);
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(randomNameMiddleware);
 
 app.use("/stations", stationsRouter);
 app.use("/cars", carsRouter);
+app.use("/boards", boardsRouter);
 
 setupWebSocket(app);
 

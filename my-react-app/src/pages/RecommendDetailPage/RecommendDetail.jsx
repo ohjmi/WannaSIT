@@ -19,23 +19,22 @@ function RecommendDetail() {
   const [chanceColor, setChanceColor] = useState("#C0EF52");
   const [openHighCars, setOpenHighCars] = useState(false);
   const [highCarsColor, setHighCarsColor] = useState("white");
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const handleChance = () => {
     setOpenChance(true);
     setOpenHighCars(false);
     setChanceColor("#C0EF52");
-    setHighCarsColor("white");
+    setHighCarsColor("#FFFFFF");
   };
 
   const handleHighCars = () => {
     setOpenChance(false);
     setOpenHighCars(true);
-    setChanceColor("white");
+    setChanceColor("#FFFFFF");
     setHighCarsColor("#C0EF52");
   };
-
-  const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
@@ -53,6 +52,7 @@ function RecommendDetail() {
       });
   }, [startStation, endStation, carNumber]);
 
+  
   return (
     <div className="RecommendDetail">
       <Hamburger />
