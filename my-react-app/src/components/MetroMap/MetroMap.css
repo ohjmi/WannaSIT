@@ -1,3 +1,9 @@
-.mmm {
-    background-color: black;
-}
+/* .MetroMap {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  } */
+
+.MetroMap canvas {
+    position: absolute;
+  }
