@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./MetroMap.css";
 import Map from "../../assets/images/MetroMap.svg";
 import marker from "../../assets/images/marker.svg";
@@ -7,6 +7,8 @@ function MetroMap({ startResultClick, endResultClick }) {
   const mapCanvasRef = useRef(null);
   const markerCanvasRef = useRef(null);
   const dpr = window.devicePixelRatio;
+  const [isMarkerTrue, setIsMarkerTrue] = useState(false);
+  const [locationValue, setLocationValue] = useState(false);
 
   useEffect(() => {
     const mapCanvas = mapCanvasRef.current;
@@ -30,19 +32,30 @@ function MetroMap({ startResultClick, endResultClick }) {
   // 클릭 이벤트 핸들러
   const handleMapClick = (event) => {
     const { offsetX, offsetY } = event.nativeEvent;
-    console.log(offsetX, offsetY)
-
-    // 좌표에 해당하는 값 매핑
+    console.log("클릭위치", offsetX, offsetY);
     const locationValue = getLocationValue(offsetX, offsetY);
 
-    // 마커 이미지 그리기
-    if(locationValue){drawMarker(locationValue.staion, locationValue.staionX - 60, locationValue.staionY - 69)};
+    if (isMarkerTrue) {
+      markerClickEvent(offsetX, offsetY);
+    } else if (locationValue) {
+      setLocationValue(locationValue);
+      drawMarker(
+        locationValue.station,
+        locationValue.stationX - 61,
+        locationValue.stationY - 70
+      );
+    }
   };
 
   // 좌표에 해당하는 값 매핑하는 함수 (임의로 예시로 신촌만 매핑)
   const getLocationValue = (x, y) => {
     if (x >= 169 && x <= 209 && y >= 307 && y <= 347) {
-      return {staion : "신촌", staionX : 189, staionY : 327};
+      console.log("역 데이터 준비 완료");
+      return {
+        station: "신촌",
+        stationX: 189,
+        stationY: 327,
+      };
     }
   };
 
@@ -51,16 +64,53 @@ function MetroMap({ startResultClick, endResultClick }) {
     const markerCtx = markerCanvasRef.current.getContext("2d");
     const markerImage = new Image();
     markerImage.src = marker;
+    console.log("마커생성");
 
     markerImage.onload = () => {
-      markerCtx.clearRect(
-        0,
-        0,
-        markerCanvasRef.current.width,
-        markerCanvasRef.current.height
+      markerCtx.drawImage(
+        markerImage,
+        x,
+        y,
+        markerImage.width,
+        markerImage.height
       );
-      markerCtx.drawImage(markerImage, x, y, markerImage.width, markerImage.height); // 마커 크기 및 위치 조절 가능
+      setIsMarkerTrue(true);
     };
+  };
+
+  // 마커 이미지를 지우는 함수
+  const clearMarker = () => {
+    const markerCanvas = markerCanvasRef.current;
+    const markerCtx = markerCanvas.getContext("2d");
+    markerCtx.clearRect(0, 0, markerCanvas.width, markerCanvas.height);
+    setIsMarkerTrue(false);
+    setLocationValue(false);
+    console.log("마커제거");
+  };
+
+  const markerClickEvent = (offsetX, offsetY) => {
+    console.log(locationValue);
+    if (
+      locationValue &&
+      offsetX >= locationValue.stationX - 58 &&
+      offsetX <= locationValue.stationX - 4 &&
+      offsetY >= locationValue.stationY - 56 &&
+      offsetY <= locationValue.stationY - 10
+    ) {
+      startResultClick(locationValue.station);
+      clearMarker();
+    } else if (
+      locationValue &&
+      offsetX <= locationValue.stationX + 58 &&
+      offsetX >= locationValue.stationX + 4 &&
+      offsetY >= locationValue.stationY - 56 &&
+      offsetY <= locationValue.stationY - 10
+    ) {
+      endResultClick(locationValue.station);
+      clearMarker();
+    } else {
+      clearMarker();
+    }
   };
 
   return (
