@@ -3,7 +3,16 @@
     height: 68px;
     background-color: #7ED287;
 }
-
-.HamHeader img {
+.headerCont {
+    /* max-width: 50%;
+    min-width: 360px; */
+    max-width: 390px;
+    margin: 0 auto;
+}
+.logoWrap {
+    text-align: center;
+}
+.logoWrap img {
+    vertical-align: middle;
     cursor: pointer;
 }

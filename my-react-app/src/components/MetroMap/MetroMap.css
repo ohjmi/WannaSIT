@@ -7,3 +7,9 @@
 .MetroMap canvas {
     position: absolute;
   }
+.mapImageWrap {
+    width: 50%;
+}
+.mapImageWrap img {
+    max-width: 100%;
+}

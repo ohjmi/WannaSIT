@@ -4,32 +4,17 @@
     background-color: #7ed2871a;
 }
 
-.hamWrapper {
-    left: 8px;
-    top: 68px;
-    position: fixed;
-    z-index: 100;
-}
-
-.hamCont {
-    background-color: white;
-    height: 100vh;
-}
 
 #messageContainer {
-    padding-top: 15px;
-    width: 100%;
-    overflow-y: scroll;
-    position: absolute;
-    height: 780px;
-    top: 69px;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
+    width: 390px;
+    margin: 0 auto;
+    height: 646px;
+    overflow: auto;
     word-wrap: break-word;
 }
 
 .messageList {
+    margin-top: 10px;
     padding: 0 18px 0 20px;
     display: flex;
     flex-direction: column;
@@ -100,7 +85,7 @@
     margin: 0 auto 0 auto;
     position: fixed;
     align-content: center;
-    bottom: 2%;
+    bottom: 4%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;

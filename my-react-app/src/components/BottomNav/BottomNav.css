@@ -1,34 +1,48 @@
+.BottomNav {
+    width: 390px;
+    margin: 0 auto;
+    position: relative;
+}
 .navOnBtn {
     position: fixed;
-    bottom: 49px;
-    right: 20px;
+    left: 50%;
+    top: 88%;
+    transform: translate(130%, 0);
     border: none;
     background-color: #C0EF52;
     border-radius: 22px;
-    padding: 10.25px 12.8px;
+    width: 74px;
+    height: 38px;
     font-weight: bold;
     font-size: 14px;
 }
 
 .bottomNavContainer {
+    /* position: absolute;
+    left: 250px;
+    top: 400px; */
     position: fixed;
-    bottom: 39px;
-    right: 20px;
+    left: 50%;
+    top: 80%;
+    transform: translate(36%, 0);
     text-align: right;
-    z-index: 60;
+    z-index: 45;
 }
 
 .bottomNav {
+    width: 120px;
+    height: 66px;
     background-color: #C0EF52;
     border-radius: 10px;
 }
 
 .bottomNavLink {
     margin: 0;
-    padding: 9px 9px 5px 9px;
+    padding: 6px 10px 12px 10px;
     text-align: left;
     font-weight: bold;
     font-size: 14px;
+    line-height: 2;
 }
 
 .navCloseBtn {
@@ -36,20 +50,25 @@
     background-color: #C0EF52;
     text-align: center;
     border-radius: 6px;
-    padding: 1.2px 5px;
-    margin-right: 2px;
+    padding: 6px 5px 2px 5px ;
+    margin: 6px 0;
     cursor: pointer;
 }
 
-.bottomNavLink a {
-    display: block;
-    color: black;
-    text-decoration: none;
+.navCloseBtn img {
+    width: 12px;
+    height: 12px;
 }
 
-.bottomNavLink a img {
+.bottomNavLink li img {
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
-    padding: 0 3px 6px 0;
+    padding-right: 8px;
+}
+.bottomNavLink li:last-child img {
+    width: 22px;
+    height: 22px;
 }
 
 .blackBox {
@@ -59,5 +78,5 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
-    z-index: 50;
+    z-index: 40;
 }

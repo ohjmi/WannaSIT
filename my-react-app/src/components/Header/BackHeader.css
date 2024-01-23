@@ -3,7 +3,18 @@
     height: 68px;
     background-color: #7ED287;
 }
+.backCont {
+    max-width: 390px;
+    margin: 0 auto;
+    text-align: center;
+}
 
-.BackHeader img {
+.backWrap {
+    position: relative;
+    left: -168px;
+    top: 24px;
+}
+img {
+    vertical-align: middle;
     cursor: pointer;
 }

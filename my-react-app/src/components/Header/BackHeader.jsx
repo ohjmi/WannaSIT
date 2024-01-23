@@ -1,6 +1,6 @@
 import "./BackHeader.css";
 import { useNavigate } from "react-router-dom";
-import BackArrow from "../../assets/images/icon/BackArrow.svg";
+import BackArrow from "../../assets/images/icon/backArrow.svg";
 import logo from "../../assets/images/logo.svg";
 
 function BackHeader() {
@@ -9,8 +9,14 @@ function BackHeader() {
 
   return (
     <div className="BackHeader">
-      <img src={BackArrow} alt="BackBtn" onClick={() => navigate(-1)} />
-      <img src={logo} alt="logo" onClick={() => navigate("/")} />
+      <div className="backCont">
+        <div className="backWrap">
+          <img src={BackArrow} alt="뒤로가기 버튼" onClick={() => navigate(-1)} />
+        </div>
+        <div className="logoWrap">
+          <img src={logo} alt="logo" onClick={() => navigate("/")} />
+        </div>
+      </div>
     </div>
   );
 }

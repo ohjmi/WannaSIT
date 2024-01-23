@@ -1,6 +1,7 @@
 import "./StationsInPath.css";
 import Tips from "../Modal/CarsModal";
 import { useState } from "react";
+import lineCircle from "../../assets/images/Circle.svg"
 
 function StationsInPath({ data }) {
   const [openTipsIndex, setOpenTipsIndex] = useState(null);
@@ -15,6 +16,7 @@ function StationsInPath({ data }) {
       <div className="forHeight"></div>
       {data.map((item, index) => (
         <li className="stationList" key={item.station}>
+          <div className="stationLineCircle"><img src={lineCircle} alt="동그라미" /></div>
           {item.traffic === 1 ? (
             <span className="redSpan">많이 내려요</span>
           ) : null}
