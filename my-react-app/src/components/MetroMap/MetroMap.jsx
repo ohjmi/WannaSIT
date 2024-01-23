@@ -3,7 +3,7 @@ import Map from "../../assets/images/MetroMap.svg";
 export default function MetroMap({startResultClick}) {
   return (
     <div className="MetroMap">
-      <img src={Map} alt="Map" className="Map" useMap="#Map"/>
+        <img src={Map} alt="Map" className="Map" useMap="#Map"/>
       <map name="Map" id="Map">
         <area
           alt="이대"

@@ -78,17 +78,6 @@ function Search() {
         )
       : [];
 
-  // 리스트 마우스 오버 효과
-  const handleMouseOver = useCallback((event) => {
-    event.currentTarget === event.target
-      ? event.target.classList.add("hover")
-      : event.currentTarget.classList.remove("hover");
-  });
-
-  const handleMouseLeave = useCallback((event) => {
-    event.target.classList.remove("hover");
-  });
-
   const startResultClick = (selectedStation) => {
     setStartStationValue(selectedStation);
     setShowStartList(false);
@@ -138,7 +127,7 @@ function Search() {
 
 
   return (
-    <div>
+    <div className="Search">
       <form action="/cars" method="GET" id="stationSearchForm">
         <div className="inputBox">
           <input
@@ -175,8 +164,6 @@ function Search() {
                 className="startResult"
                 key={item}
                 onClick={() => startResultClick(item)}
-                onMouseOver={handleMouseOver}
-                onMouseLeave={handleMouseLeave}
               >
                 {item}
               </li>
@@ -190,8 +177,6 @@ function Search() {
                 className="endResult"
                 key={item}
                 onClick={() => endResultClick(item)}
-                onMouseOver={handleMouseOver}
-                onMouseLeave={handleMouseLeave}
               >
                 {item}
               </li>
@@ -201,7 +186,7 @@ function Search() {
         <div className="carNumber" name="carNumber">
           <input type="hidden" name="carNumber" value={selectedOption} />
           <div
-            className="selected-option"
+            className="selectedOption"
             onClick={() => {setShowOptions(!showOptions)}}
             value={selectedOption}
           >
@@ -212,13 +197,11 @@ function Search() {
           </div>
         </div>
         {showOptions && (
-          <div className="dropdown-options">
+          <div className="dropdownOptions">
             {options.map((option, index) => (
               <li
                 key={index}
                 onClick={() => handleOptionClick(option)}
-                onMouseOver={handleMouseOver}
-                onMouseLeave={handleMouseLeave}
               >
                 {option}호차
               </li>

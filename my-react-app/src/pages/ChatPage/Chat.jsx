@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useWebSocket from "react-use-websocket"; //웹소켓 라이브러리
 import "./Chat.css";
-import Hamburger from "../../components/Hamburger/Hamburger";
+import HamHeader from "../../components/Header/HamHeader";
 import ChatSendBtn from "../../assets/images/icon/ChatSendBtn.svg";
 
 function Chat() {
@@ -56,7 +56,7 @@ function Chat() {
 
   return (
     <div className="Chat">
-      <Hamburger />
+      <HamHeader />
       <div id="messageContainer" ref={scrollContainerRef}>
         <ul className="messageList">
           {messageHistory.map((message, idx) => {

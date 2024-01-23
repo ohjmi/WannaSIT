@@ -1,8 +1,11 @@
 import "./RecommendDetail.css";
+import greenCircle from "../../assets/images/icon/greenCircle.svg";
+import yellowCircle from "../../assets/images/icon/yellowCircle.svg";
+import redCircle from "../../assets/images/icon/redCircle.svg";
 import StationPath from "../../components/StationPath/StationPath";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Hamburger from "../../components/Hamburger/Hamburger";
+import BackHeader from "../../components/Header/BackHeader";
 import StationsInPath from "../../components/StationsInPath/StationsInPath";
 import Chance from "../../components/Chance/Chance";
 import HighCars from "../../components/HighCars/HighCars";
@@ -16,14 +19,17 @@ function RecommendDetail() {
   const carNumber = query.get("carNumber");
 
   const [openChance, setOpenChance] = useState(true);
+  const [openChanceTitle, setChanceTitle] = useState(true);
   const [chanceColor, setChanceColor] = useState("#C0EF52");
   const [openHighCars, setOpenHighCars] = useState(false);
-  const [highCarsColor, setHighCarsColor] = useState("white");
+  const [openHighCarsTitle, setHighCarsTitle] = useState(false);
+  const [highCarsColor, setHighCarsColor] = useState("#fffff");
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
 
   const handleChance = () => {
     setOpenChance(true);
+    setChanceTitle(true);
     setOpenHighCars(false);
     setChanceColor("#C0EF52");
     setHighCarsColor("#FFFFFF");
@@ -32,6 +38,7 @@ function RecommendDetail() {
   const handleHighCars = () => {
     setOpenChance(false);
     setOpenHighCars(true);
+    setHighCarsTitle(true);
     setChanceColor("#FFFFFF");
     setHighCarsColor("#C0EF52");
   };
@@ -52,10 +59,10 @@ function RecommendDetail() {
       });
   }, [startStation, endStation, carNumber]);
 
-  
+
   return (
     <div className="RecommendDetail">
-      <Hamburger />
+      <BackHeader />
       <StationPath startStation={startStation} endStation={endStation} />
       <div className="carSelectOpt">
         <div
@@ -73,13 +80,24 @@ function RecommendDetail() {
           칸 이동
         </div>
       </div>
+      <div className="titleWrap">
+        {openChance && <p className="chance">
+          앉을 가능성을 알려드려요
+          <img src={greenCircle} alt="초록원" />
+          <img src={yellowCircle} alt="노란원" />
+          <img src={redCircle} alt="빨간원" />
+        </p>}
+        {openHighCars && <p className="highCars">앉을 가능성이 높은 호차를 알려드려요</p>}
+      </div>
 
-      <div className="infoBox">
-      {!loading && <StationsInPath data={data} />}
+      <div className="infoBoxWrap">
+        <div className="infoBox">
+          {!loading && <StationsInPath data={data} />}
 
-      {!loading && openChance && <Chance data={data} />}
+          {!loading && openChance && <Chance data={data} />}
 
-      {!loading && openHighCars && <HighCars data={data} />}
+          {!loading && openHighCars && <HighCars data={data} />}
+        </div>
       </div>
     </div>
   );
