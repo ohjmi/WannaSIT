@@ -5,6 +5,7 @@
     font-size: 18px;
     font-weight: bold;
     height: 51.5px;
+    word-break: keep-all;
 }
 
 .line {

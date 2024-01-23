@@ -3,12 +3,16 @@
     flex-direction: column;
     align-items: center;
 }
+/* .Search {
+    display: flex;
+    justify-content: center;
+} */
 
 .inputBox {
     display: flex;
     justify-content: space-between;
     width: 350px;
-    z-index: 4;
+    z-index: 30;
 }
 
 #startStationInput,
@@ -37,12 +41,15 @@
 
 .searchResultList {
     position: absolute;
-    top: 131px;
+    top: 126px;
     margin: 0;
-    border-radius: 10px;
+    padding-top: 12px;
+    border-radius: 0 0 10px 10px;
+    /* border-radius: 10px; */
     border: 1px solid #7ED287;
-    background-color: white;
-    z-index: 3;
+    border-top: none;
+    background-color: #ffffff;
+    z-index: 25;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
     overflow: hidden;
 }
@@ -54,10 +61,10 @@
 
 .startResult,
 .endResult,
-.dropdown-options {
+.dropdownOptions {
     list-style: none;
     color: rgb(92, 92, 92);
-    background-color: #fff;
+    background-color: #ffffff;
     cursor: pointer;
     overflow: hidden;
 }
@@ -68,14 +75,14 @@
     padding: 0 0 0 0;
     width: 350px;
     height: 44px;
-    z-index: 2;
+    z-index: 20;
     background-color: #fff;
     cursor: pointer;
     display: flex;
 
 }
 
-.selected-option {
+.selectedOption {
     border-radius: 10px;
     border: 1px solid #7ED287;
     width: 339px;
@@ -89,27 +96,34 @@
     justify-content: space-between;
 }
 
-.selected-option img {
+.selectedOption img {
     padding-right: 16px;
 }
 
-.dropdown-options {
+.dropdownOptions {
     position: absolute;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
     border: 1px solid #7ED287;
     width: 348px;
-    top: 175px;
+    top: 165px;
     padding-top: 16px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
-    z-index: 1;
+    z-index: 15;
 }
 
-.dropdown-options li,
+.dropdownOptions li,
 .searchResultList li {
-    padding: 5px 0 6px 18px;
+    padding: 16px 0 12px 18px;
     font-size: 14px;
 }
-
+.dropdownOptions li:hover {
+    background-color: #7ED287;
+    color: #ffffff;
+}
+.searchResultList li:hover {
+    background-color: #7ED287;
+    color: #ffffff;
+}
 .searchBtn {
     border-radius: 10px;
     border: 1px solid #7ED287;
@@ -120,7 +134,7 @@
     width: 350px;
     height: 44px;
     font-size: 16px;
-    z-index: 0;
+    z-index: 10;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.12);
 }
 

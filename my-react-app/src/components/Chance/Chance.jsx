@@ -1,17 +1,9 @@
 import "./Chance.css";
-import greenCircle from "../../assets/images/icon/greenCircle.svg";
-import yellowCircle from "../../assets/images/icon/yellowCircle.svg";
-import redCircle from "../../assets/images/icon/redCircle.svg";
+
 
 function Chance({ data }) {
   return (
     <div className="Chance">
-      <p>
-        앉을 가능성을 알려드려요
-        <img src={greenCircle} alt="초록원" />
-        <img src={yellowCircle} alt="노란원" />
-        <img src={redCircle} alt="빨간원" />
-      </p>
       {data.map((item) => (
         <li
           className="chanceList"
@@ -27,7 +19,7 @@ function Chance({ data }) {
                 : null,
           }}
         >
-          {Array.from({ length: 35 }, () => (
+          {Array.from({ length: 25 }, () => (
             <div className="line" />
           ))}
           <div className="circle" />

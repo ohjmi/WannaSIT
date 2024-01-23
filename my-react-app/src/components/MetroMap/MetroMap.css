@@ -1,0 +1,6 @@
+.mapImageWrap {
+    width: 50%;
+}
+.mapImageWrap img {
+    max-width: 100%;
+}
