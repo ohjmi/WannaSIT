@@ -21,11 +21,11 @@ function MetroMap({ startResultClick, endResultClick }) {
 
     mapImage.onload = () => {
       mapCanvas.width = mapImage.width * dpr;
-      mapCanvas.height = mapImage.height * dpr;
+      mapCanvas.height = mapImage.height * dpr * 1.05;
       markerCanvas.width = mapImage.width * dpr;
-      markerCanvas.height = mapImage.height * dpr;
+      markerCanvas.height = mapImage.height * dpr * 1.05;
       mapCtx.scale(dpr, dpr);
-      mapCtx.drawImage(mapImage, 0, 0, mapImage.width, mapImage.height);
+      mapCtx.drawImage(mapImage, 0, 20, mapImage.width, mapImage.height);
     };
   }, []);
 
@@ -42,20 +42,73 @@ function MetroMap({ startResultClick, endResultClick }) {
       drawMarker(
         locationValue.station,
         locationValue.stationX - 61,
-        locationValue.stationY - 70
+        locationValue.stationY - 60
       );
     }
   };
 
-  // 좌표에 해당하는 값 매핑하는 함수 (임의로 예시로 신촌만 매핑)
+  const stationCoordinates = {
+    을지로입구: [356, 80],
+    시청: [269, 80],
+    충정로: [189, 176],
+    아현: [189, 236],
+    이대: [189, 296],
+    신촌: [189, 357],
+    홍대입구: [189, 417],
+    합정: [189, 478],
+    당산: [189, 538],
+    영등포구청: [189, 599],
+    문래: [189, 661],
+    신도림: [189, 722],
+    대림: [189, 781],
+    구로디지털단지: [189, 844],
+    신대방: [189, 902],
+    신림: [189, 961],
+    봉천: [189, 1024],
+    서울대입구: [189, 1083],
+    낙성대: [189, 1144],
+    사당: [189, 1205],
+    방배: [189, 1265],
+    서초: [260, 1357],
+    교대: [362, 1357],
+    을지로3가: [425, 132],
+    을지로4가: [425, 192],
+    동대문역사문화공원: [425, 252],
+    신당: [425, 312],
+    상왕십리: [425, 369],
+    왕십리: [425, 428],
+    한양대: [425, 487],
+    뚝섬: [425, 547],
+    성수: [425, 607],
+    건대입구: [425, 664],
+    구의: [425, 723],
+    강변: [425, 783],
+    잠실나루: [425, 842],
+    잠실: [425, 902],
+    잠실새내: [425, 961],
+    종합운동장: [425, 1021],
+    삼성: [425, 1080],
+    선릉: [425, 1139],
+    역삼: [425, 1199],
+    강남: [425, 1258],
+  };
+
   const getLocationValue = (x, y) => {
-    if (x >= 169 && x <= 209 && y >= 307 && y <= 347) {
-      console.log("역 데이터 준비 완료");
-      return {
-        station: "신촌",
-        stationX: 189,
-        stationY: 327,
-      };
+    for (const station in stationCoordinates) {
+      const [stationX, stationY] = stationCoordinates[station];
+      if (
+        x >= stationX - 20 &&
+        x <= stationX + 20 &&
+        y >= stationY - 20 &&
+        y <= stationY + 20
+      ) {
+        console.log(`${station} 데이터 준비 완료`);
+        return {
+          station: station,
+          stationX: stationX,
+          stationY: stationY,
+        };
+      }
     }
   };
 
