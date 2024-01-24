@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Search.css";
 import api from "../../services/api";
@@ -129,7 +129,7 @@ function Search() {
       });
   }, []);
 
-
+  
   return (
     <div className="Search">
       <form action="/cars" method="GET" id="stationSearchForm">
@@ -163,7 +163,7 @@ function Search() {
             required
           ></input>
         </div>
-        {showStartList && (
+        {showStartList && startSearched.length >= 1 && (
           <div className="searchResultList">
             {startSearched.map((item) => (
               <li
@@ -176,7 +176,7 @@ function Search() {
             ))}
           </div>
         )}
-        {showEndList && (
+        {showEndList && endSearched.length >= 1 && (
           <div className="searchResultList">
             {endSearched.map((item) => (
               <li
@@ -209,10 +209,7 @@ function Search() {
         {showOptions && (
           <div className="dropdownOptions">
             {options.map((option, index) => (
-              <li
-                key={index}
-                onClick={() => handleOptionClick(option)}
-              >
+              <li key={index} onClick={() => handleOptionClick(option)}>
                 {option}호차
               </li>
             ))}
@@ -222,7 +219,10 @@ function Search() {
           검색하기
         </button>
       </form>
-      <MetroMap startResultClick={startResultClick} endResultClick={endResultClick} />
+      <MetroMap
+        startResultClick={startResultClick}
+        endResultClick={endResultClick}
+      />
     </div>
   );
 }
