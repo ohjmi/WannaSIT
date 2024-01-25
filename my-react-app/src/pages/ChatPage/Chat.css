@@ -1,5 +1,6 @@
 .Chat {
     height: 100vh;
+    margin-bottom: 0;
     background-color: #7ed2871a;
 }
 
@@ -82,7 +83,7 @@
     height: 44px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
     margin: 0 auto 0 auto;
-    position: absolute;
+    position: fixed;
     align-content: center;
     bottom: 4%;
     left: 50%;
@@ -92,7 +93,7 @@
     /* 내부 컨텐츠를 좌우로 정렬 */
     align-items: center;
     /* 내부 컨텐츠를 수직으로 중앙 정렬 */
-    z-index: 2;
+    z-index: 20;
 }
 
 #inputMessage {

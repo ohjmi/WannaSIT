@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CarRank.css";
-<<<<<<< HEAD:my-react-app/src/components/CarRank/CarRank.js
-
-=======
->>>>>>> 9aabe726beacbd38e8892d06f1d473284e268555:my-react-app/src/components/CarRank/CarRank.jsx
 import api from "../../services/api";
 
 function CarRank({ startStation, endStation }) {
