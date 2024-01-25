@@ -1,0 +1,63 @@
+.registerButtonWrap {
+    width: 390px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .registerButtonWrap button {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    left: 332px;
+    top: -44px;
+    z-index: 30;
+  }
+
+  .registerCont {
+    width: 390px;
+    margin: 0 auto;
+  }
+
+  .registerCont form {
+    /* margin-top: 20px; */
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .registerCont input {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 40px 0 20px 0;
+    border: none;
+    border-bottom: 1px solid #7ED287;
+  }
+
+  .registerCont input::placeholder {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+  }
+
+  .registerCont input:focus {
+    outline: none;
+  }
+
+  .registerCont textarea {
+    height: 600px;
+    margin-top: 20px;
+    border: none;
+    font-size: 16px;
+  }
+
+  .registerCont textarea::placeholder {
+    font-size: 16px;
+    color: #000000;
+  }
+
+  .registerCont textarea:focus {
+    outline: none;
+  }

@@ -1,22 +1,56 @@
-.modalBg {
-  /* display: none; */
+.BoardWriteModal {
+  width: 100%;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  z-index: 50;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modalContent {
+.modalCont {
+  width: 350px;
+  height: 140px;
+  border-radius: 10px;
+  text-align: center;
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
+  background-color: #ffffff;
 }
 
+.modalCont p {
+  margin-top: 34px;
+}
+
+.modalCont .confirmButton {
+  width: 40%;
+  height: 36px;
+  margin-top: 10px;
+  margin-right: 4px;
+  color: #ffffff;
+  background-color: #7ED287;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modalCont .cancelButton {
+  width: 40%;
+  height: 36px;
+  margin-top: 10px;
+  margin-left: 4px;
+  color: #ffffff;
+  background-color: #B5B5B5;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
 /* .close {
   position: absolute;
   top: 10px;

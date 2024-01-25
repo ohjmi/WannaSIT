@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../services/api';
+import BackHeader from '../../components/Header/BackHeader';
 
 function BoardDetail() {
     const { boardId } = useParams();
@@ -68,6 +69,7 @@ function BoardDetail() {
     // 나머지 컴포넌트 로직 및 UI 렌더링
     return (
       <div className='BoardDetail'>
+        <BackHeader />
         <p>{boardId}</p>
         <p>{boardData.title}</p>
         <p>{boardData.content}</p>

@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import api from '../../services/api';
-import './Board.css';
-import write from '../../assets/images/icon/write.svg';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import api from "../../services/api";
+import "./Board.css";
+import HamHeader from "../../components/Header/HamHeader";
+import write from "../../assets/images/icon/write.svg";
+import strokeLike from "../../assets/images/icon/11111.svg";
+import fillLike from "../../assets/images/icon/fillLike.svg";
 
 function Board() {
   const [posts, setPosts] = useState([]);
@@ -38,33 +41,39 @@ function Board() {
   useEffect(() => {
     fetchPosts(pageNum, searchQuery);
   }, [pageNum, searchQuery]);
-  
+
 
   return (
     <div className='Board'>
-      <div className='writeIcon'>
-        <img src={write} onClick={() => navigate('/boards/write')} alt='글쓰기 아이콘' />
-      </div>
-      <div>
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={handleSearch}
-          placeholder="검색어를 입력하세요"
-        />
-      </div>
-      {posts.map(post => (
-        <div key={post.id} onClick={() => navigate(`/boards/${post.id}`)}>
-          <ul>
-            <li>{post.name}</li>
-            <li>{post.title}</li>
-            <li>{post.content}</li>
-          </ul>
+      <HamHeader />
+        <div className='writeIcon'>
+          <img src={write} onClick={() => navigate('/boards/write')} alt='글쓰기 아이콘' />
         </div>
-      ))}
-      {showLoadMoreButton && (
-        <button onClick={() => setPageNum(pageNum + 1)}>더보기</button>
-      )}
+        <div className="inputWrap">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={handleSearch}
+            placeholder="게시글 제목 검색"
+          />
+        </div>
+      <div className="boardCont">
+        {posts.map(post => (
+          <div className="boardListWrap" key={post.id} onClick={() => navigate(`/boards/${post.id}`)}>
+            <ul>
+              <li>{post.name}</li>
+              <li>{post.title}</li>
+              <li>{post.content}</li>
+              <li><img src={strokeLike} alt="좋아요 아이콘" />{post.like}1</li>
+            </ul>
+          </div>
+        ))}
+      </div>
+      <div className="buttonWrap">
+        {showLoadMoreButton && (
+          <button onClick={() => setPageNum(pageNum + 1)}>게시글 더보기</button>
+        )}
+      </div>
     </div>
   );
 }
