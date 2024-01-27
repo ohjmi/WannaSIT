@@ -3,7 +3,6 @@ import "./HighCars.css";
 function HighCars({ data }) {
   return (
     <div className="HighCars">
-      <p>앉을 가능성이 높은 호차를 알려드려요</p>
       {data.map((item) => (
         <li className="highCarsList" key={item.station}>
           {Array.from({ length: 10 }, (_, index) => (

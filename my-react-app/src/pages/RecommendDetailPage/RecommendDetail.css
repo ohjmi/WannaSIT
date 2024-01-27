@@ -10,12 +10,29 @@
     height: 42px;
 }
 
+.infoBoxWrap {
+    scrollbar-width: thin; /* Firefox */
+    -ms-overflow-style: none;
+    width: 390px; 
+    height: 490px;
+    margin: 0 auto;
+    overflow: auto;
+    margin-top: 30px;
+}
+.infoBoxWrap::-webkit-scrollbar {
+    width: 1px;
+}
+.infoBoxWrap::-webkit-scrollbar-thumb {
+    /* background-color: #7ED287; */
+    background-color: #fff;
+}
+
 .infoBox {
-    margin: auto auto 20px auto;
-    display: grid;
     width: 350px;
-    height: 75vh;
-    overflow-y: auto;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
 }
 
 .openChance,
@@ -28,34 +45,30 @@
 }
 
 .StationsInPath {
-    margin-top: 76.773px;
-    grid-column: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
 }
 
-.Chance,
-.HighCars {
-    grid-column: 2 / 4;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
+.titleWrap {
+    width: 390px;
+    margin: 0 auto;
 }
-
-.Chance p {
+.chance {
     font-size: 12px;
-    margin: 16px auto 46px 50px;
+    padding: 16px 20px 0 0;
+    text-align: right;
+    margin: 0;
 }
 
-.HighCars p {
+.highCars {
     font-size: 12px;
-    margin: 16px 3px 46px 0;
+    padding: 16px 20px 0 0;
+    text-align: right;
+    margin: 0;
 }
 
-.Chance p img {
+.chance img {
     padding-left: 4px;
     vertical-align: middle;
 }

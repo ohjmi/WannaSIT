@@ -1,6 +1,8 @@
 .StationsInPath {
     background-image: url(../../assets/images/GreenLine.svg);
     background-repeat: repeat-y;
+    /* background-position: 12%; */
+    background-position: 10px;
 }
 
 .stationList {
@@ -11,6 +13,12 @@
     font-weight: bold;
     height: 51.5px;
     padding-left: 40px;
+    position: relative;
+}
+.stationLineCircle {
+    position: absolute;
+    left: 0;
+    top: 8px;
 }
 
 .redSpan {

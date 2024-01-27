@@ -17,7 +17,7 @@ function BottomNav() {
 
 
   return (
-    <div>
+    <div className="BottomNav">
       {handleNavOnBtn && (
         <button className="navOnBtn" onClick={handleNavBtn}>
           소통해요
