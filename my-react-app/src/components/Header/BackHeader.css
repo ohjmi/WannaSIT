@@ -14,7 +14,8 @@
     left: -168px;
     top: 24px;
 }
-img {
+
+.BackHeader img {
     vertical-align: middle;
     cursor: pointer;
 }
