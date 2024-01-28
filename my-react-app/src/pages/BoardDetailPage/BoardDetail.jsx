@@ -1,82 +1,134 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import api from '../../services/api';
-import BackHeader from '../../components/Header/BackHeader';
+import { useNavigate } from "react-router-dom";
+import "./BoardDetail.css";
+import api from "../../services/api";
+import BackHeader from "../../components/Header/BackHeader";
+import strokeLike from "../../assets/images/icon/strokeLike.svg";
+import fillLike from "../../assets/images/icon/fillLike.svg";
+import chat from "../../assets/images/icon/chat.svg";
 
 function BoardDetail() {
-    const { boardId } = useParams();
-    const [boardData, setBoardData] = useState(null); // API로부터 받아온 데이터를 저장할 상태
-    const [editedData, setEditedData] = useState({ title: '', content: '' });
-  
-    useEffect(() => {
-      // useEffect 내에서 API 호출
-      api.get(`/boards/${boardId}`)
-        .then((response) => {
-          // API 응답을 받아와서 상태 업데이트
-          setBoardData(response.data);
-        })
-        .catch((error) => {
-          console.error('API 호출 에러:', error);
-        });
-    }, [boardId]); // boardId가 변경될 때마다 API 호출
-    
+  const { boardId } = useParams();
+  const [boardData, setBoardData] = useState(null); // API로부터 받아온 데이터를 저장할 상태
+  const [isAuthor, setIsAuthor] = useState(false);
+  const [isLiked, setIsLiked] = useState(0);
+  const [likeCount, setLikeCount] = useState(0);
+  const [boardMenuList, setBoardMenuList] = useState(false);
 
-    const handleEditSubmit = () => {
-        api.patch(`/boards/${boardId}`, editedData)
-          .then((response) => {
-            if (response.data.success) {
-              // 수정 성공 시 필요한 동작 수행
-              console.log('게시글 수정 성공');
-            } else {
-              console.error('게시글 수정 실패');
-            }
-          })
-          .catch((error) => {
-            console.error('게시글 수정 오류:', error);
-          });
-      };
-    
-      const handleDelete = () => {
-        api.delete(`/boards/${boardId}`)
-          .then((response) => {
-            if (response.data.success) {
-              // 삭제 성공 시 필요한 동작 수행
-              console.log('게시글 삭제 성공');
-              // 예를 들어, 삭제 후 목록 페이지로 이동하는 등의 동작 수행
-            } else {
-              console.error('게시글 삭제 실패');
-            }
-          })
-          .catch((error) => {
-            console.error('게시글 삭제 오류:', error);
-          });
-      };
-    
-      const handleInputChange = (e) => {
-        // 수정 폼의 입력값 변경 시 호출되는 함수
-        const { name, value } = e.target;
-        setEditedData(prevData => ({
-          ...prevData,
-          [name]: value,
-        }));
-      };
+  const navigate = useNavigate();
 
-    // API 호출 결과를 기다리는 동안 로딩 상태를 표시할 수 있습니다.
-    if (!boardData) {
-      return <p>Loading...</p>;
-    }
+  const handleMenuClick = () => {
+    setBoardMenuList(!boardMenuList);
+  };
+
+  const handleLikeClick = () => {
+    // 클릭 이벤트에서 isLiked 값 변경
+    const updatedIsLiked = isLiked === 0 ? 1 : 0;
   
-    // 나머지 컴포넌트 로직 및 UI 렌더링
-    return (
-      <div className='BoardDetail'>
-        <BackHeader />
-        <p>{boardId}</p>
-        <p>{boardData.title}</p>
-        <p>{boardData.content}</p>
-        <button onClick={handleEditSubmit}>수정</button>
-        <button onClick={handleDelete}>삭제</button>
-      </div>
-    );
+    // 서버에 업데이트된 isLiked 값 전송
+    api.put(`/boards/like/${boardId}`, { isLiked: updatedIsLiked })
+    .then((response) => {
+      // 응답을 받아와서 상태 업데이트
+      console.log(response.data);
+      if (response.data.message === '게시글을 추천했습니다.') {
+        setIsLiked(updatedIsLiked);
+        setLikeCount((prevCount) => prevCount + 1);
+      } else if (response.data.message === '게시글 추천을 취소했습니다.') {
+        setIsLiked(updatedIsLiked);
+        setLikeCount((prevCount) => prevCount - 1);
+      }
+    })
+    .catch((error) => {
+      console.error('좋아요 처리 오류:', error);
+    });
+};
+
+  useEffect(() => {
+    // useEffect 내에서 API 호출
+    api.get(`/boards/${boardId}`)
+      .then((response) => {
+        // API 응답을 받아와서 상태 업데이트
+        setBoardData(response.data);
+        setIsAuthor(response.data.isAuthor);
+        setIsLiked(response.data.isLiked);
+        setLikeCount(response.data.likeCount);
+      })
+      .catch((error) => {
+        console.error('API 호출 에러:', error);
+      });
+  }, [boardId]); // boardId가 변경될 때마다 API 호출
+
+  const handleEdit = () => {
+    if (boardData.isAuthor === 1) {
+      navigate(`/boards/edit/${boardId}`, { state: { title: boardData.title, content: boardData.content } })
+    } 
+  };
+
+  const handleDelete = () => {
+    api.delete(`/boards/${boardId}`)
+      .then((response) => {
+        if (response.data.message === "게시글 삭제 성공") {
+          navigate('/boards');
+        } else {
+          console.error('게시글 삭제 실패');
+          alert('삭제가 실패되었네영');
+        }
+      })
+      .catch((error) => {
+        console.error('게시글 삭제 오류:', error);
+      });
+  };
+
+  // API 호출 결과를 기다리는 동안 로딩 상태를 표시할 수 있습니다.
+  if (!boardData) {
+    return <p>Loading...</p>;
   }
+
+
+  return (
+    <div className='BoardDetail'>
+      <BackHeader />
+      <div className='boardDetailCont'>
+        <div className='nameDateWrap'>
+          <p className='userName'>{boardData.username}</p>
+          <p className='creationDate'>{boardData.creationDate}</p>
+        </div>
+        <div className='titleMenuWrap'>
+          <p className='title'>{boardData.title}</p>
+          {isAuthor === 1 && (
+            <div className='boardDetailMenuWrap' onClick={handleMenuClick}>
+              <div className='boardDetailMenu'>
+                <p></p>
+                <p></p>
+                <p></p>
+              </div>
+              {boardMenuList && (
+                <div className='buttonList'>
+                  <ul>
+                    <li onClick={handleEdit}>수정</li>
+                    <li onClick={handleDelete}>삭제</li>
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+        <p className='content'>{boardData.content}</p>
+        <div className='likeAndCommentWrap'>
+      <p className='boardDetailLike' onClick={handleLikeClick}>
+        <img src={isLiked === 0 ? strokeLike : fillLike} alt="좋아요버튼" />
+        {likeCount}명의 좋아요
+      </p>
+        <p className='replies'>
+          <img src={chat} alt="댓글아이콘" />
+          댓글쓰기
+        </p>
+        </div>
+      </div>
+    </div>
+  );
   
-  export default BoardDetail;
+}
+
+export default BoardDetail;

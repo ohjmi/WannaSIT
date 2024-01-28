@@ -1,0 +1,116 @@
+.boardDetailCont {
+    width: 350px;
+    margin: 0 auto;
+}
+
+.nameDateWrap {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.userName {
+    font-size: 14px;
+    color: #7ED287;
+}
+
+.creationDate {
+    font-size: 12px;
+    color: #B5B5B5;
+    margin-left: 20px;
+}
+
+.title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.titleMenuWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boardDetailMenuWrap {
+    position: relative;
+}
+
+.boardDetailMenu {
+    cursor: pointer;
+}
+
+.boardDetailMenu p {
+    width: 4px;
+    height: 4px;
+    margin: 3px 0;
+    background-color: #747474;
+    border-radius: 50%;
+}
+
+.buttonList {
+    position: absolute;
+    left: -70px;
+    top: 26px;
+    z-index: 40;
+    width: 70px;
+    height: 62px;
+    background-color: #7ED287;
+    border-radius: 10px 0 10px 10px;
+}
+
+.buttonList li {
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    line-height: 2.2;
+}
+
+.buttonList li:first-child {
+    border-bottom: 1px solid #ffffff;
+}
+
+.content {
+    margin: 6px 0 0 0;
+}
+
+.likeAndCommentWrap {
+    width: 350px;
+    height: 44px;
+    margin-top: 100px;
+    border: 1px solid #7ED287;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.likeAndCommentWrap .boardDetailLike {
+    width: 50%;
+    text-align: center;
+    margin: 0;
+    padding: 14px 0;
+    border-right: 1px solid #7ED287;
+    cursor: pointer;
+}
+
+.likeAndCommentWrap .boardDetailLike img {
+    width: 18px;
+    margin-right: 4px;
+}
+
+.likeAndCommentWrap .replies img {
+    margin-right: 4px;
+}
+
+.likeAndCommentWrap .replies {
+    width: 50%;
+    text-align: center;
+    margin: 0;
+    padding: 14px 0;
+    cursor: pointer;
+}

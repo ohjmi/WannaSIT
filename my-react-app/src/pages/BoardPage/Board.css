@@ -51,6 +51,7 @@
 
 .boardListWrap ul {
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .boardListWrap ul li {
@@ -69,19 +70,23 @@
 }
 
 .boardListWrap ul li:nth-child(3) {
+  width: 340px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   font-size: 14px;
   color: #B5B5B5;
 }
 
-.boardListWrap ul li:nth-child(4) {
+.boardListWrap .boardLike {
   text-align: right;
-  font-size: 14px;
 }
 
-.boardListWrap ul li:nth-child(4) img {
+.boardListWrap .boardLike img {
   width: 18px;
   margin-right: 4px;
 }
+
 .buttonWrap {
   text-align: center;
   width: 390px;

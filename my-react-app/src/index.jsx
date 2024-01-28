@@ -7,6 +7,7 @@ import Recommend from "./pages/RecommendPage/Recommend.jsx";
 import RecommendDetail from "./pages/RecommendDetailPage/RecommendDetail.jsx";
 import Board from './pages/BoardPage/Board.jsx';
 import BoardWrite from './pages/BoardWritePage/BoardWrite.jsx'
+import BoardEdit from './pages/BoardEditPage/BoardEdit.jsx';
 import BoardDetail from './pages/BoardDetailPage/BoardDetail.jsx';
 import Chat from "./pages/ChatPage/Chat.jsx";
 
@@ -21,7 +22,7 @@ root.render(
         <Route path="/boards" element={<Board />} />
         <Route path="/boards/:boardId" element={<BoardDetail />} />
         <Route path="/boards/write" element={<BoardWrite />} />
-        {/* <Route path="/boards/edit" element={<BoardEdit />} /> */}
+        <Route path="/boards/edit/:boardId" element={<BoardEdit />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="*" element={ <div>404 NOT FOUND</div> } />
       </Routes>

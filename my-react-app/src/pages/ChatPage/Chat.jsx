@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import useWebSocket from "react-use-websocket"; //웹소켓 라이브러리
 import "./Chat.css";
 import HamHeader from "../../components/Header/HamHeader";
-import ChatSendBtn from "../../assets/images/icon/ChatSendBtn.svg";
+import chatSendBtn from "../../assets/images/icon/chatSendBtn.svg";
 
 function Chat() {
   const [socketUrl] = useState("ws://localhost:4000/chat");
@@ -97,7 +97,7 @@ function Chat() {
           onKeyUp={handleKeyUp}
           placeholder="메세지를 입력하세요"
         />
-        <img src={ChatSendBtn} alt="전송" id="sendButton" onClick={sendMsg} />
+        <img src={chatSendBtn} alt="전송" id="sendButton" onClick={sendMsg} />
       </div>
     </div>
   );

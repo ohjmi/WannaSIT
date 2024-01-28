@@ -1,0 +1,53 @@
+.editButtonWrap {
+    width: 390px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .editButtonWrap button {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    left: 332px;
+    top: -44px;
+    z-index: 30;
+    cursor: pointer;
+  }
+
+  .editCont {
+    width: 390px;
+    margin: 0 auto;
+  }
+
+  .editCont form {
+    /* margin-top: 20px; */
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .editCont input {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 40px 0 20px 0;
+    border: none;
+    border-bottom: 1px solid #7ED287;
+  }
+
+  .editCont input:focus {
+    outline: none;
+  }
+
+  .editCont textarea {
+    height: 600px;
+    margin-top: 20px;
+    border: none;
+    font-size: 16px;
+  }
+
+  .editCont textarea:focus {
+    outline: none;
+  }
