@@ -1,4 +1,4 @@
-.BoardWriteModal {
+.BoardEditModal {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -25,7 +25,7 @@
 }
 
 .modalCont .confirmButton {
-  width: 40%;
+  width: 100;
   height: 36px;
   margin-top: 10px;
   margin-right: 4px;
@@ -37,25 +37,4 @@
   font-weight: bold;
   cursor: pointer;
 }
-
-.modalCont .cancelButton {
-  width: 40%;
-  height: 36px;
-  margin-top: 10px;
-  margin-left: 4px;
-  color: #ffffff;
-  background-color: #B5B5B5;
-  border: none;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-}
-/* .close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 20px;
-  cursor: pointer;
-} */
 

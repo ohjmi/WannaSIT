@@ -7,13 +7,13 @@
 #messageContainer {
     width: 390px;
     margin: 0 auto;
-    height: 646px;
+    height: 83%;
     overflow: auto;
     word-wrap: break-word;
 }
 
 .messageList {
-    margin-top: 10px;
+    margin-top: 20px;
     padding: 0 18px 0 20px;
     display: flex;
     flex-direction: column;
