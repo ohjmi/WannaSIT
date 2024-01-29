@@ -1,10 +1,10 @@
-.registerButtonWrap {
+.editButtonWrap {
     width: 390px;
     margin: 0 auto;
     position: relative;
   }
   
-  .registerButtonWrap button {
+  .editButtonWrap button {
     background-color: transparent;
     border: none;
     color: #ffffff;
@@ -14,21 +14,22 @@
     left: 332px;
     top: -44px;
     z-index: 30;
+    cursor: pointer;
   }
 
-  .registerCont {
+  .editCont {
     width: 390px;
     margin: 0 auto;
   }
 
-  .registerCont form {
+  .editCont form {
     /* margin-top: 20px; */
     padding: 0 20px;
     display: flex;
     flex-direction: column;
   }
 
-  .registerCont input {
+  .editCont input {
     font-size: 20px;
     font-weight: bold;
     padding: 40px 0 20px 0;
@@ -36,28 +37,17 @@
     border-bottom: 1px solid #7ED287;
   }
 
-  .registerCont input::placeholder {
-    font-size: 20px;
-    font-weight: bold;
-    color: #000000;
-  }
-
-  .registerCont input:focus {
+  .editCont input:focus {
     outline: none;
   }
 
-  .registerCont textarea {
+  .editCont textarea {
     height: 600px;
     margin-top: 20px;
     border: none;
     font-size: 16px;
   }
 
-  .registerCont textarea::placeholder {
-    font-size: 16px;
-    color: #000000;
-  }
-
-  .registerCont textarea:focus {
+  .editCont textarea:focus {
     outline: none;
   }

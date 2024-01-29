@@ -30,6 +30,7 @@
 .infoBox {
     width: 350px;
     margin: 0 auto;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: end;
@@ -37,6 +38,7 @@
 
 .openChance,
 .openHighCars {
+    cursor: pointer;
     width: 50%;
     height: 42px;
     display: grid;
