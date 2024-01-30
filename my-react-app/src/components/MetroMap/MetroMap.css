@@ -1,9 +1,0 @@
-.MetroMap {
-  width: 390px;
-  height: 70vh;
-  overflow: hidden;
-}
-
-.MetroMap canvas {
-  position: absolute;
-}

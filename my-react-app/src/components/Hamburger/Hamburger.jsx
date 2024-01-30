@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./Hamburger.css";
 import subway from "../../assets/images/icon/subway.svg";
 import issue from "../../assets/images/icon/issue.svg";
 import chat from "../../assets/images/icon/chat.svg";
 
 function Hamburger() {
-  const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -17,7 +15,6 @@ function Hamburger() {
   const handleToggle = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
   };
-
 
   return (
     <div className="Hamburger">
@@ -45,17 +42,23 @@ function Hamburger() {
           </div>
           <div className="menuWrap">
             <ul className="menu">
-              <li onClick={() => navigate("/")}>
+              <li>
+                <a href="/">
                   <img src={subway} alt="지하철 아이콘" />
                   <span>지하철 노선도</span>
+                </a>
               </li>
-              <li onClick={() => navigate("/boards")}>
+              <li>
+                <a href="/boards">
                   <img src={issue} alt="이슈 아이콘" />
                   <span>역 별 이슈</span>
+                </a>
               </li>
-              <li onClick={() => navigate("/chat")}>
+              <li>
+                <a href="/chat">
                   <img src={chat} alt="채팅 아이콘" />
                   <span>실시간 채팅</span>
+                </a>
               </li>
             </ul>
           </div>
