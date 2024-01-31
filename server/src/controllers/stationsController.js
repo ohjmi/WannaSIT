@@ -7,7 +7,7 @@ function getStations(req, res) {
   res.sendFile(path.join(__dirname, "src", "data", "stationCodes.json"));
 }
 
-function recentRoutes(req, res) {
+function getRecentRoutes(req, res) {
   if (!req.session.recentRoutes) {
     res.status(404).send("Recent routes not found");
   } else {
@@ -15,4 +15,4 @@ function recentRoutes(req, res) {
   }
 }
 
-export default { getStations, recentRoutes };
+export default { getStations, getRecentRoutes };

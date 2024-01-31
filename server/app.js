@@ -7,7 +7,7 @@ import randomNameMiddleware from "./src/middlewares/randomNameMiddleware.js";
 import setupWebSocket from "./webSocket.js";
 import carsRouter from "./src/routes/carsRoutes.js";
 import stationsRouter from "./src/routes/stationsRoutes.js";
-import boardsRouter from "./src/routes/boardsRoutes.js";
+import postsRouter from "./src/routes/postsRoutes.js";
 
 const app = express();
 expressWs(app);
@@ -24,7 +24,7 @@ app.use(randomNameMiddleware);
 
 app.use("/stations", stationsRouter);
 app.use("/cars", carsRouter);
-app.use("/boards", boardsRouter);
+app.use("/posts", postsRouter);
 
 setupWebSocket(app);
 
