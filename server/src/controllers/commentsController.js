@@ -33,6 +33,7 @@ async function getCommentList(req, res) {
     const data = [];
 
     rows.forEach((row) => {
+      const id = row.id;
       const userId = row.user_id;
       const username = row.username;
       const content = row.content;
@@ -41,7 +42,7 @@ async function getCommentList(req, res) {
       const isAuthor = row.user_id === req.sessionID ? 1 : 0;
       const isLiked = req.session.commentLiked.indexOf(row.id) !== -1 ? 1 : 0;
 
-      data.push({ userId, username, content, creationDate, likeCount, isAuthor, isLiked });
+      data.push({ id, userId, username, content, creationDate, likeCount, isAuthor, isLiked });
     });
 
     res.status(200).json({
