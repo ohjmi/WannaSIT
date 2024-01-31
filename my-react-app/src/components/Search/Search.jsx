@@ -129,7 +129,6 @@ function Search() {
       });
   }, []);
 
-  
   return (
     <div className="Search">
       <form action="/cars" method="GET" id="stationSearchForm">
@@ -218,11 +217,11 @@ function Search() {
         <button className="searchBtn" onClick={searchBtnClick}>
           검색하기
         </button>
+        <MetroMap
+          startResultClick={startResultClick}
+          endResultClick={endResultClick}
+        />
       </form>
-      <MetroMap
-        startResultClick={startResultClick}
-        endResultClick={endResultClick}
-      />
     </div>
   );
 }

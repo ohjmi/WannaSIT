@@ -125,6 +125,7 @@
     color: #ffffff;
 }
 .searchBtn {
+    cursor: pointer;
     border-radius: 10px;
     border: 1px solid #7ED287;
     background-color: #7ED287;

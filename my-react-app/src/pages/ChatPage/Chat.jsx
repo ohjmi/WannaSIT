@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import useWebSocket from "react-use-websocket"; //웹소켓 라이브러리
 import "./Chat.css";
 import HamHeader from "../../components/Header/HamHeader";
-import chatSendBtn from "../../assets/images/icon/chatSendBtn.svg";
+import chatSendBtn from "../../assets/images/icon/ChatSendBtn.svg";
 
 function Chat() {
   const [socketUrl] = useState("ws://localhost:4000/chat");

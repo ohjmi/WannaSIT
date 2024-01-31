@@ -1,19 +1,16 @@
-import { getConnection, executeQuery, endConnection } from "../services/databaseService.js"; 
+import { getConnection, executeQuery, endConnection } from "../services/databaseService.js";
 
-async function getAuthorId (boardID) {
+async function getAuthorId(table, id) {
   const connection = await getConnection();
-  const params = [boardID];
-  const query =`
-  SELECT user_id
-  FROM post
-  WHERE id = ?`;
+  const params = [id];
+  const query = `SELECT user_id FROM ${table} WHERE id = ?`;
 
   try {
     const [rows, fields] = await executeQuery(connection, query, params);
-    return (rows[0].user_id);
+    return rows[0].user_id;
   } catch (err) {
     console.error("작성자 ID 조회 실패", err);
-    return (false);
+    return false;
   } finally {
     endConnection(connection);
   }

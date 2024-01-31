@@ -29,6 +29,7 @@
 }
 
 .blueSpan {
+    cursor: pointer;
     color: #5FBBD0;
     font-size: 11px;
     text-align: right;
