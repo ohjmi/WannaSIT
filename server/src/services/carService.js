@@ -1,24 +1,48 @@
 import { getConnection, executeQuery, endConnection } from "../services/databaseService.js";
 
+const TOTAL_SEATS = 54;
+const ZERO_PERCENTAGE_COUNT = 300;
+const MAX_PERCENTAGE_COUNT = TOTAL_SEATS - 20;
+
 // 랭킹 계산 함수
 function calculateRanking(routeDetail) {
-  const countByCar = gatherCountByCar(routeDetail);
-  const minCountByCar = findMinCountByCar(countByCar);
+  const countByCar = gatherCountByCar(routeDetail); // 두번째 ERD로 할 경우 이 과정 생략
+  const bestByCar = findBestByCar(countByCar);
 
-  // 우선순위 : minCount  > index(역)
-  sortArray(minCountByCar);
+  sortRanking(bestByCar);
 
-  const carRank = transformForCarResponse(minCountByCar);
+  const carRank = bestByCar.map(({ carNum, stationIndex, bestCount }) => {
+    const isSeatAvailable = convertCountToPercentage(bestCount);
+    return {
+      carNum,
+      stationIndex,
+      isSeatAvailable,
+    };
+  });
+
   return carRank;
 }
 
-// 착석 가능성 분류 함수 // 상수
-function calculateChanceByCount(routeDetail, carNumber) {
+function convertCountToPercentage(count) {
+  let percentage;
+  if (count <= MAX_PERCENTAGE_COUNT) {
+    percentage = 100;
+  } else if (count >= ZERO_PERCENTAGE_COUNT) {
+    percentage = 0;
+  } else {
+    percentage = 100 - ((count - MAX_PERCENTAGE_COUNT) / (ZERO_PERCENTAGE_COUNT - MAX_PERCENTAGE_COUNT)) * 100;
+  }
+
+  return parseInt(percentage);
+}
+
+// 경로까지 역 별 착석 가능성
+function calculateChanceByRoute(routeDetail, carNumber) {
   const countByCar = gatherCountByCar(routeDetail);
   const countCar = countByCar[carNumber - 1];
-
-  countCar.map((car, index) => {
-    countCar[index] = car < 54 ? "높음" : car <= 64 ? "중간" : "낮음";
+  countCar.forEach((count, index) => {
+    countCar[index] = convertCountToPercentage(count); // 퍼센트 함수 호출
+    // countCar[index] = count < TOTAL_SEATS ? "높음" : count <= TOTAL_SEATS * 2 ? "중간" : "낮음";
   });
 
   return countCar;
@@ -67,56 +91,47 @@ function findHighCars(routeDetail) {
   return highCars;
 }
 
-// 경로까지 칸 별 예측 인원 모으는 함수
+// 경로까지 호차 별 예측 인원 모으는 함수
 function gatherCountByCar(routeData) {
   return Array.from({ length: routeData[0].length }, (_, index) => routeData.map((station) => station[index].estimated_count));
 }
 
-// 칸 별 착석 가능성 높은 역 찾기
-function findMinCountByCar(countByCar) {
-  const minCountByCar = [];
+// 호차 별 착석 가능성 높은 역 찾는 함수
+function findBestByCar(countByCar) {
+  const bestByCar = [];
 
   countByCar.forEach((car, index) => {
     let carNum = index + 1;
-    let minCount = Math.min(...car);
-    let stationIndex = car.indexOf(minCount);
+    let bestCount = car[0] <= TOTAL_SEATS ? car[0] : Math.min(...car); // 출발역에서 앉을 수 있다면 Best
+    let stationIndex = car.indexOf(bestCount);
 
-    minCountByCar.push({ carNum, stationIndex, minCount });
+    bestByCar.push({ carNum, stationIndex, bestCount });
   });
 
-  return minCountByCar;
+  return bestByCar;
 }
 
-function sortArray(array) {
-  console.log("정렬 전: ", array);
+// 추천 호차 순서 결정 함수
+function sortRanking(bestByCar) {
+  console.log("정렬 전: ", bestByCar);
 
-  array.sort((a, b) => {
+  // 우선순위 : bestCount  > index(역)
+  bestByCar.sort((a, b) => {
     // 출발역에서 앉을 수 있다면 0순위
-    if (a.stationIndex === 0 && a.minCount <= 34) {
+    if (a.stationIndex === 0 && a.bestCount <= TOTAL_SEATS) {
       return -1;
-    } else if (b.stationIndex === 0 && b.minCount <= 34) {
+    } else if (b.stationIndex === 0 && b.bestCount <= TOTAL_SEATS) {
       return 1;
     } else {
-      if (a.minCount === b.minCount) {
+      if (a.bestCount === b.bestCount) {
         return a.stationIndex - b.stationIndex;
       } else {
-        return a.minCount - b.minCount;
+        return a.bestCount - b.bestCount;
       }
     }
   });
 
-  console.log("정렬 후: ", array);
+  console.log("정렬 후: ", bestByCar);
 }
 
-function transformForCarResponse(minCountByCar) {
-  return minCountByCar.map(({ carNum, stationIndex, minCount }) => {
-    const isSeatAvailable = minCount <= 34 ? 1 : 0;
-    return {
-      carNum,
-      stationIndex,
-      isSeatAvailable,
-    };
-  });
-}
-
-export { calculateRanking, calculateChanceByCount, determineHighTraffic, findHighCars };
+export { calculateRanking, calculateChanceByRoute, determineHighTraffic, findHighCars };

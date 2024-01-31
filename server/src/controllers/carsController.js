@@ -1,5 +1,5 @@
 import { saveRecentRoute, getRouteAndDirection, getRouteDetail } from "../services/routeService.js";
-import { calculateRanking, calculateChanceByCount, determineHighTraffic, findHighCars } from "../services/carService.js";
+import { calculateRanking, calculateChanceByRoute, determineHighTraffic, findHighCars } from "../services/carService.js";
 
 // 추천 호차 랭킹
 async function rank(req, res) {
@@ -8,7 +8,6 @@ async function rank(req, res) {
     const { route, direction } = await getRouteAndDirection(startStation, endStation);
     const routeDetail = await getRouteDetail(route, direction);
     const carRank = calculateRanking(routeDetail);
-
     await saveRecentRoute(req, startStation, endStation);
 
     res.send(carRank);
@@ -22,7 +21,7 @@ async function info(req, res) {
   const { startStation, endStation, carNumber } = req.query;
   const { route, direction } = await getRouteAndDirection(startStation, endStation);
   const routeDetail = await getRouteDetail(route, direction);
-  const chanceByRoute = calculateChanceByCount(routeDetail, carNumber);
+  const chanceByRoute = calculateChanceByRoute(routeDetail, carNumber);
   const trafficArr = await determineHighTraffic(routeDetail);
   const highCarArr = findHighCars(routeDetail);
 
