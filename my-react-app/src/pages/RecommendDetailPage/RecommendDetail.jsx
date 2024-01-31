@@ -64,20 +64,22 @@ function RecommendDetail() {
     <div className="RecommendDetail">
       <BackHeader />
       <StationPath startStation={startStation} endStation={endStation} />
-      <div className="carSelectOpt">
-        <div
-          className="openChance"
-          onClick={handleChance}
-          style={{ backgroundColor: chanceColor }}
-        >
-          {carNumber}호차
-        </div>
-        <div
-          className="openHighCars"
-          onClick={handleHighCars}
-          style={{ backgroundColor: highCarsColor }}
-        >
-          칸 이동
+      <div className="carSelectOptWrap">
+        <div className="carSelectToggle">
+          <div
+            className="openChance"
+            onClick={handleChance}
+            style={{ backgroundColor: chanceColor }}
+          >
+            {carNumber}호차
+          </div>
+          <div
+            className="openHighCars"
+            onClick={handleHighCars}
+            style={{ backgroundColor: highCarsColor }}
+          >
+            칸 이동
+          </div>
         </div>
       </div>
       <div className="titleWrap">

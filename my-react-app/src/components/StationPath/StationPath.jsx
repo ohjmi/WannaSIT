@@ -5,14 +5,13 @@ import './StationPath.css';
 function StationPath({ startStation, endStation }) {
     return (
       <div className='StationPath'>
-        <ul className="stationTitle">
+        <ul className="startStation">
             <li>출발역</li>
-            <br/>
-            <li>도착역</li>
-        </ul>
-        <ul className="stationName">
             <li>{startStation}</li>
-            <li><img src={rightArrow} alt='오른쪽 화살표'/></li>
+        </ul>
+        <p className='stationArrow'><img src={rightArrow} alt='오른쪽 화살표'/></p>
+        <ul className="endStation">
+            <li>도착역</li>
             <li>{endStation}</li>
         </ul>
       </div>

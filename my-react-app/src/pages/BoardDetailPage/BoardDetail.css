@@ -1,6 +1,10 @@
-.boardDetailCont {
-    width: 350px;
+.BoardDetail {
+    width: 390px;
     margin: 0 auto;
+}
+
+.boardDetailCont {
+    margin: 0 20px;
 }
 
 .nameDateWrap {
@@ -79,38 +83,29 @@
 }
 
 .likeAndCommentWrap {
-    width: 350px;
-    height: 44px;
+    width: 390px;
     margin-top: 100px;
-    border: 1px solid #7ED287;
-    border-radius: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     font-size: 14px;
 }
 
-.likeAndCommentWrap .boardDetailLike {
-    width: 50%;
-    text-align: center;
-    margin: 0;
-    padding: 14px 0;
-    border-right: 1px solid #7ED287;
-    cursor: pointer;
-}
-
-.likeAndCommentWrap .boardDetailLike img {
-    width: 18px;
-    margin-right: 4px;
-}
-
-.likeAndCommentWrap .replies img {
-    margin-right: 4px;
-}
-
+.likeAndCommentWrap .boardDetailLike,
 .likeAndCommentWrap .replies {
-    width: 50%;
-    text-align: center;
     margin: 0;
     padding: 14px 0;
     cursor: pointer;
 }
+
+.likeAndCommentWrap .boardDetailLike {
+    margin-right: 14px;
+}
+
+.likeAndCommentWrap .boardDetailLike img,
+.likeAndCommentWrap .replies img {
+    width: 18px;
+    margin-right: 3px;
+    margin-bottom: 2px;
+    vertical-align: middle;
+}
+

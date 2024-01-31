@@ -5,8 +5,10 @@ ul ,li {
 }
 .Hamburger {
   position: relative;
+  top: -10px;
   width: 100%;
   z-index: 40;
+  background-color: #7ED287;
 }
 
 .hamMenu,
@@ -20,7 +22,7 @@ ul ,li {
 .hamMenu {
   position: relative;
   left: 20px;
-  top: 24px;
+  top: 34px;
   width: 24px;
   height: 20px;
 }

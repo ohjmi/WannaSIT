@@ -25,24 +25,24 @@ function BoardDetail() {
   const handleLikeClick = () => {
     // 클릭 이벤트에서 isLiked 값 변경
     const updatedIsLiked = isLiked === 0 ? 1 : 0;
-  
+
     // 서버에 업데이트된 isLiked 값 전송
     api.put(`/boards/like/${boardId}`, { isLiked: updatedIsLiked })
-    .then((response) => {
-      // 응답을 받아와서 상태 업데이트
-      console.log(response.data);
-      if (response.data.message === '게시글을 추천했습니다.') {
-        setIsLiked(updatedIsLiked);
-        setLikeCount((prevCount) => prevCount + 1);
-      } else if (response.data.message === '게시글 추천을 취소했습니다.') {
-        setIsLiked(updatedIsLiked);
-        setLikeCount((prevCount) => prevCount - 1);
-      }
-    })
-    .catch((error) => {
-      console.error('좋아요 처리 오류:', error);
-    });
-};
+      .then((response) => {
+        // 응답을 받아와서 상태 업데이트
+        console.log(response.data);
+        if (response.data.message === '게시글을 추천했습니다.') {
+          setIsLiked(updatedIsLiked);
+          setLikeCount((prevCount) => prevCount + 1);
+        } else if (response.data.message === '게시글 추천을 취소했습니다.') {
+          setIsLiked(updatedIsLiked);
+          setLikeCount((prevCount) => prevCount === 0 ? 0 : prevCount - 1);
+        }
+      })
+      .catch((error) => {
+        console.error('좋아요 처리 오류:', error);
+      });
+  };
 
   useEffect(() => {
     // useEffect 내에서 API 호출
@@ -62,7 +62,7 @@ function BoardDetail() {
   const handleEdit = () => {
     if (boardData.isAuthor === 1) {
       navigate(`/boards/edit/${boardId}`, { state: { title: boardData.title, content: boardData.content } })
-    } 
+    }
   };
 
   const handleDelete = () => {
@@ -116,19 +116,19 @@ function BoardDetail() {
         </div>
         <p className='content'>{boardData.content}</p>
         <div className='likeAndCommentWrap'>
-      <p className='boardDetailLike' onClick={handleLikeClick}>
-        <img src={isLiked === 0 ? strokeLike : fillLike} alt="좋아요버튼" />
-        {likeCount}명의 좋아요
-      </p>
-        <p className='replies'>
-          <img src={chat} alt="댓글아이콘" />
-          댓글쓰기
-        </p>
+          <p className='boardDetailLike' onClick={handleLikeClick}>
+            <img src={isLiked === 0 ? strokeLike : fillLike} alt="좋아요버튼" />
+            {likeCount}
+          </p>
+          <p className='replies'>
+            <img src={chat} alt="댓글아이콘" />
+            0
+          </p>
         </div>
       </div>
     </div>
   );
-  
+
 }
 
 export default BoardDetail;

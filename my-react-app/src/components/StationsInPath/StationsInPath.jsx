@@ -1,7 +1,7 @@
 import "./StationsInPath.css";
 import Tips from "../Modal/CarsModal";
 import { useState } from "react";
-import lineCircle from "../../assets/images/Circle.svg"
+import lineCircle from "../../assets/images/circle.svg";
 
 function StationsInPath({ data }) {
   const [openTipsIndex, setOpenTipsIndex] = useState(null);

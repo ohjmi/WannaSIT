@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./MetroMap.css";
-import Map from "../../assets/images/MetroMap.svg";
+import Map from "../../assets/images/metroMap.svg";
 import marker from "../../assets/images/marker.svg";
 
 function MetroMap({ startResultClick, endResultClick }) {
