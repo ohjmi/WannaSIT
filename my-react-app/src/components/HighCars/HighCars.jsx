@@ -13,7 +13,7 @@ function HighCars({ data }) {
                   ? "highLighted"
                   : "unHighLighted"
               }
-            />
+            >{index + 1}</div>
           ))}
           <br />
           빠른 착석 | {item.highCars[0]}호차,{item.highCars[1]}호차

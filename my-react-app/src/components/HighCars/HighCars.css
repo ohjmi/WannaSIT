@@ -1,14 +1,21 @@
+.HighCars {
+    margin-top: 18px;
+}
+
 .highCarsList {
     font-size: 12px;
-    height: 37.5px;
-    padding-top: 14px;
+    height: 52px;
+    padding: 6px 0;
 }
 
 .highCarsList div {
+    color: white;
+    text-align: center;
     width: 15px;
-    height: 10px;
+    height: 14px;
     display: inline-block;
-    margin-right: 5px;
+    margin-right: 2px;
+    margin-bottom: 5px;
     border-radius: 2px;
 }
 
