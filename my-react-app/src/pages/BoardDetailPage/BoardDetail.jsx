@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./BoardDetail.css";
 import api from "../../services/api";
 import BackHeader from "../../components/Header/BackHeader";
+import Comment from "../../components/Comment/Comment";
 import strokeLike from "../../assets/images/icon/strokeLike.svg";
 import fillLike from "../../assets/images/icon/fillLike.svg";
 import chat from "../../assets/images/icon/chat.svg";
 
 function BoardDetail() {
-  const { boardId } = useParams();
+  const { postID } = useParams();
   const [boardData, setBoardData] = useState(null); // API로부터 받아온 데이터를 저장할 상태
   const [isAuthor, setIsAuthor] = useState(false);
   const [isLiked, setIsLiked] = useState(0);
@@ -22,12 +22,25 @@ function BoardDetail() {
     setBoardMenuList(!boardMenuList);
   };
 
+  useEffect(() => {
+    api.get(`/posts/${postID}`)
+      .then((response) => {
+        setBoardData(response.data);
+        setIsAuthor(response.data.isAuthor);
+        setIsLiked(response.data.isLiked);
+        setLikeCount(response.data.likeCount);
+      })
+      .catch((error) => {
+        console.error('API 호출 에러:', error);
+      });
+  }, [postID]); // boardId가 변경될 때마다 API 호출
+
   const handleLikeClick = () => {
     // 클릭 이벤트에서 isLiked 값 변경
     const updatedIsLiked = isLiked === 0 ? 1 : 0;
 
     // 서버에 업데이트된 isLiked 값 전송
-    api.put(`/boards/like/${boardId}`, { isLiked: updatedIsLiked })
+    api.put(`/posts/${postID}/like`, { isLiked: updatedIsLiked })
       .then((response) => {
         // 응답을 받아와서 상태 업데이트
         console.log(response.data);
@@ -44,29 +57,14 @@ function BoardDetail() {
       });
   };
 
-  useEffect(() => {
-    // useEffect 내에서 API 호출
-    api.get(`/boards/${boardId}`)
-      .then((response) => {
-        // API 응답을 받아와서 상태 업데이트
-        setBoardData(response.data);
-        setIsAuthor(response.data.isAuthor);
-        setIsLiked(response.data.isLiked);
-        setLikeCount(response.data.likeCount);
-      })
-      .catch((error) => {
-        console.error('API 호출 에러:', error);
-      });
-  }, [boardId]); // boardId가 변경될 때마다 API 호출
-
   const handleEdit = () => {
     if (boardData.isAuthor === 1) {
-      navigate(`/boards/edit/${boardId}`, { state: { title: boardData.title, content: boardData.content } })
+      navigate(`/boards/edit/${postID}`, { state: { title: boardData.title, content: boardData.content } })
     }
   };
 
   const handleDelete = () => {
-    api.delete(`/boards/${boardId}`)
+    api.delete(`/posts/${postID}`)
       .then((response) => {
         if (response.data.message === "게시글 삭제 성공") {
           navigate('/boards');
@@ -80,7 +78,7 @@ function BoardDetail() {
       });
   };
 
-  // API 호출 결과를 기다리는 동안 로딩 상태를 표시할 수 있습니다.
+  // API 호출 결과를 기다리는 동안 로딩 상태를 표시
   if (!boardData) {
     return <p>Loading...</p>;
   }
@@ -126,6 +124,7 @@ function BoardDetail() {
           </p>
         </div>
       </div>
+      <Comment postID={postID}/>
     </div>
   );
 

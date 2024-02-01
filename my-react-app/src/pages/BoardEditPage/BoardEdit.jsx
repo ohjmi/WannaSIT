@@ -8,7 +8,7 @@ import BoardEditModal from "../../components/Modal/BoardEditModal";
 import api from "../../services/api";
 
 function BoardEdit() {
-    const { boardId } = useParams();
+    const { postID } = useParams();
     const location = useLocation();
     const initialEditData = location.state;
     const [editData, setEditData] = useState(initialEditData);
@@ -23,7 +23,7 @@ function BoardEdit() {
     };
 
     const handleConfirmEdit = () => {
-        api.put(`/boards/${boardId}`, editData)
+        api.put(`/posts/${postID}`, editData)
             .then((response) => {
                 if (response.data.message === "게시글 수정 성공") {
                     setModalOpen(false); // 수정 후 모달 닫기
@@ -32,7 +32,7 @@ function BoardEdit() {
             })
             .catch((error) => {
                 console.error('수정 오류:', error.message);
-                // 에러 처리 로직을 여기에 추가
+                alert('수정 중 오류가 발생했습니다.');
             });
     };
 

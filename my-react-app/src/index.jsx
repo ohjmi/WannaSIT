@@ -20,9 +20,9 @@ root.render(
         <Route path="/cars" element={<Recommend />} />
         <Route path="/cars/info" element={<RecommendDetail />} />
         <Route path="/boards" element={<Board />} />
-        <Route path="/boards/:boardId" element={<BoardDetail />} />
+        <Route path="/boards/:postID" element={<BoardDetail />} />
         <Route path="/boards/write" element={<BoardWrite />} />
-        <Route path="/boards/edit/:boardId" element={<BoardEdit />} />
+        <Route path="/boards/edit/:postID" element={<BoardEdit />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="*" element={ <div>404 NOT FOUND</div> } />
       </Routes>

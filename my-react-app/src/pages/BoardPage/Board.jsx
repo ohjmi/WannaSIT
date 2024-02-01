@@ -15,10 +15,9 @@ function Board() {
   const navigate = useNavigate();
 
   const fetchPosts = (page, title = '') => {
-    api.get(`/boards?pageNum=${page}&title=${title}`)
+    api.get(`/posts?pageNum=${page}&title=${title}`)
       .then(({ data }) => {
         const { data: responseData, totalPageCount } = data;
-        
         if (page === 1) {
           setPosts(responseData);
           setTotalPages(totalPageCount);
