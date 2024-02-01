@@ -33,6 +33,7 @@ async function getCommentList(req, res) {
         "totalpageCount": 1,
         "data": []
       });
+      return;
     }
 
     if (pageNum > totalpageCount) throw err;
