@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import useWebSocket from "react-use-websocket"; //웹소켓 라이브러리
 import "./Chat.css";
 import HamHeader from "../../components/Header/HamHeader";
-import chatSendBtn from "../../assets/images/icon/ChatSendBtn.svg";
+import chatSendBtn from "../../assets/images/icon/chatSendBtn.svg";
 
 function Chat() {
   const [socketUrl] = useState("ws://localhost:4000/chat");
@@ -57,49 +57,51 @@ function Chat() {
   return (
     <div className="Chat">
       <HamHeader />
-      <div id="messageContainer" ref={scrollContainerRef}>
-        <ul className="messageList">
-          {messageHistory.map((message, idx) => {
-            if (message.messagetype === "received") {
-              return (
-                <>
-                  <div className="sender">{message.sender}</div>
-                  <div key={idx} className="messageBubble receivedMessage">
+      {/* <div className="chatWrap"> */}
+        <div className="messageContainer" ref={scrollContainerRef}>
+          <ul className="messageList">
+            {messageHistory.map((message, idx) => {
+              if (message.messagetype === "received") {
+                return (
+                  <>
+                    <div className="sender">{message.sender}</div>
+                    <div key={idx} className="messageBubble receivedMessage">
+                      {message.content}
+                    </div>
+                  </>
+                );
+              } else if (message.messagetype === "sent") {
+                return (
+                  <>
+                  <div className="username">{message.sender}</div>
+                  <div key={idx} className="messageBubble sentMessage">
                     {message.content}
                   </div>
-                </>
-              );
-            } else if (message.messagetype === "sent") {
-              return (
-                <>
-                <div className="username">{message.sender}</div>
-                <div key={idx} className="messageBubble sentMessage">
-                  {message.content}
-                </div>
-                </>
-              );
-            } else {
-              return (
-                <div key={idx} className="userInOut">
-                  {message.content}
-                </div>
-              );
-            }
-          })}
-        </ul>
+                  </>
+                );
+              } else {
+                return (
+                  <div key={idx} className="userInOut">
+                    {message.content}
+                  </div>
+                );
+              }
+            })}
+          </ul>
+        </div>
+        <div className="inputForm">
+          <input
+            type="text"
+            id="inputMessage"
+            value={message}
+            onChange={onMessage}
+            onKeyUp={handleKeyUp}
+            placeholder="메세지를 입력하세요"
+          />
+          <img src={chatSendBtn} alt="전송" id="sendButton" onClick={sendMsg} />
+        </div>
       </div>
-      <div className="inputForm">
-        <input
-          type="text"
-          id="inputMessage"
-          value={message}
-          onChange={onMessage}
-          onKeyUp={handleKeyUp}
-          placeholder="메세지를 입력하세요"
-        />
-        <img src={chatSendBtn} alt="전송" id="sendButton" onClick={sendMsg} />
-      </div>
-    </div>
+    // </div>
   );
 }
 

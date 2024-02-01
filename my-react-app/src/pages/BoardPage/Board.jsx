@@ -4,71 +4,35 @@ import api from "../../services/api";
 import "./Board.css";
 import HamHeader from "../../components/Header/HamHeader";
 import write from "../../assets/images/icon/write.svg";
-import strokeLike from "../../assets/images/icon/strokeLike.svg";
-import fillLike from "../../assets/images/icon/fillLike.svg";
+import strokeLikeGray from "../../assets/images/icon/strokeLikeGray.svg";
 
 function Board() {
   const [posts, setPosts] = useState([]);
-  const [likedPosts, setLikedPosts] = useState([]);
-  const [showLoadMoreButton, setShowLoadMoreButton] = useState(true);
   const [pageNum, setPageNum] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [showLoadMoreButton, setShowLoadMoreButton] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
   const fetchPosts = (page, title = '') => {
     api.get(`/boards?pageNum=${page}&title=${title}`)
       .then(({ data }) => {
-        const { data: responseData, totalPageCount:totalPages } = data;
-        console.log('받아오는데이터', data);
-        console.log('전체페이지', totalPages);
-
+        const { data: responseData, totalPageCount } = data;
+        
         if (page === 1) {
           setPosts(responseData);
-          setLikedPosts(responseData.filter(post => post.isLiked === 1));
-          setTotalPages(totalPages);
+          setTotalPages(totalPageCount);
         } else {
-          setPosts(prevPosts => [...prevPosts, ...responseData]);
-          setLikedPosts(prevLikedPosts => [
-            ...prevLikedPosts,
-            ...responseData.filter(post => post.isLiked === 1),
-          ]);
+          setPosts([...posts, ...responseData]);
         }
-
-        setShowLoadMoreButton(page < totalPages);
-        console.log('zzzzz', page, totalPages);
+  
+        setShowLoadMoreButton(page < totalPageCount);
       })
       .catch((error) => {
         console.error('에러:', error);
       });
   };
-
-  const handleLike = (boardId) => {
-    api.put(`/boards/like/${boardId}`)
-      .then((response) => {
-        const { message } = response.data;
-
-        setPosts(prevPosts =>
-          prevPosts.map(post =>
-            post.id === boardId
-              ? { ...post, like_count: post.like_count + (message === "게시글 추천을 취소했습니다." ? -1 : 1), isLiked: message === "게시글 추천을 취소했습니다." ? 0 : 1 }
-              : post
-          )
-        );
-
-        setLikedPosts(prevLikedPosts => {
-          if (message === "게시글 추천을 취소했습니다.") {
-            return prevLikedPosts.filter(post => post.id !== boardId);
-          } else {
-            return [...prevLikedPosts, posts.find(post => post.id === boardId)];
-          }
-        });
-      })
-      .catch((error) => {
-        console.error('게시글 추천 오류:', error);
-      });
-  };
-
+  
   useEffect(() => {
     fetchPosts(pageNum, searchQuery);
   }, [pageNum, searchQuery]);
@@ -93,30 +57,30 @@ function Board() {
           placeholder="게시글 제목 검색"
         />
       </div>
-      <div className="boardCont">
-        {posts.map(post => (
-          <div className="boardListWrap" key={post.id}>
-            <ul onClick={() => navigate(`/boards/${post.id}`)}>
-              <li>{post.username}</li>
-              <li>{post.title}</li>
-              <li>{post.content}</li>
-            </ul>
-            <div className="boardLike">
-              <img src={likedPosts.some(likedPost => likedPost.id === post.id) ? fillLike : strokeLike} alt="좋아요" onClick={() => handleLike(post.id)} />
-              {post.like_count}
+      <div className="boardContWrap">
+        <div className="boardCont">
+          {posts.map(post => (
+            <div className="boardListWrap" key={post.id}>
+              <ul onClick={() => navigate(`/boards/${post.id}`)}>
+                <li>{post.username}</li>
+                <li>{post.title}</li>
+                <li>{post.content}</li>
+              </ul>
+              <div className="boardLike">
+                <img src={strokeLikeGray} alt="좋아요" />
+                {post.like_count}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-      <div className="buttonWrap">
-        {showLoadMoreButton && (
-          <button onClick={() => setPageNum(pageNum + 1)}>게시글 더보기</button>
-        )}
+          ))}
+        </div>
+        <div className="buttonWrap">
+          {showLoadMoreButton && (
+            <button onClick={() => setPageNum(pageNum + 1)}>게시글 더보기</button>
+          )}
+        </div>
       </div>
     </div>
   );
 }
 
 export default Board;
-
-

@@ -1,12 +1,13 @@
 .Chat {
+    margin: 0 auto;
+    width: 390px;
     height: 100vh;
+    margin-bottom: 0;
     background-color: #7ed2871a;
+
 }
 
-
-#messageContainer {
-    width: 390px;
-    margin: 0 auto;
+.messageContainer {
     height: 83%;
     overflow: auto;
     word-wrap: break-word;
@@ -82,8 +83,7 @@
     height: 44px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
     margin: 0 auto 0 auto;
-    position: absolute;
-    align-content: center;
+    position: fixed;
     bottom: 4%;
     left: 50%;
     transform: translateX(-50%);
@@ -92,7 +92,7 @@
     /* 내부 컨텐츠를 좌우로 정렬 */
     align-items: center;
     /* 내부 컨텐츠를 수직으로 중앙 정렬 */
-    z-index: 2;
+    z-index: 20;
 }
 
 #inputMessage {
@@ -116,19 +116,19 @@
 }
 
 /* 스크롤 바의 전체 영역을 선택 */
-#messageContainer::-webkit-scrollbar {
+.messageContainer::-webkit-scrollbar {
     width: 2px;
     /* 스크롤 바의 너비 */
 }
 
 /* 스크롤 바의 추적(track) 부분을 선택 */
-#messageContainer::-webkit-scrollbar-track {
+.messageContainer::-webkit-scrollbar-track {
     background: rgba(126, 210, 135, 0);
     /* 스크롤 바의 배경 색상 */
 }
 
 /* 스크롤 바의 손잡이(thumb) 부분을 선택 */
-#messageContainer::-webkit-scrollbar-thumb {
+.messageContainer::-webkit-scrollbar-thumb {
     background: rgba(126, 210, 135, 0.1);
     /* 스크롤 바의 색상 */
     border-radius: 5px;
