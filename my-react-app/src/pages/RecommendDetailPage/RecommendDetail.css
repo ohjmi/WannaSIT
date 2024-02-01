@@ -32,6 +32,9 @@
 
 .infoBox {
     margin: 20px;
+    width: 350px;
+    margin: 0 auto;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     /* align-items: end; */
