@@ -27,6 +27,14 @@ async function getCommentList(req, res) {
     const [totalCommentCount] = await executeQuery(connection, totalCommentQuery, [req.params.postID]);
     const totalpageCount = Math.ceil(totalCommentCount[0].cnt / 5);
 
+    //달린 댓글이 없는 경우
+    if (!totalpageCount) {
+      res.status(200).json({
+        "totalpageCount": 1,
+        "data": []
+      });
+    }
+
     if (pageNum > totalpageCount) throw err;
 
     const [rows] = await executeQuery(connection, query, [req.params.postID, (pageNum - 1) * 5]);
