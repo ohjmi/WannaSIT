@@ -57,7 +57,6 @@ function Chat() {
   return (
     <div className="Chat">
       <HamHeader />
-      {/* <div className="chatWrap"> */}
         <div className="messageContainer" ref={scrollContainerRef}>
           <ul className="messageList">
             {messageHistory.map((message, idx) => {
@@ -101,7 +100,6 @@ function Chat() {
           <img src={chatSendBtn} alt="전송" id="sendButton" onClick={sendMsg} />
         </div>
       </div>
-    // </div>
   );
 }
 
