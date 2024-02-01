@@ -1,6 +1,5 @@
 import "./Chance.css";
 
-
 function Chance({ data }) {
   return (
     <div className="Chance">
@@ -10,11 +9,11 @@ function Chance({ data }) {
           key={item.station}
           style={{
             color:
-              item.chance === "높음"
+              item.chance >= 70
                 ? "#7ED287"
-                : item.chance === "중간"
+                : item.chance < 70 && item.chance >= 30
                 ? "#FABE00"
-                : item.chance === "낮음"
+                : item.chance < 30
                 ? "#F21111"
                 : null,
           }}
@@ -23,7 +22,7 @@ function Chance({ data }) {
             <div className="line" />
           ))}
           <div className="circle" />
-          {item.chance}
+          {item.chance}%
         </li>
       ))}
     </div>
