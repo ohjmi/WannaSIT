@@ -101,7 +101,11 @@ function Chat() {
           <img src={chatSendBtn} alt="전송" id="sendButton" onClick={sendMsg} />
         </div>
       </div>
+<<<<<<< HEAD
+    </div>
+=======
     // </div>
+>>>>>>> 1c94779e449b8f997467e16dc30f2c170e44bff8
   );
 }
 
