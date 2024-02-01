@@ -1,0 +1,5 @@
+.commentContWrap {
+  height: 50vh;
+  overflow: auto;
+  background-color: pink;
+}

@@ -18,13 +18,10 @@ function BoardWrite() {
         setModalOpen(true);
     };
 
-    // handleConfirmRegistration 함수 수정
     const handleConfirmRegistration = async () => {
         try {
             const formData = { title, content };
-            console.log('전송할 데이터:', formData);
-            // axios를 사용하여 api.post 호출
-            const response = await api.post('/boards', formData, {
+            const response = await api.post('/posts', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
