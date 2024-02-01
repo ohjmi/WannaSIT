@@ -10,6 +10,8 @@ function Search() {
   const [startStationValue, setStartStationValue] = useState("");
   const [endStationValue, setEndStationValue] = useState("");
   const [stations, setStations] = useState([]);
+  const [startSearchHistory, setStartSearchHistory] = useState([]);
+  const [endSearchHistory, setEndSearchHistory] = useState([]);
   const [showStartList, setShowStartList] = useState(false);
   const [showEndList, setShowEndList] = useState(false);
   const [selectedOption, setSelectedOption] = useState("전체 ");
@@ -60,8 +62,10 @@ function Search() {
     return Boolean(matches);
   };
 
-  let startSearched =
-    startStationValue.length >= 1
+  const startSearched =
+    startStationValue.length === 0
+      ? startSearchHistory
+      : startStationValue.length >= 1
       ? stations.filter(
           (station) =>
             station.includes(startStationValue) ||
@@ -69,8 +73,10 @@ function Search() {
         )
       : [];
 
-  let endSearched =
-    endStationValue.length >= 1
+  const endSearched =
+    endStationValue.length === 0
+      ? endSearchHistory
+      : endStationValue.length >= 1
       ? stations.filter(
           (station) =>
             station.includes(endStationValue) ||
@@ -127,6 +133,19 @@ function Search() {
       .catch((error) => {
         console.error("Error:", error);
       });
+
+    api
+      .get("/stations/recent-routes")
+      .then((response) => response.data)
+      .then((data) => {
+        const startStations = data.map((item) => item.startStation);
+        const endStations = data.map((item) => item.endStation);
+        setStartSearchHistory(startStations);
+        setEndSearchHistory(endStations);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }, []);
 
   return (
@@ -141,8 +160,10 @@ function Search() {
             onChange={(event) => setStartStationValue(event.target.value)}
             onClick={() => {
               setShowStartList(true);
-              setShowEndList(false);
               setShowOptions(false);
+            }}
+            onBlur={() => {
+              setShowStartList(false);
             }}
             placeholder="출발역"
             required
@@ -154,9 +175,11 @@ function Search() {
             value={endStationValue}
             onChange={(event) => setEndStationValue(event.target.value)}
             onClick={() => {
-              setShowStartList(false);
               setShowEndList(true);
               setShowOptions(false);
+            }}
+            onBlur={() => {
+              setShowEndList(false);
             }}
             placeholder="도착역"
             required
@@ -194,8 +217,6 @@ function Search() {
             className="selectedOption"
             onClick={() => {
               setShowOptions(!showOptions);
-              setShowStartList(false);
-              setShowEndList(false);
             }}
             value={selectedOption}
           >
