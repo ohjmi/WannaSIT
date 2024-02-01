@@ -1,8 +1,10 @@
-import axios from 'axios';
-import fs from 'fs';
-import path from 'path';
+import axios from "axios";
+import fs from "fs";
+import path from "path";
+import url from "url";
 
-const stationCodes = JSON.parse(fs.readFileSync(path.join('../', 'data', 'preprocessingData', 'stationCodes.json'), 'utf-8')); 
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+const stationCodes = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "..", "data", "input", "stationCodes.json"), 'utf-8')); 
 const dows = ['MON', 'WED', 'FRI'];
 const hhs = ['08', '13'];
 const appKey = "";
