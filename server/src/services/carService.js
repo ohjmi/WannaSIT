@@ -1,7 +1,7 @@
 import { getConnection, executeQuery, endConnection } from "../services/databaseService.js";
 
 const TOTAL_SEATS = 54;
-const ZERO_PERCENTAGE_COUNT = 300;
+const ZERO_PERCENTAGE_COUNT = 160;
 const MAX_PERCENTAGE_COUNT = TOTAL_SEATS - 20;
 
 // 랭킹 계산 함수
@@ -26,11 +26,11 @@ function calculateRanking(routeDetail) {
 function convertCountToPercentage(count) {
   let percentage;
   if (count <= MAX_PERCENTAGE_COUNT) {
-    percentage = 100;
+    percentage = 99;
   } else if (count >= ZERO_PERCENTAGE_COUNT) {
     percentage = 0;
   } else {
-    percentage = 100 - ((count - MAX_PERCENTAGE_COUNT) / (ZERO_PERCENTAGE_COUNT - MAX_PERCENTAGE_COUNT)) * 100;
+    percentage = 99 - ((count - MAX_PERCENTAGE_COUNT) / (ZERO_PERCENTAGE_COUNT - MAX_PERCENTAGE_COUNT)) * 100;
   }
 
   return parseInt(percentage);
