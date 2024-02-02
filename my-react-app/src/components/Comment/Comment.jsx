@@ -8,13 +8,13 @@ function Comment({ postID }) {
   const [comments, setComments] = useState([]);
   const [pageNum, setPageNum] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [isLiked, setIsLiked] = useState(0);
-  const [likeCount, setLikeCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [content, setContent] = useState('');
 
+
   const handleKeyUp = (event) => {
-    if (event.key === "Enter" && !event.isComposing && !event.repeat) {
+    if (event.key === "Enter") {
+      event.target.blur();
       event.preventDefault();
       handleCommentRegistration();
     }
@@ -38,18 +38,17 @@ function Comment({ postID }) {
     }
   };
 
-  const fetchComments = (page) => {
+  const fetchComments = (pageNum) => {
     setIsLoading(true);
-
-    api.get(`posts/${postID}/comments?pageNum=${page}`)
+    api.get(`posts/${postID}/comments?pageNum=${pageNum}`)
       .then(({ data }) => {
         const { data: responseData, totalPageCount } = data;
         console.log(data);
-        if (page === 1) {
+        if (pageNum === 1) {
           setComments(responseData);
           setTotalPages(totalPageCount);
         } else {
-          setComments((prevComments) => [...prevComments, ...responseData]);
+          setComments([...comments, ...responseData]);
         }
       })
       .catch((error) => {
@@ -60,32 +59,97 @@ function Comment({ postID }) {
       });
   };
 
-  useEffect(() => {
-    fetchComments(pageNum);
-  }, [pageNum, totalPages]);
+
+  // const handleLikeClick = (commentID) => {
+  //   const copyComments = [...comments]
+  //   // 특정 댓글을 찾기
+  //   const currentCommentIndex = copyComments.findIndex((comment) => comment.id === commentID);
+  //   console.log('currentCommentIndex', currentCommentIndex);
+  //   const currentIsLiked = copyComments[currentCommentIndex].isLiked;
+  //   console.log('currentIsLiked', currentIsLiked);
+  //   // 업데이트된 isLiked 값
+  //   const updatedIsLiked = currentIsLiked === 0 ? 1 : 0;
+  //   console.log('좋아요변경', updatedIsLiked);
+
+  //   api.put(`/posts/${postID}/comments/${commentID}/like`, { isLiked: updatedIsLiked })
+  //     .then((response) => {
+  //       console.log(response);
+  //       if (response.data.message === '댓글을 추천했습니다.') {
+  //         // 기존 댓글 배열을 변경하지 않고 특정 댓글만 업데이트
+  //         copyComments[currentCommentIndex] = {
+  //           ...copyComments[currentCommentIndex],
+  //           isLiked: updatedIsLiked,
+  //           likeCount: copyComments[currentCommentIndex].likeCount + 1, // +1 증가
+  //         };
+  //         console.log('서버요청후:', updatedIsLiked);
+  //         // 업데이트된 배열을 상태로 설정
+  //         setComments([...copyComments]);
+  //         console.log('햐햐', [copyComments]);
+  //       } else if (response.data.message === '댓글 추천을 취소했습니다.') {
+  //         // 기존 댓글 배열을 변경하지 않고 특정 댓글만 업데이트
+  //         copyComments[currentCommentIndex] = {
+  //           ...copyComments[currentCommentIndex],
+  //           isLiked: updatedIsLiked,
+  //           likeCount: copyComments[currentCommentIndex].likeCount - 1, // -1 감소
+  //         };
+  //         // 업데이트된 배열을 상태로 설정
+  //         setComments([...copyComments]);
+  //         console.log('캬캬', [copyComments]);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error('좋아요 처리 오류:', error);
+  //     });
+  // };
 
   const handleLikeClick = (commentID) => {
-    // 클릭 이벤트에서 isLiked 값 변경
-    const updatedIsLiked = isLiked === 0 ? 1 : 0;
-    // 서버에 업데이트된 isLiked 값 전송
+    const copyComments = [...comments]
+    // 특정 댓글을 찾기
+    const currentCommentIndex = copyComments.findIndex((comment) => comment.id === commentID);
+    console.log('currentCommentIndex', currentCommentIndex);
+    const currentIsLiked = copyComments[currentCommentIndex].isLiked;
+    console.log('currentIsLiked', currentIsLiked);
+    // 업데이트된 isLiked 값
+    const updatedIsLiked = currentIsLiked === 0 ? 1 : 0;
+    console.log('좋아요변경', updatedIsLiked);
+
     api.put(`/posts/${postID}/comments/${commentID}/like`, { isLiked: updatedIsLiked })
       .then((response) => {
-        // 응답을 받아와서 상태 업데이트
-        console.log(response.data);
+        console.log(response);
         if (response.data.message === '댓글을 추천했습니다.') {
-          setIsLiked(updatedIsLiked);
-          setLikeCount((prevCount) => prevCount + 1);
+          // 기존 댓글 배열을 변경하지 않고 특정 댓글만 업데이트
+          copyComments[currentCommentIndex] = {
+            ...copyComments[currentCommentIndex],
+            isLiked: updatedIsLiked,
+            likeCount: copyComments[currentCommentIndex].likeCount + 1, // +1 증가
+          };
+          console.log('서버요청후:', updatedIsLiked);
+          // 업데이트된 배열을 상태로 설정
+          setComments([...copyComments]);
+          console.log('햐햐', [copyComments]);
         } else if (response.data.message === '댓글 추천을 취소했습니다.') {
-          setIsLiked(updatedIsLiked);
-          setLikeCount((prevCount) => prevCount === 0 ? 0 : prevCount - 1);
+          // 기존 댓글 배열을 변경하지 않고 특정 댓글만 업데이트
+          copyComments[currentCommentIndex] = {
+            ...copyComments[currentCommentIndex],
+            isLiked: updatedIsLiked,
+            likeCount: copyComments[currentCommentIndex].likeCount - 1, // -1 감소
+          };
+          // 업데이트된 배열을 상태로 설정
+          setComments([...copyComments]);
+          console.log('캬캬', [copyComments]);
         }
       })
       .catch((error) => {
         console.error('좋아요 처리 오류:', error);
       });
   };
-  
-  
+
+  useEffect(() => {
+    fetchComments(pageNum);
+  }, [pageNum, totalPages]);
+
+
+
   const handleDelete = (commentID) => {
     api.delete(`/posts/${postID}/comments/${commentID}`)
       .then((response) => {
@@ -102,56 +166,65 @@ function Comment({ postID }) {
   };
 
 
-
-  const handleScroll = () => {
-    console.log('이벤트발생발생');
-    const scrollTop = document.documentElement.scrollTop;
-    const windowHeight = window.innerHeight;
-    const scrollHeight = document.documentElement.scrollHeight;
-    console.log('값을 확인해보자', scrollTop, windowHeight, scrollHeight);
-    if (scrollTop + windowHeight >= scrollHeight - 400) {
-      if (!isLoading && pageNum < totalPages) {
-        setPageNum(pageNum + 1);
-      }
-    }
-  };
-
   useEffect(() => {
-    const commentContElement = document.querySelector('.commentContWrap');
-    commentContElement.addEventListener('scroll', handleScroll);
+    const commentContWrap = document.querySelector('.commentContWrap');
+
+    const handleScroll = () => {
+      const scrollTop = commentContWrap.scrollTop;
+      const scrollHeight = commentContWrap.scrollHeight;
+      const clientHeight = commentContWrap.clientHeight;
+
+      // 특정 위치에 도달했을 때의 조건을 설정 (예: scrollHeight - 10)
+      const targetScrollPosition = scrollHeight - 10;
+
+      if (scrollTop + clientHeight >= targetScrollPosition) {
+        if (!isLoading && pageNum < totalPages) {
+          setPageNum(pageNum + 1);
+        }
+      }
+    };
+
+    commentContWrap.addEventListener('scroll', handleScroll);
 
     return () => {
-      commentContElement.removeEventListener('scroll', handleScroll);
+      commentContWrap.removeEventListener('scroll', handleScroll);
     };
   }, [isLoading, pageNum, totalPages]);
 
 
 
-
   return (
     <div className='Comment'>
-      <div className="commentContWrap" onScroll={handleScroll}>
+      <div className="commentContWrap">
         <div className="commentCont">
-          {comments.map(comment => (
-            <div className="CommentList" key={comment.id}>
-              <ul>
-                <li>{comment.username}</li>
-                <li>{comment.content}</li>
-                <li>{comment.creationDate}</li>
-                <li onClick={() => handleLikeClick(comment.id)}>
-                  <img src={isLiked === 0 ? strokeLike : fillLike} alt="좋아요버튼" />
-                  {likeCount}
-                </li>
-
-              </ul>
-              {comment.isAuthor === 1 && (
-                <p className="commentDelButton" onClick={() => handleDelete(comment.id)}>
-                  삭제
-                </p>
-              )}
-            </div>
-          ))}
+          {comments.length > 0 ? (
+            comments.map(comment => (
+              <div className="CommentList" key={comment.id}>
+                <ul>
+                  <li>{comment.username}</li>
+                  <li>{comment.content}</li>
+                  <li>{comment.creationDate}</li>
+                  <li onClick={() => handleLikeClick(comment.id)}>
+                    {/* <img src={comment.isLiked === 0 ? strokeLike : fillLike} alt="좋아요버튼" /> */}
+                    <img
+                      src={comment.isLiked === 0 ? `${strokeLike}?${Date.now()}` : `${fillLike}?${Date.now()}`}
+                      alt="좋아요버튼"
+                    />
+                    {comment.likeCount}
+                  </li>
+                </ul>
+                {comment.isAuthor === 1 && (
+                  <p className="commentDelButton" onClick={() => handleDelete(comment.id)}>
+                    삭제
+                  </p>
+                )}
+              </div>
+            ))
+          ) : (
+            <p>댓글 목록이 없습니다.</p>
+          )}
         </div>
+
       </div>
       <div className="inputForm">
         <input
@@ -169,3 +242,7 @@ function Comment({ postID }) {
 }
 
 export default Comment;
+
+
+
+
