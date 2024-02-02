@@ -4,7 +4,7 @@ import csv from "csv-parser";
 async function main(outputFilePath) {
   let data = [];
 
-  const stationList = getStationList("../data/stationCodes.json");
+  const stationList = getStationList("../../data/stationCodes.json");
   const dow = ["MON", "WED", "FRI"];
   const time = ["08", "13"];
   let getOffCountByTime;
@@ -47,11 +47,11 @@ async function main(outputFilePath) {
         getOffCountByTime = getOffCSV.find((x) => x.stationName == station && x.dow == dow)[searchTime];
 
         // 혼잡도
-        const CongestionData = getJSONData(`../data/preprocessingData/API_Responses/혼잡_${station}_${dow}_${time}.json`);
+        const CongestionData = getJSONData(`../data/input/apiResponses/혼잡_${station}_${dow}_${time}.json`);
         const CongestionGroups = groupData(CongestionData, "congestionCar");
 
         // 하차 비율
-        const GetOffData = getJSONData(`../data/preprocessingData/API_Responses/하차_${station}_${dow}_${time}.json`);
+        const GetOffData = getJSONData(`../data/input/apiResponses/하차_${station}_${dow}_${time}.json`);
         const GetOffGroups = groupData(GetOffData, "getOffCarRate");
 
         // 최종 예측 인원
@@ -129,7 +129,7 @@ function processCongestion(dow, getOffCountByTime, getOffGroup, congestionGroup)
   return train;
 }
 
-main("../data/preprocessingResult.json");
+main("../data/output/processJSONResult.json");
 
 // ==========
 // stationList 불러오기
@@ -143,7 +143,7 @@ function readCSV(headers) {
   const result = [];
 
   return new Promise((resolve, reject) => {
-    fs.createReadStream("../data/preprocessingData/getOffCount.csv")
+    fs.createReadStream("../data/input/getOffCount.csv")
       .pipe(csv({ headers, skipLines: 1 }))
       .on("data", (data) => result.push(data))
       .on("end", () => {
