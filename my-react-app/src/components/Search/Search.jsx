@@ -85,6 +85,7 @@ function Search() {
       : [];
 
   const startResultClick = (selectedStation) => {
+    console.log(selectedStation);
     setStartStationValue(selectedStation);
     setShowStartList(false);
   };
@@ -163,7 +164,9 @@ function Search() {
               setShowOptions(false);
             }}
             onBlur={() => {
-              setShowStartList(false);
+              setTimeout(() => {
+                setShowStartList(false);
+              }, 200);
             }}
             placeholder="출발역"
             required
@@ -179,7 +182,9 @@ function Search() {
               setShowOptions(false);
             }}
             onBlur={() => {
-              setShowEndList(false);
+              setTimeout(() => {
+                setShowEndList(false);
+              }, 200);
             }}
             placeholder="도착역"
             required
@@ -187,10 +192,10 @@ function Search() {
         </div>
         {showStartList && startSearched.length >= 1 && (
           <div className="searchResultList">
-            {startSearched.map((item) => (
+            {startSearched.map((item, index) => (
               <li
                 className="startResult"
-                key={item}
+                key={index + item}
                 onClick={() => startResultClick(item)}
               >
                 {item}
@@ -200,10 +205,10 @@ function Search() {
         )}
         {showEndList && endSearched.length >= 1 && (
           <div className="searchResultList">
-            {endSearched.map((item) => (
+            {endSearched.map((item, index) => (
               <li
                 className="endResult"
-                key={item}
+                key={index + item}
                 onClick={() => endResultClick(item)}
               >
                 {item}

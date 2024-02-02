@@ -2,11 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 390px;
+    margin: 0 auto;
 }
-/* .Search {
-    display: flex;
-    justify-content: center;
-} */
 
 .inputBox {
     display: flex;
