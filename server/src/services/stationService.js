@@ -5,7 +5,7 @@ const __dirname = path.resolve();
 
 // 전체 역 리스트 가져오는 함수
 async function getStations() {
-  const filePath = path.join(__dirname, "src", "data", "input", "stationCodes.json");
+  const filePath = path.join(__dirname, "..", "data", "stationCodes.json");
 
   try {
     const stations = await readJsonFileValues(filePath);
