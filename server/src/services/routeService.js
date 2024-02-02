@@ -4,14 +4,19 @@ import { getConnection, executeQuery, endConnection } from "../services/database
 
 // 최근 경로 저장하는 함수
 async function saveRecentRoute(req, startStation, endStation) {
-  if (!req.session.recentRoutes) {
-    req.session.recentRoutes = [];
+  const recentRoutes = req.session.recentRoutes;
+  if (!recentRoutes) {
+    recentRoutes = [];
   }
 
-  req.session.recentRoutes.unshift({ startStation, endStation });
+  // 최근 검색 경로 중복 방지
+  const isLatestRoute = recentRoutes[0].startStation === startStation && recentRoutes[0].endStation === endStation;
 
-  if (req.session.recentRoutes.length > 3) {
-    req.session.recentRoutes.pop();
+  if (!isLatestRoute) {
+    recentRoutes.unshift({ startStation, endStation });
+    if (recentRoutes.length > 3) {
+      recentRoutes.pop();
+    }
   }
 }
 
