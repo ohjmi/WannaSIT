@@ -19,17 +19,14 @@ function RecommendDetail() {
   const carNumber = query.get("carNumber");
 
   const [openChance, setOpenChance] = useState(true);
-  const [openChanceTitle, setChanceTitle] = useState(true);
   const [chanceColor, setChanceColor] = useState("#C0EF52");
   const [openHighCars, setOpenHighCars] = useState(false);
-  const [openHighCarsTitle, setHighCarsTitle] = useState(false);
   const [highCarsColor, setHighCarsColor] = useState("#fffff");
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
 
   const handleChance = () => {
     setOpenChance(true);
-    setChanceTitle(true);
     setOpenHighCars(false);
     setChanceColor("#C0EF52");
     setHighCarsColor("#FFFFFF");
@@ -38,7 +35,6 @@ function RecommendDetail() {
   const handleHighCars = () => {
     setOpenChance(false);
     setOpenHighCars(true);
-    setHighCarsTitle(true);
     setChanceColor("#FFFFFF");
     setHighCarsColor("#C0EF52");
   };

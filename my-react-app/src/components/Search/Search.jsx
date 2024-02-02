@@ -85,7 +85,6 @@ function Search() {
       : [];
 
   const startResultClick = (selectedStation) => {
-    console.log(selectedStation);
     setStartStationValue(selectedStation);
     setShowStartList(false);
   };
