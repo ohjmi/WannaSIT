@@ -8,16 +8,38 @@ function Comment({ postID }) {
   const [comments, setComments] = useState([]);
   const [pageNum, setPageNum] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [isLiked, setIsLiked] = useState(0);
-  const [likeCount, setLikeCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [content, setContent] = useState('');
 
+
   const handleKeyUp = (event) => {
-    if (event.key === "Enter" && !event.isComposing && !event.repeat) {
+    if (event.key === "Enter") {
       event.preventDefault();
+      event.target.blur();
       handleCommentRegistration();
     }
+  };
+
+  const fetchComments = (pageNum) => {
+    setIsLoading(true);
+    api.get(`posts/${postID}/comments?pageNum=${pageNum}`)
+      .then(({ data }) => {
+        const { data: responseData, totalPageCount } = data;
+        console.log(data);
+        if (pageNum === 1) {
+          setComments(responseData);
+          setTotalPages(totalPageCount);
+        } else {
+          setComments((prevComments) => [...prevComments, ...responseData]);
+        }
+      })
+      .catch((error) => {
+        console.error('에러:', error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+
   };
 
   const handleCommentRegistration = async () => {
@@ -38,54 +60,46 @@ function Comment({ postID }) {
     }
   };
 
-  const fetchComments = (page) => {
-    setIsLoading(true);
-
-    api.get(`posts/${postID}/comments?pageNum=${page}`)
-      .then(({ data }) => {
-        const { data: responseData, totalPageCount } = data;
-        console.log(data);
-        if (page === 1) {
-          setComments(responseData);
-          setTotalPages(totalPageCount);
-        } else {
-          setComments((prevComments) => [...prevComments, ...responseData]);
-        }
-      })
-      .catch((error) => {
-        console.error('에러:', error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  };
-
-  useEffect(() => {
-    fetchComments(pageNum);
-  }, [pageNum, totalPages]);
-
   const handleLikeClick = (commentID) => {
-    // 클릭 이벤트에서 isLiked 값 변경
-    const updatedIsLiked = isLiked === 0 ? 1 : 0;
-    // 서버에 업데이트된 isLiked 값 전송
-    api.put(`/posts/${postID}/comments/${commentID}/like`, { isLiked: updatedIsLiked })
+    const copyComments = [...comments]
+    const currentCommentIndex = copyComments.findIndex((comment) => comment.id === commentID);
+    const currentIsLiked = copyComments[currentCommentIndex].isLiked;
+    console.log('현재 추천 상태:',currentIsLiked);
+
+    api.put(`/posts/${postID}/comments/${commentID}/like`)
       .then((response) => {
-        // 응답을 받아와서 상태 업데이트
-        console.log(response.data);
         if (response.data.message === '댓글을 추천했습니다.') {
-          setIsLiked(updatedIsLiked);
-          setLikeCount((prevCount) => prevCount + 1);
+          // 기존 댓글 배열을 변경하지 않고 특정 댓글만 업데이트
+          copyComments[currentCommentIndex] = {
+            ...copyComments[currentCommentIndex],
+            isLiked: currentIsLiked + 1,
+            likeCount: copyComments[currentCommentIndex].likeCount + 1,
+          };
+          
+          // 업데이트된 배열을 상태로 설정
+          setComments([...copyComments]);
+          console.log('요청 후 추천 상태', [...copyComments]);
         } else if (response.data.message === '댓글 추천을 취소했습니다.') {
-          setIsLiked(updatedIsLiked);
-          setLikeCount((prevCount) => prevCount === 0 ? 0 : prevCount - 1);
+          // 기존 댓글 배열을 변경하지 않고 특정 댓글만 업데이트
+          copyComments[currentCommentIndex] = {
+            ...copyComments[currentCommentIndex],
+            isLiked: currentIsLiked - 1,
+            likeCount: copyComments[currentCommentIndex].likeCount - 1,
+          };
+          // 업데이트된 배열을 상태로 설정
+          setComments([...copyComments]);
+          console.log('요청 후 추천취소', [...copyComments]);
         }
       })
       .catch((error) => {
         console.error('좋아요 처리 오류:', error);
       });
   };
-  
-  
+
+  useEffect(() => {
+    fetchComments(pageNum);
+  }, [pageNum]);
+
   const handleDelete = (commentID) => {
     api.delete(`/posts/${postID}/comments/${commentID}`)
       .then((response) => {
@@ -101,66 +115,69 @@ function Comment({ postID }) {
       });
   };
 
-
-
-  const handleScroll = () => {
-    console.log('이벤트발생발생');
-    const scrollTop = document.documentElement.scrollTop;
-    const windowHeight = window.innerHeight;
-    const scrollHeight = document.documentElement.scrollHeight;
-    console.log('값을 확인해보자', scrollTop, windowHeight, scrollHeight);
-    if (scrollTop + windowHeight >= scrollHeight - 400) {
-      if (!isLoading && pageNum < totalPages) {
-        setPageNum(pageNum + 1);
-      }
-    }
-  };
-
   useEffect(() => {
-    const commentContElement = document.querySelector('.commentContWrap');
-    commentContElement.addEventListener('scroll', handleScroll);
+    const commentContWrap = document.querySelector('.commentContWrap');
+
+    const handleScroll = () => {
+      const scrollTop = commentContWrap.scrollTop;
+      const scrollHeight = commentContWrap.scrollHeight;
+      const clientHeight = commentContWrap.clientHeight;
+      const targetScrollPosition = scrollHeight - 10;
+
+      if (scrollTop + clientHeight >= targetScrollPosition) {
+        if (!isLoading && pageNum < totalPages) {
+          setPageNum(pageNum + 1);
+        }
+      }
+    };
+
+    commentContWrap.addEventListener('scroll', handleScroll);
 
     return () => {
-      commentContElement.removeEventListener('scroll', handleScroll);
+      commentContWrap.removeEventListener('scroll', handleScroll);
     };
   }, [isLoading, pageNum, totalPages]);
 
 
-
-
   return (
     <div className='Comment'>
-      <div className="commentContWrap" onScroll={handleScroll}>
+      <div className="commentContWrap">
         <div className="commentCont">
-          {comments.map(comment => (
-            <div className="CommentList" key={comment.id}>
-              <ul>
-                <li>{comment.username}</li>
-                <li>{comment.content}</li>
-                <li>{comment.creationDate}</li>
-                <li onClick={() => handleLikeClick(comment.id)}>
-                  <img src={isLiked === 0 ? strokeLike : fillLike} alt="좋아요버튼" />
-                  {likeCount}
-                </li>
-
-              </ul>
-              {comment.isAuthor === 1 && (
-                <p className="commentDelButton" onClick={() => handleDelete(comment.id)}>
-                  삭제
-                </p>
-              )}
-            </div>
-          ))}
+          {comments.length > 0 ? (
+            comments.map(comment => (
+              <div className="commentList" key={comment.id}>
+                <ul>
+                  <div className="titleAndDelWrap">
+                    <li>{comment.username}</li>
+                    {comment.isAuthor === 1 && (
+                    <li className="commentDelButton" onClick={() => handleDelete(comment.id)}>
+                      | 삭제
+                    </li>
+                  )}
+                  </div>
+                  <li>{comment.content}</li>
+                  <li>{comment.creationDate}</li>
+                  <li onClick={() => handleLikeClick(comment.id)}>
+                    <img src={comment.isLiked === 0 ? strokeLike : fillLike} alt="좋아요버튼" />
+                    {comment.likeCount}
+                  </li>
+                </ul>
+                
+              </div>
+            ))
+          ) : (
+            <p>댓글 목록이 없습니다.</p>
+          )}
         </div>
       </div>
-      <div className="inputForm">
+      <div className="commentInput">
         <input
           type="text"
           id="inputMessage"
           value={content}
           onChange={(event) => setContent(event.target.value)}
           onKeyUp={handleKeyUp}
-          placeholder="메세지를 입력하세요"
+          placeholder="댓글을 입력하세요"
         />
         <p className="commentRegistrationButton" onClick={handleCommentRegistration}>등록</p>
       </div>
@@ -169,3 +186,7 @@ function Comment({ postID }) {
 }
 
 export default Comment;
+
+
+
+

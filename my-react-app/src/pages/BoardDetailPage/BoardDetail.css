@@ -83,7 +83,7 @@
 }
 
 .likeAndCommentWrap {
-    width: 390px;
+    width: 350px;
     margin-top: 100px;
     display: flex;
     justify-content: flex-start;
@@ -93,7 +93,7 @@
 .likeAndCommentWrap .boardDetailLike,
 .likeAndCommentWrap .replies {
     margin: 0;
-    padding: 14px 0;
+    padding: 14px 0 4px 0;
     cursor: pointer;
 }
 
