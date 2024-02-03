@@ -1,5 +1,100 @@
+.Comment {
+  width: 390px;
+  margin: 0 auto;
+}
 .commentContWrap {
+  margin: 0 20px;
   height: 50vh;
   overflow: auto;
-  background-color: pink;
+}
+
+.commentContWrap::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
+}
+
+.commentList .titleAndDelWrap {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.commentList .titleAndDelWrap .commentDelButton {
+  font-size: 12px;
+  padding: 10px 0 0 4px;
+  cursor: pointer;
+}
+
+.commentList ul {
+  font-size: 12px;
+  line-height: 1.7;
+  border-bottom: 1px solid #C0EF52 ;
+  margin-top: 4px;
+  padding-bottom: 4px;
+  
+}
+
+.commentList:first-child {
+  border-top:1px solid #C0EF52;
+}
+
+.commentList ul li:nth-child(1) {
+  padding-top: 10px;
+  font-weight: bold;
+  color: #8C8C8C;
+}
+
+.commentList ul li:nth-child(2) {
+  font-size: 14px;
+}
+
+.commentList ul li:nth-child(3) {
+  font-size: 10px;
+  margin-top: 6px;
+  color: #B5B5B5;
+}
+
+.commentList ul li:nth-child(4) {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.commentList ul li:nth-child(4) img {
+  width: 16px;
+  margin-right: 3px;
+  cursor: pointer;
+}
+
+.commentList ul li:nth-child(4) span {
+  margin-top: 2px;
+}
+
+.commentDelButton {
+  cursor: pointer;
+}
+
+.commentInput {
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 350px;
+  height: 44px;
+  border: 1px solid #7ED287;
+  margin: 0 auto 0 auto;
+  position: fixed;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+}
+
+.commentInput p {
+  font-size: 12px;
+  font-weight: bold;
+  color: #7ED287;
+  padding-right: 10px;
+  cursor: pointer;
 }
