@@ -20,7 +20,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly
+}
+
+.tipImage {
+    width : 250px;
+    height: auto;
+    min-height: 200px;
 }
 
 .greenButton {
@@ -40,10 +46,26 @@
     color: black;
     font-weight: bold;
     font-size: 18px;
+    width: 350px;
+    margin: 0;
+    text-align: center;
 }
 
 #tipDetail {
     color: black;
     font-weight: normal;
     font-size: 12px;
+    width: 250px;
+    margin: 0;
+    text-align: center;
+}
+
+#tipDetail span {
+    color: #5FBBD0;
+    font-weight: bold;
+}
+
+hr {
+    margin: 2px;
+    border: none;
 }
