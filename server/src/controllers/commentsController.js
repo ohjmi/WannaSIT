@@ -30,8 +30,8 @@ async function getCommentList(req, res) {
     //달린 댓글이 없는 경우
     if (!totalpageCount) {
       res.status(200).json({
-        "totalpageCount": 1,
-        "data": []
+        totalpageCount: 1,
+        data: [],
       });
       return;
     }
@@ -49,7 +49,7 @@ async function getCommentList(req, res) {
       const creationDate = row.creation_date;
       const likeCount = row.like_count;
       const isAuthor = row.user_id === req.sessionID ? 1 : 0;
-      const isLiked = req.session.commentLiked.indexOf(row.id) !== -1 ? 1 : 0;
+      const isLiked = req.session.commentLiked.indexOf(`${id}`) !== -1 ? 1 : 0;
 
       data.push({ id, userId, username, content, creationDate, likeCount, isAuthor, isLiked });
     });

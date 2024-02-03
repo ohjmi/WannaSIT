@@ -47,9 +47,10 @@ async function getPostDetail(req, res) {
   req.session.postLiked = req.session.postLiked || [];
   const connection = await getConnection();
   const postQuery = `
-    SELECT user_id, username, title, content, DATE_FORMAT(creation_date, '%Y-%m-%d %H:%i:%s') AS creation_date, like_count
-    FROM post
-    WHERE id = ?`;
+    SELECT p.user_id, p.username, p.title, p.content, DATE_FORMAT(p.creation_date, '%Y-%m-%d %H:%i:%s') AS creation_date, p.like_count, COUNT(c.id) AS comment_count
+    FROM post p LEFT JOIN comment c ON p.id = c.post_id
+    WHERE p.id = ?
+    GROUP BY p.user_id, p.username, p.title, p.content, creation_date, p.like_count;`;
 
   try {
     const [rows] = await executeQuery(connection, postQuery, [req.params.postID]);
@@ -61,6 +62,7 @@ async function getPostDetail(req, res) {
       content: row.content,
       creationDate: row.creation_date,
       likeCount: row.like_count,
+      commentCount: row.comment_count,
       isAuthor: row.user_id === req.sessionID ? 1 : 0,
       isLiked: req.session.postLiked.indexOf(req.params.postID) !== -1 ? 1 : 0,
     });
