@@ -10,25 +10,27 @@ function Board() {
   const [posts, setPosts] = useState([]);
   const [pageNum, setPageNum] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [showLoadMoreButton, setShowLoadMoreButton] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
-  const fetchPosts = (page, title = '') => {
-    api.get(`/posts?pageNum=${page}&title=${title}`)
+  const fetchPosts = (pageNum, title = '') => {
+    setIsLoading(true);
+    api.get(`/posts?pageNum=${pageNum}&title=${title}`)
       .then(({ data }) => {
         const { data: responseData, totalPageCount } = data;
-        if (page === 1) {
+        if (pageNum === 1) {
           setPosts(responseData);
           setTotalPages(totalPageCount);
         } else {
-          setPosts([...posts, ...responseData]);
+          setPosts(prevPosts => [...prevPosts, ...responseData]);
         }
-  
-        setShowLoadMoreButton(page < totalPageCount);
       })
       .catch((error) => {
         console.error('에러:', error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
   
@@ -41,6 +43,29 @@ function Board() {
     // 검색어가 변경될 때 페이지 번호를 1로 초기화
     setPageNum(1);
   };
+
+  useEffect(() => {
+    const boardCont = document.querySelector('.boardCont');
+    const handleScroll = () => {
+      const scrollTop = boardCont.scrollTop;
+      const scrollHeight = boardCont.scrollHeight;
+      const clientHeight = boardCont.clientHeight;
+      const targetScrollPosition = scrollHeight - 10;
+
+      if (scrollTop + clientHeight >= targetScrollPosition) {
+        if (!isLoading && pageNum < totalPages) {
+          setPageNum(pageNum + 1);
+        }
+      }
+    };
+
+    boardCont.addEventListener('scroll', handleScroll);
+
+    return () => {
+      boardCont.removeEventListener('scroll', handleScroll);
+    };
+  }, [isLoading, pageNum, searchQuery]);
+
 
   return (
     <div className='Board'>
@@ -71,11 +96,6 @@ function Board() {
               </div>
             </div>
           ))}
-        </div>
-        <div className="buttonWrap">
-          {showLoadMoreButton && (
-            <button onClick={() => setPageNum(pageNum + 1)}>게시글 더보기</button>
-          )}
         </div>
       </div>
     </div>
