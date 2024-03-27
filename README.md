@@ -25,7 +25,9 @@
 - 탑승 칸 추천 & 정보
 - 실시간 채팅
 - 역 별 이슈 게시판
-
-
-
-<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black">
+&nbsp;
+&nbsp;
+&nbsp;
+## 기술 스택
+### Frontend
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=React&logoColor=white"> <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black">
