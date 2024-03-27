@@ -24,10 +24,10 @@
 
 
 ## 기능
-##### -지하철 경로 선택하기
-##### -탑승 칸 추천 & 정보
-##### -실시간 채팅
-##### -역 별 이슈 게시판
+##### - 지하철 경로 선택하기 1
+##### - 탑승 칸 추천 & 정보 2
+##### - 실시간 채팅 3
+##### - 역 별 이슈 게시판 4
 
 <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black">
 <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white">
