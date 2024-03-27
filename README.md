@@ -21,11 +21,13 @@
 
 ##### 맡은 기능 : 추천 호차 페이지, 게시글 검색, 게시글& 댓글 목록 무한 스크롤, 게시글 & 댓글 추천, 게시글 등록, 수정, 삭제, 댓글 등록, 삭제, 게시글 등록 시 팝업, 햄버거 메뉴
 
+
+
 ## 기능
-##### 지하철 경로 선택하기
-##### 탑승 칸 추천 & 정보
-##### 실시간 채팅
-##### 역 별 이슈 게시판
+##### -지하철 경로 선택하기
+##### -탑승 칸 추천 & 정보
+##### -실시간 채팅
+##### -역 별 이슈 게시판
 
 <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black">
 <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white">
